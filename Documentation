@@ -1,0 +1,58 @@
+This Documentation will contain details about this project as well as minutes of every meeting we have. 
+This will include Client meetings, Daily Scrum meetings as well as Sprint meetings. 
+We will be making an online market place which will be a clone of TakeALot, or something similar to that.
+In this, end users should be able to sign up to create account with username and passwords.
+The above should be accompanied by a reset password mechanism (forgot password)
+They should be able to search and find a wide range of goods to choose from.
+They should be able to place an order, choose a payment method. (with online payment transaction included).
+Last they should also be able to track their order in terms of delivery and estimated time of arrival.
+
+Team name: <INSERT_COOL_NAME>
+
+Team Members/Project Collaborators
+------------------------------------
+Phutiane D Chipu
+Fankholoro V Sebothoma
+Phillip Moyo
+Sitlabutla Mabuela
+Nihal Seegobin
+Phola Bavuma
+Moshito C Makgakga
+Godfrey T Chamunogwa
+
+Project Client/Owner 
+Rylan Perumal
+
+--------------------------------------------------------------------------------------------------------------
+First meeting with Tutor Mikayla.
+Wed 24 March 2021. Via Google meet.
+Absent: Phola Bavuma
+Discussion:
+    -Mikayla is going to be the facilitator/tutor for the group during this project.
+    -She will be making sure we do our work and marking us
+    -What is expected from the group:
+      * Meeting with the client to discuss the what they want from the project
+      * Regular meetings with each other as a group
+      * Document everything, from project details to Minutes taken during meetings(It should be continuosly updated)
+      * Scrum master to be responsible for minutes taking
+      * Set up good and suitable environments for this project.
+      * Preferably Github, Taiga (Including the usage of Coverall for coverage and Travisci for testing)
+      * Environments to be set up by Monday 29 of March
+      
+----------------------------------------------------------------------------------------------------------------------
+
+Mon 29 March 2021. Via Google Meet.
+Present: The Tutor and Everyone the Group 14 team.
+
+-follow up on environment setup.
+  *Everyone set up their environment. The team has been added on Taiga.
+  *Scrum master to create a repository on github and add every team member as a collaborator.
+-Scrum Master to arrange a meeting with product owner to discuss backlog ASAP.
+-Sprint has already begun. Spring to be added to Taiga.
+-Everyone must commit their work to git.
+-The team must have a version release at the end of every sprint.
+-Contiuosly and regularly test out codes on coverall.
+-Use Git to keep track of everyones work.
+-The team must do daily scrum meetings and document the minutes.
+
+
