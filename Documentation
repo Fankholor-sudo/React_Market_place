@@ -55,4 +55,41 @@ Present: The Tutor and Everyone the Group 14 team.
 -Use Git to keep track of everyones work.
 -The team must do daily scrum meetings and document the minutes.
 
+31 March 2021 Wednesday
+Meeting with Client - Rylan Perumal
+Via Google Meet
 
+Discussion:
+What To put in the user stories for the 1st Sprint
+    *User registration
+    *User login page
+    *Should include Name, age, email and password
+    *Landing page with products well placed
+    *Products should be categorized and displayed nicely
+    *They should be placed in blocks with picture then name and price at the bottom
+    *Use of fake stored data for the products (could be found online)
+    *Be able to click on the prduct and it should give us product info
+    *Other things to be added to backlog
+        -Buying of items
+        -Viewing Order history
+        -Waiting system
+    *Rylan Suggest we try Jango or Angular but anyway we do the project is fine
+    *Checkout free databases online or contact Pravesh if we prefere the school lamp system
+  Set up a sprint review meeting before next sprint.
+  
+----------------------------------------------------------------------------------------------------
+Daily Scrum meeting
+31 March Wed
+Via - Whatsapp Call
+
+Decision to be made by Thursday on whether to use Angula or Flutter
+Jango not to be used as it uses python and the team prefers Javascript
+The team to checkout Microsoft sql server, Firebase and myPHP
+A decision on which database to use to be made on Thursday
+Assignment:
+    *Fankholor and Phillip are in charge of front-end design of Registration and login
+    *Phola and Sitlabutla resposible for back-end of design and registration (storage of user data) 
+    *Nihal and Phutiane responsible for back-end landing page (storage of items)
+    *Godfrey and Charles responsible for displaying item on landing page(Home page design)
+    
+    
