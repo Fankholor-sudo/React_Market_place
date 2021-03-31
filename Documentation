@@ -33,7 +33,7 @@ Discussion:
     -What is expected from the group:
       * Meeting with the client to discuss the what they want from the project
       * Regular meetings with each other as a group
-      * Document everything, from project details to Minutes taken during meetings(It should be continuosly updated)
+      * Document everything, from project details to Minutes taken during meetings(It should be continuously updated)
       * Scrum master to be responsible for minutes taking
       * Set up good and suitable environments for this project.
       * Preferably Github, Taiga (Including the usage of Coverall for coverage and Travisci for testing)
@@ -51,7 +51,7 @@ Present: The Tutor and Everyone the Group 14 team.
 -Sprint has already begun. Spring to be added to Taiga.
 -Everyone must commit their work to git.
 -The team must have a version release at the end of every sprint.
--Contiuosly and regularly test out codes on coverall.
+-Continuously and regularly test out codes on coverall.
 -Use Git to keep track of everyones work.
 -The team must do daily scrum meetings and document the minutes.
 
