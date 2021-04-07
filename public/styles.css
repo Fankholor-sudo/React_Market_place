@@ -1,0 +1,159 @@
+/**************************************************HEADER Div******************************************************/
+.parent {
+  background-color: #06042e;
+  display: flex;
+}
+
+.logo {
+  width: 10em;
+  height: 10em;
+  margin: 10px 10px 10px 40px;
+}
+
+/*******************************************Dropdown Button and Searchbar Div**********************************************/
+.dropSearch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2em 0 0 35px;
+}
+
+/* Dropdown button */
+.dropdown button {
+  background-color: #ffce2e;
+  color: black;
+  font-weight: bold;
+  font-size: medium;
+  border: transparent;
+  width: 13em;
+  height: 2.9em;
+  border-radius: 6px;
+}
+
+/* Items inside the Dropdown button */
+.droplist button {
+  background-color: white;
+  font-weight: normal;
+  width: 14em;
+  border-radius: 0;
+}
+
+/************************************************SEARCH-BAR Div*******************************************************/
+.search {
+  background-color: #ffce2e;
+  border-radius: 5px;
+  margin: 10px 0 0 0;
+  width: 50em;
+  height: 3em;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+}
+
+.search button {
+  background-color: #ffce2e;
+  border: transparent;
+  margin: 5px 0px 0 15px;
+}
+
+/* Searchbar */
+.search input {
+  width: 45em;
+  height: 2.2em;
+  border: transparent;
+  margin: 0 0 0 6px;
+}
+
+/* Search icon */
+.search img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+}
+
+/**********************************************Reg/Login navigation bar and FavCart Div*****************************************/
+.regFavCart {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: center;
+  margin-left: 5em;
+}
+
+/* Registration and Login navigation bar */
+.regNavBar {
+  background-color: #06042e;
+  color: white;
+  font-size: large;
+  margin: 0.5em;
+}
+
+.regNavBar:hover {
+  color: #ffce2e;
+}
+
+/********************************************Favorites and Shopping cart Div***************************************************/
+.favCart {
+  display: flex;
+  justify-content: right;
+  margin-left: 14em;
+}
+
+/* Favorites Button */
+.fav {
+  border-radius: 50%;
+  background-color: #ffce2e;
+  width: 3em;
+  height: 3em;
+  position: relative;
+  margin: 0 20px 0 0;
+}
+
+/* Shopping cart button */
+.cart {
+  border-radius: 15px;
+  background-color: #ffce2e;
+  width: 3.5em;
+  height: 3em;
+  text-align: center;
+  line-height: 50%;
+  position: relative;
+}
+
+/* Favorites and Shopping cart icon */
+.favIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+
+/*********************************************CATEGORIES NAVIGATION BAR*****************************************************/
+.catDiv {
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  color: #ffce2e;
+  font-weight: bold;
+  height: 3.5em;
+  align-items: center;
+  text-align: center;
+}
+
+.catDiv a:hover,
+.catDiv a {
+  color: #ffce2e;
+  text-decoration: none;
+}
+
+.catDiv img {
+  margin-bottom: 10px;
+}
+
+.icons {
+  width: 2em;
+  height: 2em;
+}
