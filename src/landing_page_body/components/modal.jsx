@@ -48,7 +48,7 @@ class Modal extends Component {
                         <span>{this.rating}</span>
                     </div>
 
-                    <button className="add-cart">&#43; Add to cart</button>
+                    <button className="add-cart"><a href="#">&#43; Add to cart</a></button>
                 </div>
 
                 <div className="item-extra-info">

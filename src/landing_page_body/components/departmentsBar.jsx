@@ -8,61 +8,61 @@ class DepartmentsBar extends Component{
                     
                     <ul className="departmentItems">
                         
-                        <li><a>Books & Stationery</a>
+                        <li><a href="#">Books & Stationery</a>
                             <ul id="booksStationery" className="subDepartment">
 
                             </ul>
                         </li>
                         
-                        <li><a>Clothing & Bags</a>
+                        <li><a href="#">Clothing & Bags</a>
                             <ul id="clothing-bags" className="subDepartment">
-                                <li>All Fashion</li>
-                                <li>Men</li>
-                                <li>Women</li>
-                                <li>Kids</li>
-                                <li>Watches</li>
-                                <li>Eyewear</li>
-                                <li>Footwear</li>
-                                <li>Haed gear</li>
+                                <li><a href="#">All Fashion</a></li>
+                                <li><a href="#">Men</a></li>
+                                <li><a href="#">Women</a></li>
+                                <li><a href="#">Kids</a></li>
+                                <li><a href="#">Watches</a></li>
+                                <li><a href="#">Eyewear</a></li>
+                                <li><a href="#">Footwear</a></li>
+                                <li><a href="#">Haed gear</a></li>
                             </ul>
                         </li>
                         
-                        <li><a>Computer & Electronics</a>
+                        <li><a href="#">Computer & Electronics</a>
                             <ul id="computerElectronics" className="subDepartment">
-                                <li>Desktop</li>
-                                <li>Monitors</li>
-                                <li>Computer Components</li>
-                                <li>Computer Accessories</li>
-                                <li>Laptops</li>
-                                <li>Laptop Accessories</li>
-                                <li>Networking</li>
-                                <li>Software</li>
-                                <li>Storage Devices</li>
-                                <li>Photography</li>
-                                <li>Action Cams & Drones</li>
-                                <li>Vlogging</li>   
+                                <li><a href="#">Desktop</a></li>
+                                <li><a href="#">Monitors</a></li>
+                                <li><a href="#">Computer Components</a></li>
+                                <li><a href="#">Computer Accessories</a></li>
+                                <li><a href="#">Laptops</a></li>
+                                <li><a href="#">Laptop Accessories</a></li>
+                                <li><a href="#">Networking</a></li>
+                                <li><a href="#">Software</a></li>
+                                <li><a href="#">Storage Devices</a></li>
+                                <li><a href="#">Photography</a></li>
+                                <li><a href="#">Action Cams & Drones</a></li>
+                                <li><a href="#">Vlogging</a></li>   
                             </ul>
                         </li>
                         
-                        <li><a>Healthy & Hygiene</a>
+                        <li><a href="#">Healthy & Hygiene</a>
                             <ul id="healthy-hygiene" className="subDepartment">
 
                             </ul>
                         </li>
                         
-                        <li><a>Sporting</a>
+                        <li><a href="#">Sporting</a>
                             <ul id="sporting" className="subDepartment">
 
                             </ul>
                         </li>
                         
-                        <li><a>Accessories</a>
+                        <li><a href="#">Accessories</a>
                             <ul id="accessories" className="subDepartment">
 
                             </ul>
                         </li>
                         
-                        <li><a>Other</a>
+                        <li><a href="#">Other</a>
                             <ul id="other" className="subDepartment">
 
                             </ul>

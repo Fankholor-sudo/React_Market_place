@@ -6,37 +6,37 @@ class Footer extends Component{
         return  <div className="footer">
                    <div className="footer-item">
                         <h3>Shop</h3>
-                        <p>Daily Deals</p>
-                        <p>Gift Vouchers</p>
+                        <p><a href="#">Daily Deals</a></p>
+                        <p><a href="#">Gift Vouchers</a></p>
                     </div>
 
                     <div className="footer-item">
                         <h3>Help</h3>
-                        <p>Help</p>
-                        <p>Contact Us</p>
-                        <p>Submit an Idea</p>
-                        <p>Suggest a Product</p>
-                        <p>Shipping & Delivery</p>
-                        <p>Exchanges & Returns</p>
+                        <p><a href="#">Help</a></p>
+                        <p><a href="#">Contact Us</a></p>
+                        <p><a href="#">Submit an Idea</a></p>
+                        <p><a href="#">Suggest a Product</a></p>
+                        <p><a href="#">Shipping & Delivery</a></p>
+                        <p><a href="#">Exchanges & Returns</a></p>
                     </div>
 
                     <div className="footer-item">
                         <h3>Account</h3>
-                        <p>My Account</p>
-                        <p>Track Order</p>
-                        <p>Exchanges & Returns</p>
-                        <p>Invoices</p>
+                        <p><a href="#">My Account</a></p>
+                        <p><a href="#">Track Order</a></p>
+                        <p><a href="#">Exchanges & Returns</a></p>
+                        <p><a href="#">Invoices</a></p>
                     </div>
                     <div className="footer-item">
                         <h3>Company</h3>
-                        <p>About Us</p>  
-                        <p>Careers</p>
-                        <p>Sell on Wits Marketplace</p>
-                        <p>Deliver for Wits Marketplace</p>
-                        <p>Press & News</p>
-                        <p>Competitions</p>
-                        <p>Terms & Conditions</p>
-                        <p>Privacy Policy</p>
+                        <p><a href="#">About Us</a></p>  
+                        <p><a href="#">Careers</a></p>
+                        <p><a href="#">Sell on Wits Marketplace</a></p>
+                        <p><a href="#">Deliver for Wits Marketplace</a></p>
+                        <p><a href="#">Press & News</a></p>
+                        <p><a href="#">Competitions</a></p>
+                        <p><a href="#">Terms & Conditions</a></p>
+                        <p><a href="#">Privacy Policy</a></p>
                     </div>
 
                 </div>;

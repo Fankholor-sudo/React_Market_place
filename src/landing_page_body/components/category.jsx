@@ -5,7 +5,7 @@ class Category extends Component{
     render() {
         return  <div className="category">
                     <span>{this.categoryName}</span>
-                    <button>View more</button>
+                    <button><a href="#">View more</a></button>
                 </div>
     }
 }

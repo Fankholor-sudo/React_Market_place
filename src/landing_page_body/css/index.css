@@ -8,6 +8,17 @@
     position: relative;
   }
   
+  a{
+    text-decoration: none;
+  }
+
+  a:hover{
+    text-decoration: underline;
+  }
+  a:visited{
+    text-decoration: none;
+    color: var(--blue);
+  }
   .departmentItems{
     margin-left: 0px;
     padding-left: 0px;
@@ -33,11 +44,11 @@
     font-size: 14px;
   }
 
-  .departmentItems li :hover{
+  /* .departmentItems li :hover{
     border: 1px solid var(--yellow);
     border-radius: 5px;
     padding: 2px;
-  }
+  } */
 
 
   .container{
