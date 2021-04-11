@@ -15,7 +15,7 @@ function App() {
       <Router>
         <Switch>
         <Route path="/" exact={true}>
-              <LandingPage />
+              <LoginForm />
         </Route>
 
         <Route path="/LoginForm" exact={true}>
