@@ -6,27 +6,25 @@ import {Favorites, Cart} from "./favCart";
 
 function Header(){
     return(
-        // <header>
-            <div className="parent">
-                <img className="logo" src="./images/LOGO.svg" alt = "App Logo"/>
+    
+        <div className="parent">
+            <img className="logo" src="./images/LOGO.svg" alt = "App Logo"/>
                 
-                <div className="dropSearch">
-                    <DropdownBtn />
-                    <Search />
-                </div>
-                
-                <div className="regFavCart">
-                    <Example/>
-
-                    <div className="favCart">
-                        <Favorites />
-                        <Cart />
-                    </div>
-                </div>
-                
+            <div className="dropSearch">
+                <DropdownBtn />
+                <Search />
             </div>
-            
-        // </header>
+                
+            <div className="regFavCart">
+                <Example/>
+
+                <div className="favCart">
+                  <Favorites />
+                  <Cart />
+                </div>
+            </div>
+                
+        </div>
     );
 }
 
