@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
-import laptop from "../pics/laptop.jpg";
-import rating_icon from "../pics/rating_icon.png";
+import laptop from "../../pics/laptop.jpg";
+import rating_icon from "../../pics/rating_icon.png";
 // import Modal from "./modal";
 
 
