@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from './components/LoginReg/Register';
 import LoginForm from './components/LoginReg/LoginForm';
+import Header from './components/Header';
 import { withRouter } from "react-router-dom";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 

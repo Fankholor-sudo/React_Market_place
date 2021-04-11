@@ -52,8 +52,9 @@ function Register() {
                     touched,
                     errors
                 }) => (
-
+                    
                     <div className >
+                        {console.log(values)}
                         <Header pageUrl={'/LoginForm'} title={' Aready have an account? Login '} />
                         <Row>
                             <Col>
