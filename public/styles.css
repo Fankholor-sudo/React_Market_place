@@ -20,6 +20,8 @@ body {
 .departmentItems a:hover,
 .subDepartment a:hover {
   text-decoration: underline;
+  color: #06042e;
+
 }
 
 /***************************************************************BODY****************************************************************/
@@ -150,48 +152,6 @@ body {
     padding: 2px;
   } */
 
-/***************************************************CATEGORIES CONTAINERS*****************************************************/
-/* .container {
-  position: absolute;
-  left: 300px;
-  right: 5%;
-
-}
-
-.category {
-  margin-top: 10px;
-  margin-bottom: 15px;
-  padding: 5px;
-  position: relative;
-
-}
-
-.category span {
-  left: 0px;
-  font-size: 20px;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px #aaa;
-}
-.category button {
-  /* position: absolute; 
-  right: 85px;
-  font-size: 18px;
-  padding: 5px;
-  background-color: white;
-  text-decoration: var(--blu);
-  border: none;
-  border-radius: 3px;
-  box-shadow: 2px 2px 4px #aaa;
-}
-
-.category button:hover {
-  border: 2px solid var(--yellow);
-}
-
-.category button:active {
-  background-color: var(--yellow);
-} */
-
 /****************************************************************ITEMS*************************************************************/
 .items {
   display: flex;
@@ -233,7 +193,7 @@ body {
 }
 
 .itemImage {
-  background-color: #06042e;
+  background-color: white;
   height: 60%;
   width: 95%;
   margin: 10px 0px 0 0px;
