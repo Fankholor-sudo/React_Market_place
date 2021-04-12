@@ -10,7 +10,7 @@ class Footer extends Component{
                             <h3>Shop</h3>
                             <p><a href="#">Daily Deals</a></p>
                             <p><a href="#">Gift Vouchers</a></p>
-                    <img src="./images/LOGO.svg" alt="Logo"/>
+                    <img src="./images/LOGO.png" alt="Logo"/>
 
                         </div>
 

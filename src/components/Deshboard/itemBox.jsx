@@ -12,8 +12,9 @@ class ItemBox extends Component{
     discount =this.props.discount;
     rating =this.props.rating;
     //itemPrice = orgPrice-((discount/100) * orgPrice);
-    itemPrice = 11830; //hardcoded for now
-    category = this.props.category;
+    itemPrice = 11890000; //hardcoded for now
+    // category = this.props.category;
+    // category = true;
     
 
     render(){
@@ -23,10 +24,10 @@ class ItemBox extends Component{
 
         return  <div className="item-box">
                     <div className="itemImage"><img src={laptop} alt="macbook air retina"/></div>
-                    <p className="item-name">{this.itemName}</p>
-                    <p className="price">R {this.itemPrice}
+                    <div className="item-name"><p>{this.itemName}</p></div>
+                    <div className="price"><p>R {this.itemPrice}
                         {/* <span className="original-price">  was R {this.orgPrice} </span> */}
-                    </p>
+                    </p></div>
                     <div className="rating">
                         <img src={rating_icon} alt="rating"/>
                         <span>{this.rating}</span>
@@ -35,9 +36,9 @@ class ItemBox extends Component{
                 // <Modal isOpen={modalIsOpen} />
     }
 
-    // openModal(){
-    //     document.getElementById('modal').style.display = "block";
-    // }
+    openModal(){
+        this.category = true;
+    }
     
 }
 

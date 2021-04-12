@@ -8,7 +8,7 @@ function Header(){
     return(
     
         <div className="parent">
-            <div className="logo"><img src="./images/LOGO.png" alt = "App Logo"/></div>
+            <img className="logo" src="./images/LOGO.svg" alt = "App Logo"/>
                 
             <div className="dropSearch">
                 <DropdownBtn />
@@ -16,11 +16,11 @@ function Header(){
             </div>
                 
             <div className="regFavCart">
-                <Example/>
+                 <Example/>
 
-                <div className="favCart">
-                  <Favorites />
-                  <Cart />
+               <div className="favCart">
+                    <Favorites />
+                    <Cart />
                 </div>
             </div>
                 

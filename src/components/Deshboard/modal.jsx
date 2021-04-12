@@ -13,8 +13,8 @@ class Modals extends Component {
 
     // itemName = "MacBook Air Retina 2018";
     itemPrice = this.props.itemPrice; //hardcoded for now
-    category = false;
-    category = this.props.category;
+    category = true;
+    // category = this.props.category;
     desc=this.props.desc;    
     
     render() { 
@@ -25,7 +25,7 @@ class Modals extends Component {
                 <div className="modal-content">
                 <div className="new">
 
-                    <div className="closeModal"><span id="close" onClick={this.closeModal}>&times;</span></div>
+                    {/* <div className="closeModal"><span id="close" onClick={this.closeModal}>&times;</span></div> */}
                     {/* <div className="modal-discount-tag">35% off</div> */}
 
                     <div className="item-info">

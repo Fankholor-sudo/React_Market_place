@@ -12,7 +12,7 @@ class Items extends Component{
                     <ItemBox category={department} itemName="Macbook Air Retina 2017" orgPrice="18199" discount="35" rating="0(0)"/>
                     <ItemBox category={department} itemName="Macbook Air Retina 2018" orgPrice="18199" discount="35" rating="0(0)"/>
                     <ItemBox category={department} itemName="Macbook Air Retina 2019" orgPrice="18199" discount="35" rating="0(0)"/>
-                    <Modals category={department} itemName="Macbook Air Retina 2019" orgPrice="18199" discount="35" rating="0(0)" desc="Apples thinnest and lightest notebook, the MacBook Air gets supercharged with the Apple M1 chip. Tackle your projects with the blazing-fast 8-core CPU. Take graphics-intensive apps and games to the next level with a 7-core GPU. And accelerate machine learning tasks with the 16-core Neural Engine. All with a silent, fan-less design and the longest battery life everup to 18 hours 1. Still perfectly portable. MacBook Air is now a lot more powerful.
+                    <Modals itemName="Macbook Air Retina 2019" orgPrice="18199" discount="35" rating="0(0)" desc="Apples thinnest and lightest notebook, the MacBook Air gets supercharged with the Apple M1 chip. Tackle your projects with the blazing-fast 8-core CPU. Take graphics-intensive apps and games to the next level with a 7-core GPU. And accelerate machine learning tasks with the 16-core Neural Engine. All with a silent, fan-less design and the longest battery life everup to 18 hours 1. Still perfectly portable. MacBook Air is now a lot more powerful.
 
 This MacBook Air 13inch, 2018 Retina Edition features a 1,6GHz Intel Core 8GB, SSD 256GB
 .
