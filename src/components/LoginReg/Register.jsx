@@ -146,11 +146,10 @@ function Register() {
                                         {(errors.me !== "" && touched.me === true) ? (<div className="error" style={{ color: '#e30000' }}>{errors.me}</div>) : ""}
                                     </Form.Group>
                                     <Button
+                                        href='/LandingPage'
                                         type='submit'
                                         style={{ background: '#FFCE2E', width: '100px' }}
-                                    >
-                                        Register
-                            </Button>
+                                    >Register</Button>
 
                                 </Form>
                             </Col>

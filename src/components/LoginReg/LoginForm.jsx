@@ -67,11 +67,10 @@ function LoginForm() {
                                         {(errors.password !== "" && touched.password === true) ? (<div className="error" style={{ color: '#e30000' }}>{errors.password}</div>) : ""}
                                     </Form.Group>
                                     <Button
+                                        href='/LandingPage'
                                         type='submit'
                                         style={{ background: '#FFCE2E', width: '100px' }}
-                                    >
-                                        Login
-                            </Button>
+                                    >Login</Button>
 
                                 </Form>
                             </Col>
