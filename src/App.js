@@ -26,6 +26,10 @@ function App() {
               <Register />
         </Route>
         
+        <Route path="/LandingPage" exact={true}>
+              <LandingPage />
+        </Route>
+    
         </Switch>
       </Router>
     </div>
