@@ -23,9 +23,9 @@ class ItemBox extends Component{
         // const [modalIsOpen, setModalIsOpen] = useState(false);
 
         return  <div className="item-box">
-                    <div className="itemImage"><img src={laptop} alt="macbook air retina"/></div>
+                    <div className="itemImage"><img src={this.discount} alt="macbook air retina"/></div>
                     <div className="item-name"><p>{this.itemName}</p></div>
-                    <div className="price"><p>R {this.itemPrice}
+                    <div className="price"><p>R {this.orgPrice}
                         {/* <span className="original-price">  was R {this.orgPrice} </span> */}
                     </p></div>
                     <div className="rating">
