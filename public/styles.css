@@ -13,6 +13,7 @@ body {
 .departmentItems a,
 .subDepartment a {
   text-decoration: none;
+  color: #06042e;
 }
 
 .category a:hover,
@@ -20,53 +21,58 @@ body {
 .subDepartment a:hover {
   text-decoration: underline;
 }
-.category a:visited,
-.departmentItems a:visited,
-.subDepartment a:visited {
-  text-decoration: none;
-  color: var(--blu);
-}
 
 /***************************************************************BODY****************************************************************/
 .body {
   display: flex;
   padding: 15px 0 0 10px;
   background-color: #efefef;
+  justify-content: space-around;
 }
 
 /*************************************************************FEED******************************************************************/
 .feed {
   display: flex;
   flex-direction: column;
-  margin-left: 70px;
+  /* margin-left: 70px; */
+  width: 80%;
 }
 
 .feedCategories {
   display: flex;
   flex-direction: column;
   margin-top: 3em;
+  /* background-color: rebeccapurple; */
+
 }
 
 .deals {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
+
 }
 
-.computer {
+/* .computer {
   display: flex;
+  background-color: rebeccapurple;
+
 }
 
-.books {
+.gaming {
   display: flex;
 }
 
 .clothing {
   display: flex;
-}
+} */
 
 .titlebtn {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  width: 97%;
 }
 
 .titlebtn h2 {
@@ -84,7 +90,7 @@ body {
   box-shadow: 2px 2px 4px #aaa;
   height: 3em;
   width: 7em;
-  margin-right: 25px;
+  /* margin-right: 25px; */
 }
 
 .titlebtn button:hover {
@@ -99,6 +105,7 @@ body {
 /****************************************************DEPARTMENTS SECTION*************************************************************/
 .departments {
   border-right: 1px solid #cdcdcd;
+
 }
 
 .department {
@@ -144,10 +151,11 @@ body {
   } */
 
 /***************************************************CATEGORIES CONTAINERS*****************************************************/
-.container {
+/* .container {
   position: absolute;
   left: 300px;
   right: 5%;
+
 }
 
 .category {
@@ -155,6 +163,7 @@ body {
   margin-bottom: 15px;
   padding: 5px;
   position: relative;
+
 }
 
 .category span {
@@ -164,7 +173,7 @@ body {
   text-shadow: 2px 2px 4px #aaa;
 }
 .category button {
-  /* position: absolute; */
+  /* position: absolute; 
   right: 85px;
   font-size: 18px;
   padding: 5px;
@@ -181,24 +190,26 @@ body {
 
 .category button:active {
   background-color: var(--yellow);
-}
+} */
 
 /****************************************************************ITEMS*************************************************************/
 .items {
-  display: inline-flex;
-  flex-wrap: nowrap;
-  margin: 10px;
+  display: flex;
+  /* flex-wrap: nowrap; */
+  justify-content: space-around;
+  width: 100%;
+  /* margin: 10px; */
 }
 
 .item-box {
   background-color: white;
-  width: 17em;
-  height: 20em;
+  width: 22%;
+  height: 20rem;
   box-shadow: 4px 4px 5px #aaa;
-  padding-left: 30px;
+  padding-left: 15px;
   border-radius: 4px;
-  margin-left: 10px;
-  margin-right: 15px;
+  /* margin-left: 10px;
+  margin-right: 15px; */
 }
 .item-box img {
   width: 90%;
@@ -223,9 +234,9 @@ body {
 
 .itemImage {
   background-color: #06042e;
-  height: 12em;
-  width: 15.7em;
-  margin: 10px 5px 0 -20px;
+  height: 60%;
+  width: 95%;
+  margin: 10px 0px 0 0px;
 }
 
 .itemImage img {
@@ -235,6 +246,8 @@ body {
 .item-name {
   color: var(--blu);
   font-weight: 500;
+  font-size: 100%;
+  width: 100%;
   margin: 0%;
 }
 .price {
@@ -281,7 +294,7 @@ body {
   line-height: 1;
 }
 
-.footer img{
+.footer img {
   width: 8em;
   height: 8em;
   margin: 40px 0 0 -15px;
@@ -327,11 +340,11 @@ body {
   height: 1000px;
 } */
 
-.new{
+.new {
   display: flex;
   flex-direction: row;
 }
-.modalImage{
+.modalImage {
   width: 25em;
   height: 25em;
   margin: 10px 0 10px 20px;
@@ -341,16 +354,16 @@ body {
   align-items: center;
 }
 
-.modalImage img{
+.modalImage img {
   width: 100%;
-  height: 100%
+  height: 100%;
 }
 /* .item-info .modal-itemName{
   width: 15em;
   font-size: 1.5em;
 } */
 
-.item-info{
+.item-info {
   /* margin-left: 100px;
   padding-left: 20px; */
   display: flex;
@@ -362,7 +375,7 @@ body {
   /* background-color: black; */
 }
 
-.item-info button{
+.item-info button {
   background-color: #ffce2e;
   color: #000;
   font-weight: 600;
@@ -372,19 +385,19 @@ body {
   box-shadow: 4px 4px 5px #aaa;
   border-radius: 2px;
   align-items: center;
-  margin-top: 40px; 
+  margin-top: 40px;
 }
 
-.item-info button:hover{
+.item-info button:hover {
   background-color: var(--blu);
   color: white;
 }
 
-.item-info button:active{
+.item-info button:active {
   border: 4px solid #ffce2e;
 }
 
-.modalPrice{
+.modalPrice {
   font-weight: bold;
   font-size: 2em;
   margin: 20px 0 0 0;
@@ -443,7 +456,7 @@ body {
   width: 40px;
   height: 40px;
   /* background-color: black; */
-  margin-top: -10px;  
+  margin-top: -10px;
 }
 
 .closeModal span:hover,
@@ -453,7 +466,7 @@ body {
   cursor: pointer;
 }
 
-.item-extra-info{
+.item-extra-info {
   display: flex;
   /* flex-direction: row; */
   /* background-color: red; */
@@ -502,12 +515,21 @@ body {
 .parent {
   background-color: #06042e;
   display: flex;
+  flex-flow:nowrap;
+  justify-content: space-around;
 }
 
 .logo {
-  width: 10em;
-  height: 10em;
-  margin: 10px 10px 10px 40px;
+  width: 10rem;
+  height: 10rem;
+  margin: 10px 10px 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.logo img{
+  width: 100%;
+  height: auto;
 }
 
 /*******************************************Dropdown Button and Searchbar Div**********************************************/
@@ -515,7 +537,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2em 0 0 35px;
+  margin: 2em 0 0 0;
+  width: 50%;
 }
 
 /* Dropdown button */
@@ -543,7 +566,7 @@ body {
   background-color: #ffce2e;
   border-radius: 5px;
   margin: 10px 0 0 0;
-  width: 50em;
+  width: 100%;
   height: 3em;
   display: flex;
   /* justify-content: space-around; */
@@ -557,11 +580,17 @@ body {
 }
 
 /* Searchbar */
-.search input {
-  width: 45em;
+.input {
+  width: 360%;
   height: 2.2em;
-  border: transparent;
   margin: 0 0 0 6px;
+  background-color: red;
+}
+
+.input input{
+  width: 100%;
+  height: 100%;
+  border: transparent;
 }
 
 /* Search icon */
@@ -578,7 +607,8 @@ body {
   flex-direction: column;
   justify-content: right;
   align-items: center;
-  margin-left: 5em;
+  /* margin-left: 5em; */
+
 }
 
 /* Registration and Login navigation bar */
