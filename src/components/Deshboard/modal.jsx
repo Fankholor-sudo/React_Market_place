@@ -10,18 +10,16 @@ class Modals extends Component {
     orgPrice =this.props.orgPrice;
     discount =this.props.discount;
     rating =this.props.rating;
-
-    // itemName = "MacBook Air Retina 2018";
-    itemPrice = this.props.itemPrice; //hardcoded for now
-    category = true;
-    // category = this.props.category;
+    itemPrice = this.props.itemPrice;
+    category = this.props.category;
     desc=this.props.desc;    
-    
+    modalOpen = this.props.modalOpen;
+    image = this.props.image;
     render() { 
         // var openModal = false;
         
         return (  
-            <Modal>
+            <Modal isOpen={true}>
                 <div className="modal-content">
                 <div className="new">
 
@@ -29,7 +27,7 @@ class Modals extends Component {
                     {/* <div className="modal-discount-tag">35% off</div> */}
 
                     <div className="item-info">
-                        <div className="modalImage"><img className="itemImage" src={laptop} alt="macbook air retina"/></div>
+                        <div className="modalImage"><img className="itemImage" src={this.image} alt="macbook air retina"/></div>
                         <div className className="modal-itemName"><p>{this.itemName}</p></div>
                         <p className="modalPrice">R {this.orgPrice}</p>
                             {/* <span className="original-price">  was R {this.orgPrice} </span>
