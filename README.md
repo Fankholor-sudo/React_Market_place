@@ -15,3 +15,5 @@
 #this is to make the code as clean as possible and easy to work on.
 
 [![Build Status](https://travis-ci.org/Legend-45/SD_project.svg?branch=main)](https://travis-ci.org/Legend-45/SD_project)
+
+[![Coverage Status](https://coveralls.io/repos/github/Legend-45/SD_project/badge.svg?branch=main)](https://coveralls.io/github/Legend-45/SD_project?branch=main)
