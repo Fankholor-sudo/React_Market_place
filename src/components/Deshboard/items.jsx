@@ -2,38 +2,7 @@ import React, { useState } from 'react';
 import  ItemBox from "./itemBox";
 
 
-function Items() {
-
-    // const data=()=>{
-
-        var http = require("https");
-
-        var options = {
-            host: "lamp.ms.wits.ac.za",
-            port: 443,
-            path: "/home/s2172765/home.php",
-            headers: { 'Content-Type': 'application/json' }
-        };
-
-        var prod;
-        var req = http.request(options, function(res) {
-            res.setEncoding("utf8");
-            res.on("data", function (chunk) {
-            prod = JSON.parse(chunk);
-            console.log('products: ',prod);
-            });
-        });
-        req.on("error", function (e) {
-            console.log(e.message);
-        });
-
-        console.log('products-oulier: ',req);       
-
-        // req.end();
-
-    //     return prod;
-    // }
-    console.log("anything props: ",prod);
+function Items(){ 
 
     return (
     <div className="items">
@@ -43,8 +12,8 @@ function Items() {
         <ItemBox category="Books" itemName="The Alchemist" orgPrice="159" image="./images/alchemist.jpg" discount="" rating="0(0)"/>
     </div>
     )
-}
-    
+
+    }  
 
 function Items2(){    
         return(
