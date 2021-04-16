@@ -1,16 +1,49 @@
-import React, { Component } from 'react';
-
+import React, { useState } from 'react';
 import  ItemBox from "./itemBox";
 
+
 function Items() {
-        
-        return  <div className="items">
-                    <ItemBox category="Books" itemName="Everything I Never Told" orgPrice="186" image="./images/everything.jpg" discount="" rating="0(0)"/>
-                    <ItemBox category="Books" itemName="Rich Dad Poor Dad" orgPrice="159" image="./images/rich.jpeg" discount="" rating="0(0)"/>
-                    <ItemBox category="Books" itemName="Think Again" orgPrice="299" image="./images/think.webp" discount="" rating="0(0)"/>
-                    <ItemBox category="Books" itemName="The Alchemist" orgPrice="159" image="./images/alchemist.jpg" discount="" rating="0(0)"/>
-                </div>
-    }
+
+    // const data=()=>{
+
+        var http = require("https");
+
+        var options = {
+            host: "lamp.ms.wits.ac.za",
+            port: 443,
+            path: "/home/s2172765/home.php",
+            headers: { 'Content-Type': 'application/json' }
+        };
+
+        var prod;
+        var req = http.request(options, function(res) {
+            res.setEncoding("utf8");
+            res.on("data", function (chunk) {
+            prod = JSON.parse(chunk);
+            console.log('products: ',prod);
+            });
+        });
+        req.on("error", function (e) {
+            console.log(e.message);
+        });
+
+        console.log('products-oulier: ',req);       
+
+        // req.end();
+
+    //     return prod;
+    // }
+    console.log("anything props: ",prod);
+
+    return (
+    <div className="items">
+        <ItemBox category="Books" itemName="NAME" orgPrice="" image="" discount="" rating="0(0)"/>
+        <ItemBox category="Books" itemName="Rich Dad Poor Dad" orgPrice="159" image="./images/rich.jpeg" discount="" rating="0(0)"/>
+        <ItemBox category="Books" itemName="Think Again" orgPrice="299" image="./images/think.webp" discount="" rating="0(0)"/>
+        <ItemBox category="Books" itemName="The Alchemist" orgPrice="159" image="./images/alchemist.jpg" discount="" rating="0(0)"/>
+    </div>
+    )
+}
     
 
 function Items2(){    
