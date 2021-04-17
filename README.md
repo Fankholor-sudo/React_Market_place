@@ -16,4 +16,4 @@
 
 [![Build Status](https://travis-ci.com/Legend-45/SD_project.svg?branch=main)](https://travis-ci.com/Legend-45/SD_project)
 
-[![Coverage Status](https://coveralls.io/repos/github/Legend-45/SD_project/badge.svg?branch=main)](https://coveralls.io/github/Legend-45/SD_project?branch=main)
+
