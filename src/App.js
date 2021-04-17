@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from './components/LoginReg/Register';
 import LoginForm from './components/LoginReg/LoginForm';
 import LandingPage from './components/Deshboard/LandingPage'
-import { withRouter } from "react-router-dom";
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
+import { BrowserRouter as Router, Switch, Route, withRouter} from "react-router-dom";
 
 
 
@@ -36,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
