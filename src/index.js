@@ -9,11 +9,10 @@ import LandingPage from './components/Deshboard/LandingPage'
 //   document.getElementById('root')
 // );
 ReactDOM.render( 
-  // <React.StrictMode>
-  //   <BrowserRouter> 
-  //     <App />
-  //   </BrowserRouter>
-  // </React.StrictMode>
-  <LandingPage/>,
+   <React.StrictMode>
+     <BrowserRouter> 
+       <App />
+     </BrowserRouter>
+  </React.StrictMode>,
   document.getElementById('root')
 );
