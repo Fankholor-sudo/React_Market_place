@@ -1,3 +1,2 @@
-install: npm install --save-dev coveralls
 
-after_success: npm run coverage
+repo_token: BPZiHYFy243B3binkGRAhpohRuRHcPBsT
