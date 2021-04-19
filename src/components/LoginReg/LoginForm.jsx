@@ -1,87 +1,107 @@
-import React from "react";
-import { Form, Button, Col, Row } from 'react-bootstrap';
-import Header from './Header';
+import React, { useState } from 'react';
+import axios from 'axios';
+import {useHistory } from 'react-router-dom';
+import { Form, Button, Row, Col,Alert } from 'react-bootstrap';
 import LgnImgHolder from './LgnImgHolder';
-import * as Yup from "yup";
-import { Formik } from "formik";
+import Header from './Header';
+import qs from "qs";
 
-const schema = Yup.object({
-    email: Yup.string()
-        .email()
-        .required('Required'),
-    password: Yup.string()
-        .required('Required')
-});
 
-function LoginForm() {
+function LoginForm(props){
+    const [state, setState]= useState({
+        password: "",
+        email: "",
+        error:""
+    })
+    const handleEmail = async e => {
+        setState(prevState => ({
+            ...prevState,
+            email: e.target.value
+        }))
+    }
+    const handlePassword = async e => {
+        setState(prevState => ({
+            ...prevState,
+            password: e.target.value
+        }))
+    }
+    const history = useHistory();
+    /*const*/
+    var handleSubmit = e => {
+        e.preventDefault();
+
+        const formData = {
+            email: state.email,
+            password: state.password
+        }
+        // let formData = new FormData();
+        // formData.append('email', state.email);
+        // formData.append('password', state.password);
+
+        const url = 'https://lamp.ms.wits.ac.za/home/s1671848/market_place_login.php';
+
+        axios.post(url, qs.stringify(formData))
+        .then(function (res) {
+            var status = res.data[0].login_status;
+    
+            console.log('results_data: ', res.data[0]);
+            console.log('results_email: ', res.data[0].email);
+            console.log('results_username: ', res.data[0].firstname);
+            console.log('status: ', status);
+
+            /////////-----Redirect to main page when login success-----/////////
+            status===1? history.push('/LandingPage')
+            :setState({
+                error: res.data[0].login_message //"Incorrect email or password, please make sure your password and email are correct!"
+            });
+        })
+        .catch((err) => { return console.log('error: ', err) });
+    }
     return (
-        <Formik
-            validationSchema={schema}
-            initialValues={{
-                email: '',
-                password: ''
-            }}
-        >
-            {
-                ({
-                    handleSubmit,
-                    handleChange,
-                    values,
-                    touched,
-                    errors
-                }) => (
+        <div>
+            <Header pageUrl={'/Register'} title={' Do not have an account? Register '} />
+            <Row>
+                <Col>
+                    <div>
+                        <Form style={{ width: '90%', marginLeft: '5%', marginTop: '20%' }}>
+                            {(state.error !== "") ? (<div><Alert variant='danger'>{state.error}</Alert></div>):""}
+                            <Form.Group>
+                                <Form.Label>Email</Form.Label>
+                                <Form.Control
+                                    onChange={handleEmail}
+                                    type='email'
+                                    style={{ background: '#ECF6F9' }}
+                                    placeholder='Enter your email'
+                                    required
+                                    // isInvalid 
+                                />
+                                <Form.Control.Feedback type='invalid'>Email is required</Form.Control.Feedback>
+                            </Form.Group>
 
-                    <div className >
-                        <Header pageUrl={'/Register'} title={' Do not have an account? Register '} />
-                        <Row>
-                            <Col>
-
-                                <Form style={{ width: '90%', marginLeft: '5%', marginTop: '20%' }} noValidate onSubmit={handleSubmit}>
-                                    <Form.Group>
-                                        <Form.Label>Email</Form.Label>
-                                        <Form.Control
-                                            name="email"
-                                            type='email'
-                                            style={{ background: '#ECF6F9' }}
-                                            placeholder='Enter your email'
-                                            required
-                                            value={values.email}
-                                            onChange={handleChange}
-
-                                        />
-                                        {(errors.email !== "" && touched.email === true) ? (<div className="error" style={{ color: '#e30000' }}>{errors.email}</div>) : ""}
-                                    </Form.Group>
-
-                                    <Form.Group>
-                                        <Form.Label>Password</Form.Label>
-                                        <Form.Control
-                                            name="password"
-                                            type='password'
-                                            style={{ background: '#ECF6F9' }}
-                                            placeholder='Enter your password'
-                                            required
-                                            value={values.password}
-                                            onChange={handleChange}
-
-                                        />
-                                        {(errors.password !== "" && touched.password === true) ? (<div className="error" style={{ color: '#e30000' }}>{errors.password}</div>) : ""}
-                                    </Form.Group>
-                                    <Button
-                                        href='/LandingPage'
-                                        type='submit'
-                                        style={{ background: '#FFCE2E', width: '100px' }}
-                                    >Login</Button>
-
-                                </Form>
-                            </Col>
-                            <Col>
-                                <LgnImgHolder />
-                            </Col>
-                        </Row>
+                            <Form.Group>
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control
+                                    onChange={handlePassword}
+                                    type='password'
+                                    style={{ background: '#ECF6F9' }}
+                                    placeholder='Enter your password'
+                                    required
+                                />
+                                <Form.Control.Feedback type="invalid">Password is required</Form.Control.Feedback>
+                            </Form.Group>
+                            <Button
+                                onClick={handleSubmit}
+                                type='submit'
+                                style={{ background: '#FFCE2E', width: '100px' }}
+                            >
+                                Login
+                            </Button>
+                        </Form>
                     </div>
-                )
-            }
-        </Formik>
+                </Col>
+                <Col><LgnImgHolder /></Col>
+            </Row>
+        </div>
     )
 }
 
