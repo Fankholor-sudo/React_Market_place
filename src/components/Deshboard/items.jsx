@@ -1,12 +1,33 @@
-import React, { useState } from 'react';
 import  ItemBox from "./itemBox";
 
+var http = require("https");
 
-function Items(){ 
+var options = {
+    host: "lamp.ms.wits.ac.za",
+    port: 443,
+    path: "/home/s2172765/home.php",
+    headers: { 'Content-Type': 'application/json' }
+};
 
+var req = http.request(options, function(res) {
+    res.setEncoding("utf8");
+    res.on("data", function (chunk) {
+        var data = JSON.parse(chunk);
+        //Items(data[1]["NAME"])
+    });
+});
+req.on("error", function (e) {
+    console.log(e.message);
+});
+
+req.end();
+var ata = "my name is";
+Items(ata)
+function Items({data}){ 
+    
     return (
     <div className="items">
-        <ItemBox category="Books" itemName="NAME" orgPrice="" image="" discount="" rating="0(0)"/>
+        <ItemBox category="Books" itemName = "Everything I Never Told" orgPrice="186" image="./images/everything.jpg" discount="" rating="0(0)"/>
         <ItemBox category="Books" itemName="Rich Dad Poor Dad" orgPrice="159" image="./images/rich.jpeg" discount="" rating="0(0)"/>
         <ItemBox category="Books" itemName="Think Again" orgPrice="299" image="./images/think.webp" discount="" rating="0(0)"/>
         <ItemBox category="Books" itemName="The Alchemist" orgPrice="159" image="./images/alchemist.jpg" discount="" rating="0(0)"/>

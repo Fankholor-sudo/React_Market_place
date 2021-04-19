@@ -13,10 +13,10 @@ const Example = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav  navbar>
           <NavItem>
-              <NavLink href="#"><span className="regNavBar">Login</span></NavLink>
+              <NavLink href="/LoginForm"><span className="regNavBar">Login</span></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#"><span className="regNavBar">Register</span></NavLink>
+              <NavLink href="/Register"><span className="regNavBar">Register</span></NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="#"><span className="regNavBar">Orders</span></NavLink>
