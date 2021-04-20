@@ -3,7 +3,6 @@ import Header from "./Header";
 import CatNavBar from "./catNavBar";
 import Body from "./Body";
 import Footer from "./Footer"
-import Modals from "./modal";
 
 function LandingPage() {
   return(
