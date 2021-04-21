@@ -1,0 +1,20 @@
+ORDER_HISTORY  will use 'user_id' from table 'market_place_user' as a primary key
+ORDER_HISTORY will have entries of all products ever bought by all users
+
+ROWS:
+
+- PRODUCT_ID will have the product code from it's respective category table
+- CAT_TABLE will be the name of the category table from which we pull the product info
+- PRODUCT_ID and CAT_TABLE have to be referenced together as each category table has products with the same id
+ E.g a book in BOOKS will PRODUCT_ID 100 and a Videogame in GAMING will also have code 100
+- STAR_RATING is the individual rating given by the user and
+- USER_COMMENT is the comment given by same user for product
+
+
+specifications:
+
+- user_id INT NOT NULL PRIMARY KEY REFERENCES market_place_user(user_id)
+- PRODUCT_ID INT NOT NULL
+- CAT_TABLE VARCHAR NOT NULL
+- STAR_RATING INT(5) 
+- USER_COMMENT VARCHAR(255) 
