@@ -5,7 +5,8 @@ import { Form, Button, Col, Row, Alert } from 'react-bootstrap';
 import Header from './Header';
 import RegImgHolder from './RegImgHolder';
 
-function Register(props) {
+function Register(props)
+{
     var ageArr = [];
     for (var n = 10; n < 100; ++n) ageArr.push(n);
 
@@ -65,13 +66,6 @@ function Register(props) {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        // const formData = {
-        //     firstname: state.firstname,
-        //     lastname: state.lastname,
-        //     email: state.email,
-        //     dateOfBirth: '2010-10-12',
-        //     password: state.password
-        // }
 
         if (state.firstname !== undefined && state.lastname !== undefined && state.email !== undefined
             && state.password !== undefined && state.comfirmPassword !== undefined)
@@ -83,52 +77,27 @@ function Register(props) {
                 formData.append('firstname', state.firstname);
                 formData.append('lastname', state.lastname);
                 formData.append('email', state.email);
-                formData.append('dateOfBirth', '2010-10-12');//state.dateOfBirth
+                formData.append('dateOfBirth', '2010-10-12');
                 formData.append('password', state.password);
                 const url = 'https://lamp.ms.wits.ac.za/home/s1671848/market_place_register.php';
 
                 axios.post(url, formData)
-                    .then(function (res) {
-                        var status = res.data[0].register_status;
-                        console.log('results_data: ', res.data[0]);
-                        console.log('results_email: ', res.data[0].email);
-                        console.log('results_username: ', res.data[0].username);
-                        console.log('results_birthDate: ', res.data[0].dateOfBirth);
-                        console.log('message: ', res.data[0].status_message);
-                        console.log('status: ', status);
+                .then(function (res) {
+                    var status = res.data[0].register_status;
 
-                        /////////-----Redirect to main page when login success-----/////////
-                        status === '1' ? history.push('/LandingPage')
-                            : setStateErr({
-                                error: res.data[0].status_message
-                            });
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                        setStateErr({
-                            error: "Fill all fields. " + err
-                        })
-                    });
+                    /////////-----Redirect to main page when login success-----/////////
+                    status === '1' ? history.push('/LandingPage')
+                        : setStateErr({
+                            error: res.data[0].status_message
+                        });
+                })
+                .catch((err) => { setStateErr({error: err}) });
             }
             else {
                 setStateErr({ error: "Please make sure all fields are filled." });
-                
-                console.log("there is no input here, fill the form.");
-                console.log('firstname: ', state.firstname);
-                console.log('lastname: ', state.lastname);
-                console.log('email: ', state.email);
-                console.log('password: ', state.password);
-                console.log('comfirmPassword: ', state.comfirmPassword);
             }
         }
         else {
-            console.log("there is an undefined value bro!!...");
-            console.log('firstname: ', state.firstname);
-            console.log('lastname: ', state.lastname);
-            console.log('email: ', state.email);
-            console.log('password: ', state.password);
-            console.log('comfirmPassword: ', state.comfirmPassword);
-
             setStateErr({error: "Please make sure all fields are filled." });
         }
     }

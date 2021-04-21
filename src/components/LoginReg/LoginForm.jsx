@@ -4,15 +4,20 @@ import {useHistory } from 'react-router-dom';
 import { Form, Button, Row, Col,Alert } from 'react-bootstrap';
 import LgnImgHolder from './LgnImgHolder';
 import Header from './Header';
-import qs from "qs";
 
 
-function LoginForm(props){
+function LoginForm(props)
+{
+    const history = useHistory();
+
     const [state, setState]= useState({
         password: "",
-        email: "",
-        error:""
+        email: ""
     })
+    const [stateErr, setStateErr] = useState({
+        error: ""
+    })
+
     const handleEmail = async e => {
         setState(prevState => ({
             ...prevState,
@@ -25,37 +30,36 @@ function LoginForm(props){
             password: e.target.value
         }))
     }
-    const history = useHistory();
-    /*const*/
-    var handleSubmit = e => {
+    const handleSubmit = e => {
         e.preventDefault();
 
-        const formData = {
-            email: state.email,
-            password: state.password
+        if (state.email !== undefined && state.password !== undefined) {
+            if (state.email.trim() && state.password.trim()) {
+                let formData = new FormData();
+                formData.append('email', state.email);
+                formData.append('password', state.password);
+                
+                const url = 'https://lamp.ms.wits.ac.za/home/s1671848/market_place_login.php';
+
+                axios.post(url, formData)
+                    .then(function (res) {
+                        var status = res.data[0].login_status;
+
+                        /////////-----Redirect to main page when login success-----/////////
+                        status === 1 ? history.push('/LandingPage')
+                            : setStateErr({
+                                error: res.data[0].login_message
+                            });
+                    })
+                    .catch((err) => { setStateErr({ error: err }); });
+            }
+            else {
+                setStateErr({ error: "Please make sure all fields are filled." });
+            }
         }
-        // let formData = new FormData();
-        // formData.append('email', state.email);
-        // formData.append('password', state.password);
-
-        const url = 'https://lamp.ms.wits.ac.za/home/s1671848/market_place_login.php';
-
-        axios.post(url, qs.stringify(formData))
-        .then(function (res) {
-            var status = res.data[0].login_status;
-    
-            console.log('results_data: ', res.data[0]);
-            console.log('results_email: ', res.data[0].email);
-            console.log('results_username: ', res.data[0].firstname);
-            console.log('status: ', status);
-
-            /////////-----Redirect to main page when login success-----/////////
-            status===1? history.push('/LandingPage')
-            :setState({
-                error: res.data[0].login_message //"Incorrect email or password, please make sure your password and email are correct!"
-            });
-        })
-        .catch((err) => { return console.log('error: ', err) });
+        else {  
+            setStateErr({ error: "Please make sure all fields are filled." });
+        }
     }
     return (
         <div>
@@ -64,7 +68,7 @@ function LoginForm(props){
                 <Col>
                     <div>
                         <Form style={{ width: '90%', marginLeft: '5%', marginTop: '20%' }}>
-                            {(state.error !== "") ? (<div><Alert variant='danger'>{state.error}</Alert></div>):""}
+                            {(stateErr.error !== "" && stateErr.error !== undefined) ? (<div><Alert variant='danger'>{stateErr.error}</Alert></div>):""}
                             <Form.Group>
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control
