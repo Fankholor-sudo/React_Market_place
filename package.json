@@ -28,7 +28,6 @@
     "coverage": "npm run pretest && jest --coverage && cat ./coverage/lcov.info | coveralls",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "eject": "react-scripts eject"
-    
   },
   "eslintConfig": {
     "extends": [

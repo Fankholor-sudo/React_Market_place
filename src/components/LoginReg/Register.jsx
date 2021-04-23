@@ -7,9 +7,6 @@ import RegImgHolder from './RegImgHolder';
 
 function Register(props)
 {
-    var ageArr = [];
-    for (var n = 10; n < 100; ++n) ageArr.push(n);
-
     const history = useHistory();
     const [state, setState] = useState({
         firstname: "",
@@ -67,37 +64,46 @@ function Register(props)
     const handleSubmit = async e => {
         e.preventDefault();
 
-        if (state.firstname !== undefined && state.lastname !== undefined && state.email !== undefined
-            && state.password !== undefined && state.comfirmPassword !== undefined)
+      if (state.firstname !== undefined && state.lastname !== undefined && state.email !== undefined
+            && state.password !== undefined && state.comfirmPassword !== undefined && state.dateOfBirth !== undefined)
         {
             if (state.firstname.trim() && state.lastname.trim() && state.email.trim()
-                && state.password.trim() && state.comfirmPassword.trim())
+                && state.password.trim() && state.comfirmPassword.trim() && state.dateOfBirth.trim())
             {
-                let formData = new FormData();
-                formData.append('firstname', state.firstname);
-                formData.append('lastname', state.lastname);
-                formData.append('email', state.email);
-                formData.append('dateOfBirth', '2010-10-12');
-                formData.append('password', state.password);
-                const url = 'https://lamp.ms.wits.ac.za/home/s1671848/market_place_register.php';
+                if (state.password === state.comfirmPassword)
+                {
+                    let formData = new FormData();
+                    formData.append('firstname', state.firstname);
+                    formData.append('lastname', state.lastname);
+                    formData.append('email', state.email);
+                    formData.append('dateOfBirth', state.dateOfBirth);
+                    formData.append('password', state.password);
+                    const url = 'https://lamp.ms.wits.ac.za/home/s1671848/market_place_register.php';
 
-                axios.post(url, formData)
-                .then(function (res) {
-                    var status = res.data[0].register_status;
+                    axios.post(url, formData)
+                        .then(function (res) {
+                            var status = res.data[0].register_status;
 
-                    /////////-----Redirect to main page when login success-----/////////
-                    status === '1' ? history.push('/LandingPage')
-                        : setStateErr({
-                            error: res.data[0].status_message
-                        });
-                })
-                .catch((err) => { setStateErr({error: err}) });
+                            /////////-----Redirect to main page when login success-----/////////
+                            status === '1' ? history.push('/LandingPage')
+                                : setStateErr({
+                                    error: res.data[0].status_message
+                                });
+                        })
+                        .catch((err) => { setStateErr({ error: err }) });
+                }
+                else
+                {
+                    setStateErr({ error: "Passwords do not match." });
+                }
             }
-            else {
+            else
+            {
                 setStateErr({ error: "Please make sure all fields are filled." });
             }
         }
-        else {
+        else
+        {
             setStateErr({error: "Please make sure all fields are filled." });
         }
     }
@@ -144,20 +150,6 @@ function Register(props)
                         </Form.Group>
 
                         <Form.Group>
-                            <Form.Label>Age</Form.Label>
-                            <Form.Control
-                                as="select"
-                                style={{ background: '#ECF6F9' }}
-                                placeholder='Enter your age'
-                                onChange={handleDateOfBirth}
-                            >
-                                {ageArr.map((item, idx) => {
-                                    return <option key={idx}>{item} years old</option>
-                                })}
-                            </Form.Control>
-                        </Form.Group>
-
-                        <Form.Group>
                             <Form.Label>Password</Form.Label>
                             <Form.Control
                                 name="password"
@@ -180,6 +172,18 @@ function Register(props)
                                 onChange={handleComfirmPassword}
                             />
                         </Form.Group>
+
+                        <Form.Group>
+                            <Form.Label>Date of birth</Form.Label>
+                                <Form.Control
+                                name='Date of birth'
+                                type='date'
+                                style={{ background: '#ECF6F9' }}
+                                onChange={handleDateOfBirth}
+                            >
+                            </Form.Control>
+                        </Form.Group>
+                        
                         <Button
                             onClick={handleSubmit}
                             type='submit'

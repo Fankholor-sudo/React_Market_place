@@ -33,12 +33,18 @@ function LoginForm(props)
     const handleSubmit = e => {
         e.preventDefault();
 
-        if (state.email !== undefined && state.password !== undefined) {
-            if (state.email.trim() && state.password.trim()) {
+        // const formData = {
+        //     email: state.email,
+        //     password: state.password
+        // }
+
+        if (state.email !== undefined && state.password !== undefined)
+        {
+            if (state.email.trim() && state.password.trim()) 
+            {
                 let formData = new FormData();
                 formData.append('email', state.email);
                 formData.append('password', state.password);
-                
                 const url = 'https://lamp.ms.wits.ac.za/home/s1671848/market_place_login.php';
 
                 axios.post(url, formData)
@@ -48,16 +54,18 @@ function LoginForm(props)
                         /////////-----Redirect to main page when login success-----/////////
                         status === 1 ? history.push('/LandingPage')
                             : setStateErr({
-                                error: res.data[0].login_message
+                                error: res.data[0].login_message //"Incorrect email or password, please make sure your password and email are correct!"
                             });
                     })
                     .catch((err) => { setStateErr({ error: err }); });
             }
-            else {
+            else
+            {
                 setStateErr({ error: "Please make sure all fields are filled." });
             }
         }
-        else {  
+        else
+        {
             setStateErr({ error: "Please make sure all fields are filled." });
         }
     }
