@@ -8,7 +8,7 @@ test('renders learn react link', () => {
   render(<BrowserRouter>
     <App />
   </BrowserRouter>);
-   }):
+   });
   const linkElement = screen.getByText('Computers & Electronics');
   expect(linkElement).toBeInTheDocument();
 });
