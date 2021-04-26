@@ -1,30 +1,9 @@
 import  ItemBox from "./itemBox";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-var http = require("https");
 
-var options = {
-    host: "lamp.ms.wits.ac.za",
-    port: 443,
-    path: "/home/s2172765/home.php",
-    headers: { 'Content-Type': 'application/json' }
-};
-
-var req = http.request(options, function(res) {
-    res.setEncoding("utf8");
-    res.on("data", function (chunk) {
-        var data = JSON.parse(chunk);
-        //Items(data[1]["NAME"])
-    });
-});
-req.on("error", function (e) {
-    console.log(e.message);
-});
-
-req.end();
-var ata = "my name is";
-Items(ata)
-function Items({data}){ 
+function Items(){ 
     
     return (
     <div className="items">
@@ -38,25 +17,28 @@ function Items({data}){
     }  
 
 function Items2(){    
-        return(
-                <div className="items">
-                    <ItemBox category="Daily deals" itemName='Samsung Curved Monitor' orgPrice="3 599" image="./images/monitor.jpg" discount="" rating="0(0)"/>
-                    <ItemBox category="Daily deals" itemName="MacBook Air 13-inch" orgPrice="15 999" image="./images/laptop1.jpg" discount="" rating="0(0)"/>
-                    <ItemBox category="Daily deals" itemName="Asus light 14-inch" orgPrice="5 749" image="./images/laptop3.jpg" discount="" rating="0(0)"/>
-                    <ItemBox category="Daily deals" itemName="ASUS ZenScreen Monitor" orgPrice="4 899" image="./images/tab.jpg" discount="" rating="0(0)"/>
-                </div>
-        );
+    const [items, setItems]= useState([])
+    const getItems= async () =>{
+    const results = await axios.get("https://lamp.ms.wits.ac.za/home/s2172765/electronics.php")
+    setItems(results.data)
+    }
+    getItems()
+  
+    return (
+        <div className="items">{items.map((item)=><ItemBox category="Daily deals" itemName={item.NAME} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)"></ItemBox>)}</div>
+    )
     }
 
  function Items3(){    
-        return(
-                <div className="items">
-                    <ItemBox category="Daily deals" itemName="Great Hall Sweater" orgPrice="349" image="./images/ff.png" discount="" rating="0(0)"/>
-                    <ItemBox category="Daily deals" itemName="Navy Tracksuit" orgPrice="859" image="./images/dd.png" discount="" rating="0(0)"/>
-                    <ItemBox category="Daily deals" itemName="Wits Sport Hoodie" orgPrice="521" image="./images/index.jpg" discount="" rating="0(0)"/>
-                    <ItemBox category="Daily deals" itemName="Wits Black Hoodie" orgPrice="149" image="./images/jersey.jpg" discount="" rating="0(0)"/>
-                </div>
-        );
+    const [items, setItems]= useState([])
+    const getItems= async () =>{
+    const results = await axios.get("https://lamp.ms.wits.ac.za/home/s2172765/clothing.php")
+    setItems(results.data)
+    }
+    getItems()
+    return (
+        <div className="items">{items.map((item)=><ItemBox category="Daily deals" itemName={item.NAME} orgPrice={item.PRICE} image={"https://"+item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION} ></ItemBox>)}</div>
+    )
     }
 
 function Items4(){    
