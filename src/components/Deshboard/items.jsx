@@ -18,26 +18,33 @@ function Items(){
 
 function Items2(){    
     const [items, setItems]= useState([])
+    useEffect(()=>
+    {
     const getItems= async () =>{
-    const results = await axios.get("https://lamp.ms.wits.ac.za/home/s2172765/electronics.php")
+    const results = await axios.post("https://lamp.ms.wits.ac.za/home/s2172765/clothing.php", {ID: 1})
     setItems(results.data)
     }
     getItems()
-  
+    
+    },[])
+    console.log(items)
     return (
-        <div className="items">{items.map((item)=><ItemBox category="Daily deals" itemName={item.NAME} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)"></ItemBox>)}</div>
-    )
+        <div className="items">{items.map((item)=><ItemBox category="Daily deals" itemName={item.NAME} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION}></ItemBox>)}</div>
+         )
     }
-
+ 
  function Items3(){    
     const [items, setItems]= useState([])
+    useEffect(()=>
+    {
     const getItems= async () =>{
-    const results = await axios.get("https://lamp.ms.wits.ac.za/home/s2172765/clothing.php")
+    const results = await axios.post("https://lamp.ms.wits.ac.za/home/s2172765/clothing.php", {ID: 6})
     setItems(results.data)
     }
     getItems()
+    },[])
     return (
-        <div className="items">{items.map((item)=><ItemBox category="Daily deals" itemName={item.NAME} orgPrice={item.PRICE} image={"https://"+item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION} ></ItemBox>)}</div>
+        <div className="items">{items.map((item)=><ItemBox category="Daily deals" itemName={item.NAME} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION} ></ItemBox>)}</div>
     )
     }
 
