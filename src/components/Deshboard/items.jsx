@@ -25,9 +25,8 @@ function Items2(){
     setItems(results.data)
     }
     getItems()
-    
     },[])
-    console.log(items)
+    
     return (
         <div className="items">{items.map((item)=><ItemBox category="Daily deals" itemName={item.NAME} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION}></ItemBox>)}</div>
          )
