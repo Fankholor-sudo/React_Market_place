@@ -10,7 +10,7 @@ function Favorites(){
 
 function Cart(){
     return(
-        <a href="#" ><div className="cart">
+        <a href="/Cart" ><div className="cart">
             <img className="favIcon" src="./icons/cart2.svg" alt="cart" />
         </div></a>
     );
