@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from './components/LoginReg/Register';
 import LoginForm from './components/LoginReg/LoginForm';
 import LandingPage from './components/Deshboard/LandingPage'
+import Cart from './components/cart/Cart';
 
 import { BrowserRouter as Router, Switch, Route, withRouter} from "react-router-dom";
 
@@ -30,6 +31,10 @@ function App() {
               <LandingPage />
         </Route>
     
+        <Route path="/Cart" exact={true}>
+              <Cart />
+        </Route>
+
         </Switch>
       </Router>
     </div>

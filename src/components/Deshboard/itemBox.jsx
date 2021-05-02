@@ -1,9 +1,9 @@
 import React,{Component, useState} from 'react';
-//import {Items, Items2, Items3, Items4} from './items'
-//import Modals from "./modal" 
+import {Items, Items2, Items3, Items4} from './items'
+import Modals from "./modal" 
 import Modal from 'react-modal';
 
-//import laptop from "../../pics/laptop.jpg";
+import laptop from "../../pics/laptop.jpg";
 import rating_icon from "../../pics/rating_icon.png";
 // import Modal from "./modal";
 

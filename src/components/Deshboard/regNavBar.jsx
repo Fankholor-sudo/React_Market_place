@@ -19,7 +19,7 @@ const Example = (props) => {
               <NavLink href="/Register"><span className="regNavBar">Register</span></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/OrderHistory"><span className="regNavBar">Orders</span></NavLink>
+              <NavLink href="#"><span className="regNavBar">Orders</span></NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret caret-color="warning">
