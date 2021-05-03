@@ -5,7 +5,6 @@ import Register from './components/LoginReg/Register';
 import LoginForm from './components/LoginReg/LoginForm';
 import LandingPage from './components/Deshboard/LandingPage'
 import Cart from './components/cart/Cart';
-
 import { BrowserRouter as Router, Switch, Route, withRouter} from "react-router-dom";
 
 
