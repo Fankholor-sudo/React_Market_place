@@ -14,6 +14,7 @@ body {
 .subDepartment a {
   text-decoration: none;
   color: #06042e;
+  font-size: 14px;
 }
 
 .category a:hover,
@@ -671,4 +672,87 @@ body {
 .icons {
   width: 2em;
   height: 2em;
+}
+
+/**********************************************Order History******************************************************************************/
+.orderBody{
+  display: flex;
+  margin: 0.5em;
+  background-color: rgb(235, 231, 231);
+}
+
+/* .orderBody .orders{
+  
+} */
+
+.orderBody .orders .order{
+  background-color:white;
+  width: 65vw;
+  min-width: 500px;
+  max-width: 900px;
+  margin: 2vh 5vh 5vh 5%;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px grey;
+  position: relative;
+}
+
+.order button{
+  background-color: white;
+  border-radius: 4px;
+  border-color: var(--blu);
+  border-style: solid;
+  border-width: 1px;
+  padding: 3px;
+  font-weight: 600;
+  position: absolute;
+  top: 10px;
+  right: 5px;
+}
+
+.order button:active{
+  background-color: #ffce2e;
+}
+
+.order .backtoSummary{
+  cursor: pointer;
+  font-size: 10;
+  text-decoration: underline;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 5px;
+}
+
+.order .backtoSummary:active{
+  background-color: #ffce2e;
+}
+
+
+.order img{
+  border-color: var(--blu);
+  border-style: solid;
+  border-width: 0.1px;
+  border-radius: 2px;
+  margin: 1px;
+}
+
+.orderBody .orders .order .details{
+  display: flex;
+  justify-content: space-between;
+  margin: 4px;
+  padding: 5px;
+}
+.orderBody .orders .order h6{
+  font-weight: bold;
+}
+
+.orderBody .orders h3 {
+  margin: 2vh 5vh 5vh 5%;
+  padding: 0px;
+}
+.orderBody .orders .order .values{
+  margin: 0px;
+  padding:4px 5vw;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
 }
