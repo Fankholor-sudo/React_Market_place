@@ -5,6 +5,8 @@ import Register from './components/LoginReg/Register';
 import LoginForm from './components/LoginReg/LoginForm';
 import LandingPage from './components/Deshboard/LandingPage'
 import Cart from './components/cart/Cart';
+import OrderHistory from './components/Deshboard/OrderHistory';
+
 import { BrowserRouter as Router, Switch, Route, withRouter} from "react-router-dom";
 
 
@@ -32,6 +34,10 @@ function App() {
     
         <Route path="/Cart" exact={true}>
               <Cart />
+        </Route>
+
+        <Route path="/OrderHistory" exact={true}>
+              <OrderHistory />
         </Route>
 
         </Switch>
