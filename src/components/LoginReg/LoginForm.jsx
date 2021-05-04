@@ -45,7 +45,7 @@ function LoginForm(props)
                 let formData = new FormData();
                 formData.append('email', state.email);
                 formData.append('password', state.password);
-                const url = 'https://lamp.ms.wits.ac.za/home/s1671848/market_place_login.php';
+                const url = 'https://lamp.ms.wits.ac.za/home/s2172765/market_place_login.php';
 
                 axios.post(url, formData)
                     .then(function (res) {

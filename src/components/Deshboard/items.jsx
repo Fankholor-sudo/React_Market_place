@@ -28,7 +28,7 @@ function Items2(){
     },[])
     
     return (
-        <div className="items">{items.map((item)=><ItemBox category="Daily deals" itemName={item.NAME} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION}></ItemBox>)}</div>
+        <div className="items">{items.slice(0,4).map((item)=><ItemBox category="Daily deals" itemName={item.NAME} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION}></ItemBox>)}</div>
          )
     }
  
@@ -43,7 +43,7 @@ function Items2(){
     getItems()
     },[])
     return (
-        <div className="items">{items.map((item)=><ItemBox category="Daily deals" itemName={item.NAME} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION} ></ItemBox>)}</div>
+        <div className="items">{items.slice(0,4).map((item)=><ItemBox category="Daily deals" itemName={item.NAME} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION} ></ItemBox>)}</div>
     )
     }
 

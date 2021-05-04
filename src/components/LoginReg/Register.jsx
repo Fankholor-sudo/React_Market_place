@@ -78,7 +78,7 @@ function Register(props)
                     formData.append('email', state.email);
                     formData.append('dateOfBirth', state.dateOfBirth);
                     formData.append('password', state.password);
-                    const url = 'https://lamp.ms.wits.ac.za/home/s1671848/market_place_register.php';
+                    const url = 'https://lamp.ms.wits.ac.za/home/s2172765/market_place_register.php';
 
                     axios.post(url, formData)
                         .then(function (res) {
