@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
-// import openModal from './itemBox';
-
-import laptop from "../../pics/laptop.jpg";
-// import rating_icon from "../pics/rating_icon.png";
 
 class Modals extends Component {
     itemName =this.props.itemName;

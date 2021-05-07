@@ -5,15 +5,7 @@ import axios from 'axios';
 
 function Items(){ 
     
-    return (
-    <div className="items">
-        <ItemBox category="Books" itemName = "Everything I Never Told" orgPrice="186" image="./images/everything.jpg" discount="" rating="0(0)"/>
-        <ItemBox category="Books" itemName="Rich Dad Poor Dad" orgPrice="159" image="./images/rich.jpeg" discount="" rating="0(0)"/>
-        <ItemBox category="Books" itemName="Think Again" orgPrice="299" image="./images/think.webp" discount="" rating="0(0)"/>
-        <ItemBox category="Books" itemName="The Alchemist" orgPrice="159" image="./images/alchemist.jpg" discount="" rating="0(0)"/>
-    </div>
-    )
-
+    return GetItems(3);
     }  
 function Items3(){    
     return GetItems(6)
@@ -60,7 +52,7 @@ function GetItems(dept_code){
     useEffect(()=>
     {
     const getItems= async () =>{
-        await axios.post("https://lamp.ms.wits.ac.za/home/s2172765/clothing.php", {ID: dept_code})
+        await axios.post("https://lamp.ms.wits.ac.za/home/s2172765/products.php", {ID: dept_code})
         .then(response => setItems(response.data))
         .catch(error => console.log(error))
     };

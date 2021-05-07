@@ -1,5 +1,4 @@
 import React from 'react';
-import Items from './items'
 function Containers(){
     return (
         <div>   
