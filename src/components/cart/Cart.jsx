@@ -6,16 +6,15 @@ import Empty from './Empty';
 import Tab from './Tab';
 
 function Cart(props) {
-
     return (
-        <div>
+        <div>    
             <Header />
             <div className="body">
                 <DepartmentsBar />
                 <div className="feed" >{/*style={{height: '700px', overflowY:'scroll'}}*/}
                     <div>
                         {/* display only when the cart is empty */}
-                        <Empty/> 
+                        <Empty/>
                         {/* creating a card as our building block */}
                         <Tab/>
                         {/* summary tab goes at the bottom of the list */}

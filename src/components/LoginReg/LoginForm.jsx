@@ -51,6 +51,9 @@ function LoginForm(props)
                     .then(function (res) {
                         var status = res.data[0].login_status;
 
+                        //////////------------set the details of the user-----------/////////
+                        localStorage.setItem("userDetails", JSON.stringify(res))
+
                         /////////-----Redirect to main page when login success-----/////////
                         status === 1 ? history.push('/LandingPage')
                             : setStateErr({

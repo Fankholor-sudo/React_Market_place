@@ -5,8 +5,7 @@ import { Form, Button, Col, Row, Alert } from 'react-bootstrap';
 import Header from './Header';
 import RegImgHolder from './RegImgHolder';
 
-function Register(props)
-{
+function Register(props) {
     const history = useHistory();
     const [state, setState] = useState({
         firstname: "",
@@ -64,14 +63,11 @@ function Register(props)
     const handleSubmit = async e => {
         e.preventDefault();
 
-      if (state.firstname !== undefined && state.lastname !== undefined && state.email !== undefined
-            && state.password !== undefined && state.comfirmPassword !== undefined && state.dateOfBirth !== undefined)
-        {
+        if (state.firstname !== undefined && state.lastname !== undefined && state.email !== undefined
+            && state.password !== undefined && state.comfirmPassword !== undefined && state.dateOfBirth !== undefined) {
             if (state.firstname.trim() && state.lastname.trim() && state.email.trim()
-                && state.password.trim() && state.comfirmPassword.trim() && state.dateOfBirth.trim())
-            {
-                if (state.password === state.comfirmPassword)
-                {
+                && state.password.trim() && state.comfirmPassword.trim() && state.dateOfBirth.trim()) {
+                if (state.password === state.comfirmPassword) {
                     let formData = new FormData();
                     formData.append('firstname', state.firstname);
                     formData.append('lastname', state.lastname);
@@ -84,6 +80,9 @@ function Register(props)
                         .then(function (res) {
                             var status = res.data[0].register_status;
 
+                            //////////------------set the details of the user-----------/////////
+                            localStorage.setItem("userDetails", JSON.stringify(res))
+                            
                             /////////-----Redirect to main page when login success-----/////////
                             status === '1' ? history.push('/LandingPage')
                                 : setStateErr({
@@ -92,19 +91,16 @@ function Register(props)
                         })
                         .catch((err) => { setStateErr({ error: err }) });
                 }
-                else
-                {
+                else {
                     setStateErr({ error: "Passwords do not match." });
                 }
             }
-            else
-            {
+            else {
                 setStateErr({ error: "Please make sure all fields are filled." });
             }
         }
-        else
-        {
-            setStateErr({error: "Please make sure all fields are filled." });
+        else {
+            setStateErr({ error: "Please make sure all fields are filled." });
         }
     }
 
@@ -175,7 +171,7 @@ function Register(props)
 
                         <Form.Group>
                             <Form.Label>Date of birth</Form.Label>
-                                <Form.Control
+                            <Form.Control
                                 name='Date of birth'
                                 type='date'
                                 style={{ background: '#ECF6F9' }}
@@ -183,7 +179,7 @@ function Register(props)
                             >
                             </Form.Control>
                         </Form.Group>
-                        
+
                         <Button
                             onClick={handleSubmit}
                             type='submit'
