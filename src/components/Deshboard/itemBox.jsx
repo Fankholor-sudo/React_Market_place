@@ -1,9 +1,5 @@
-import React,{Component, useState} from 'react';
-import {Items, Items2, Items3, Items4} from './items'
-import Modals from "./modal" 
+import React,{useState} from 'react';
 import Modal from 'react-modal';
-
-import laptop from "../../pics/laptop.jpg";
 import rating_icon from "../../pics/rating_icon.png";
 // import Modal from "./modal";
 
@@ -31,7 +27,7 @@ function ItemBox({image, itemName, orgPrice, rating, desc}){
 
                             <div className="item-info">
                                 <div className="modalImage"><img className="itemImage" src={image} alt="macbook air retina"/></div>
-                                <div className className="modal-itemName"><p>{itemName}</p></div>
+                                <div className="modal-itemName"><p>{itemName}</p></div>
                                 <p className="modalPrice">R {orgPrice}</p>
                                     {/* <span className="original-price">  was R {this.orgPrice} </span>
 
@@ -64,44 +60,3 @@ function ItemBox({image, itemName, orgPrice, rating, desc}){
             </div>;
 }
 export default ItemBox;
-
-
-
-
-
-
-
-
-// class ItemBox extends Component{
-    
-//     itemName =this.props.itemName;
-//     orgPrice =this.props.orgPrice;
-//     discount =this.props.discount;
-//     rating =this.props.rating;
-//     //itemPrice = orgPrice-((discount/100) * orgPrice);
-//     itemPrice = 11890000; //hardcoded for now
-//     // category = this.props.category;
-//     // category = true;
-//     image = this.props.image;
-//     mod = true;
-//     render(){
-//         // const [modalIsOpen, setModalIsOpen] = useState(false);
-        
-//         return  <div className="item-box">
-//                     <div className="itemImage" val = {this.modSauce}><img src={this.image} alt="macbook air retina"/></div>
-//                     <div className="item-name"><p>{this.itemName}</p></div>
-//                     <div className="price"><p>R {this.orgPrice}
-//                         {/* <span className="original-price">  was R {this.orgPrice} </span> */}
-//                     </p></div>
-//                     <div className="rating">
-//                         <img src={rating_icon} alt="rating"/>
-//                         <span>{this.rating}</span>
-//                     </div>
-//                 </div>;
-//                 // <Modal isOpen={modalIsOpen} />
-                
-//     }
-
-    
-    
-// }

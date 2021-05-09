@@ -1,7 +1,6 @@
 import React from 'react';
 import DepartmentsBar from "./departmentsBar"
 import {Items, Items2, Items3, Items4} from "./items";
-// import Category from "./category"
 
 function Body(){
     return(
