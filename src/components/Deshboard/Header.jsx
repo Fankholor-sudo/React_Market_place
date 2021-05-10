@@ -8,16 +8,9 @@ function Header() {
     return (
 
         <div className="parent">
-            <div className="logo"><img src="./images/LOGO.png" alt="App Logo" /></div>
+            <a href="LandingPage"><div className="logo"><img src="./images/LOGO.png" alt="App Logo" /></div></a>
 
             <div className="dropSearch">
-                {localStorage.getItem("userDetails") !== null ? (
-                    <div className="regNavBar">
-                        {console.log()}
-                        {JSON.parse(localStorage.getItem("userDetails")).data[0].firstname + " " + JSON.parse(localStorage.getItem("userDetails")).data[0].lastname}
-                    </div>
-
-                ) : ""}
                 <DropdownBtn />
                 <Search />
             </div>

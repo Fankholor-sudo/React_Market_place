@@ -18,6 +18,10 @@ function ItemBox({image, itemName, orgPrice, rating, desc}){
                     <span>{rating}</span>
                 </div>
 
+                <a href="#" ><div className="addcart">
+                    <img className="favIcon" src="./icons/addcart.svg" alt="cart" />
+                </div></a>
+
                 <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
                     <div className="modal-content">
                         <div className="new">
