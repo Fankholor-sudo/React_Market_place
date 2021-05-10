@@ -60,7 +60,7 @@ function GetItems(dept_code){
     },[dept_code])
     
     return (
-        <div className="items">{items.slice(0,4).map((item)=><ItemBox category="Daily deals" itemName={item.NAME} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION}></ItemBox>)}</div>
+        <div className="items">{items.slice(0,4).map((item)=><ItemBox category="Daily deals" itemName={item.NAME.slice(0,30)} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION}></ItemBox>)}</div>
          )
 }
 export {Items, Items2, Items3, Items4};
