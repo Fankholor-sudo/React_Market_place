@@ -13,10 +13,11 @@ function ItemBox({image, itemName, orgPrice, rating, desc}){
                 <div className="price"><p>R {orgPrice}
                     {/* <span className="original-price">  was R {this.orgPrice} </span> */}
                 </p></div>
-                <div className="rating">
+                {/* RATING */}
+                {/* <div className="rating">
                     <img src={rating_icon} alt="rating"/>
                     <span>{rating}</span>
-                </div>
+                </div> */}
 
                 <a href="#" ><div className="addcart">
                     <img className="favIcon" src="./icons/addcart.svg" alt="cart" />
