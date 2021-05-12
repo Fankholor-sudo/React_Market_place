@@ -2,12 +2,14 @@ import React from 'react';
 import Header from '../Deshboard/Header';
 import DepartmentsBar from '../Deshboard/departmentsBar';
 import { Row, Col } from 'react-bootstrap';
+import {useLocation } from 'react-router-dom';
 import Summary from './Summary';
 import Empty from './Empty';
 import Tab from './Tab';
 
 function Cart(props) {
 
+    const location = useLocation();
     var data = [
         {
             "name": "Ambrella",
@@ -35,6 +37,7 @@ function Cart(props) {
         },
     ];
 
+    const dt = location.state;
     return (
         <div>
             <Header />
@@ -43,7 +46,15 @@ function Cart(props) {
                     <Row>
                         <div style={{overflowY:'scroll', overflowX:'hidden', height:'38rem'}}>
                             {/* <Empty/>  */}
-                            <Tab name={data[0].name} price={data[0].price} itemNo={data[0].itemNo}
+                            {dt.map((d, key) => {
+                                return (
+                                    <div key={key}>
+                                        <Tab name={d.username} price={125.25} itemNo={Math.ceil(d.total_rating)}
+                                            desc={data[0].desc+d.skills + d.city} img={d.profile_pic}/>
+                                    </div>
+                                );
+                            })}
+                            {/* <Tab name={data[0].name} price={data[0].price} itemNo={data[0].itemNo}
                                 desc={data[0].desc} />
                             <Tab name={data[1].name} price={data[1].price} itemNo={data[1].itemNo}
                                 desc={data[1].desc} />
@@ -52,7 +63,7 @@ function Cart(props) {
                             <Tab name={data[1].name} price={data[1].price} itemNo={data[1].itemNo}
                                 desc={data[1].desc} />
                             <Tab name={data[2].name} price={data[2].price} itemNo={data[2].itemNo}
-                                desc={data[2].desc} />
+                                desc={data[2].desc} /> */}
                         </div>
                         {/* summary tab goes at the bottom of the list*/}
                         <Summary />
