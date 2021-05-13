@@ -15,7 +15,8 @@ class Modals extends Component {
         // var openModal = false;
         
         return (  
-            <Modal isOpen={true}>
+            <Modal isOpen={true} ariaHideApp={false}>
+                
                 <div className="modal-content">
                 <div className="new">
 
@@ -24,7 +25,7 @@ class Modals extends Component {
 
                     <div className="item-info">
                         <div className="modalImage"><img className="itemImage" src={this.image} alt="macbook air retina"/></div>
-                        <div className className="modal-itemName"><p>{this.itemName}</p></div>
+                        <div className="modal-itemName"><p>{this.itemName}</p></div>
                         <p className="modalPrice">R {this.orgPrice}</p>
                             {/* <span className="original-price">  was R {this.orgPrice} </span>
 

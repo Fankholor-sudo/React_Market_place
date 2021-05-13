@@ -1,16 +1,13 @@
 import React from 'react';
 import Header from '../Deshboard/Header';
-import DepartmentsBar from '../Deshboard/departmentsBar';
-import { Row, Col } from 'react-bootstrap';
-import {useLocation } from 'react-router-dom';
+import { Row} from 'react-bootstrap';
+
 import Summary from './Summary';
-import Empty from './Empty';
 import Tab from './Tab';
 
 function Cart(props) {
-
-    const location = useLocation();
-    var data = [
+    var data = JSON.parse(localStorage.getItem("CartItems"));  
+    /*[
         {
             "name": "Ambrella",
             "price": 120.90,
@@ -35,9 +32,7 @@ function Cart(props) {
             'desc': 'discreption of the product comes here. the length of the string that comes here may increase rhe sixe of the this tab',
             'itemNo': 1,
         },
-    ];
-
-    const dt = location.state;
+    ];*/
     return (
         <div>
             <Header />
@@ -45,19 +40,21 @@ function Cart(props) {
                 <div >
                     <Row>
                         <div style={{overflowY:'scroll', overflowX:'hidden', height:'38rem'}}>
-                            {/* <Empty/>  */}
-                            {dt.map((d, key) => {
-                                return (
-                                    <div key={key}>
-                                        <Tab name={d.username} price={125.25} itemNo={Math.ceil(d.total_rating)}
-                                            desc={data[0].desc+d.skills + d.city} img={d.profile_pic}/>
-                                    </div>
-                                );
-                            })}
+                        {data.map((data) => (
+                                <div>
+                                <Tab name={data.NAME} img={data.PICTURE} price={data.PRICE} itemNo={data.PRODUCT_ID}
+                                    desc={data.DESCRIPTION} />
+                                   
+                                </div>
+                        ))}
                             {/* <Tab name={data[0].name} price={data[0].price} itemNo={data[0].itemNo}
                                 desc={data[0].desc} />
+                                  <Tab name={data[0].NAME} price={data[0].PRICE} itemNo={data[0].PRODUCT_ID}
+                                    desc={data[0].DESCRIPTION} />
                             <Tab name={data[1].name} price={data[1].price} itemNo={data[1].itemNo}
                                 desc={data[1].desc} />
+                                   <Tab name={d.username} price={125.25} itemNo={Math.ceil(d.total_rating)}
+                                            desc={data[0].desc+d.skills + d.city} img={d.profile_pic}/>
                             <Tab name={data[2].name} price={data[2].price} itemNo={data[2].itemNo}
                                 desc={data[2].desc} />
                             <Tab name={data[1].name} price={data[1].price} itemNo={data[1].itemNo}
