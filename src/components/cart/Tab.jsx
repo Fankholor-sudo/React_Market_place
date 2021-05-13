@@ -13,7 +13,7 @@ function Tab({ name, price, desc, itemNo, img }) {
                 <div class="card-body" style={{margin: '-10px'}}>
                     <Row>
                         {/* './img/emptCartIcon.png' */}
-                        <Image src={"https://lamp.ms.wits.ac.za/home/s1671848/uploads/"+img} style={{ border: 'none', height: '100px', width: '100px', marginTop: '15px', marginLeft: '15px' }} />
+                        <Image src={img} style={{ border: 'none', height: '100px', width: '100px', marginTop: '15px', marginLeft: '15px' }} />
                         <Col style={{marginLeft: '0px' }}>
                             <h4 class="card-title">{name}</h4>
                             <div style={{ width: '24rem', marginTop: '2%'}}>
@@ -43,8 +43,9 @@ function Tab({ name, price, desc, itemNo, img }) {
                         </Col>
                         <Col>
                             <h4 style={{marginLeft: '20px'}}>R{price}</h4>
-                            <Button
+                            <Button 
                                 style={{ background: '#06042E', width: '7rem', marginTop: '25px', marginLeft: '20px' }}
+    
                             >
                                 Remove
                             </Button>
