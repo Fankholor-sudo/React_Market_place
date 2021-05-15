@@ -1,6 +1,6 @@
 import React from 'react';
 import DepartmentsBar from "./departmentsBar"
-import {Items, Items2, Items3, Items4} from "./items";
+import {Items, Items2, Items3} from "./items";
 
 function Body(){
     return(
@@ -42,7 +42,7 @@ function Body(){
                     <button href="#">View More</button>
                 </div>
 
-                <Items4 />
+                <Items3 />
             </div> 
 
         </div>

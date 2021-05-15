@@ -16,7 +16,7 @@ function Items2(){
  }
 
 
-function Items4(){    
+/*function Items4(){    
         return(
                 <div className="items">
                     <ItemBox category="Daily deals" itemName="PVP Game Console" orgPrice="270" image="./images/pvp.jpg" discount="" rating="0(0)"/>
@@ -45,7 +45,7 @@ Cosmetic Condition: CPO - Grade B- Device is in excellent condition. Keys A and 
 . 20+ inspection done on all devices and is fully functional"/>
                 </div>
         );
-    }
+    }*/
 function GetItems(dept_code){
     const [items, setItems]= useState([])
     
@@ -60,7 +60,7 @@ function GetItems(dept_code){
     },[dept_code])
     
     return (
-        <div className="items">{items.slice(0,4).map((item)=><ItemBox category="Daily deals" itemName={item.NAME.slice(0,30)} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION}></ItemBox>)}</div>
+        <div className="items">{items.slice(0,4).map((item, index)=><ItemBox category="Daily deals" key={index} itemName={item.NAME.slice(0,30)} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION}></ItemBox>)}</div>
          )
 }
-export {Items, Items2, Items3, Items4};
+export {Items, Items2, Items3};
