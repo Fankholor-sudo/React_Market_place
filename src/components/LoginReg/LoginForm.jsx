@@ -78,6 +78,8 @@ function LoginForm(props)
             <Row>
                 <Col>
                     <div>
+                        {console.log(JSON.parse(localStorage.getItem("userDetails")))}
+                        {localStorage.removeItem("loginDetails")}
                         <Form style={{ width: '90%', marginLeft: '5%', marginTop: '20%' }}>
                             {(stateErr.error !== "" && stateErr.error !== undefined) ? (<div><Alert variant='danger'>{stateErr.error}</Alert></div>):""}
                             <Form.Group>

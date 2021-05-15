@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../Deshboard/Header';
-import DepartmentsBar from '../Deshboard/departmentsBar';
 import { Row, Col } from 'react-bootstrap';
 import {useLocation } from 'react-router-dom';
 import Summary from './Summary';
@@ -45,7 +44,6 @@ function Cart(props) {
                 <div >
                     <Row>
                         <div style={{overflowY:'scroll', overflowX:'hidden', height:'38rem'}}>
-                            {/* <Empty/>  */}
                             {dt.map((d, key) => {
                                 return (
                                     <div key={key}>
@@ -54,16 +52,8 @@ function Cart(props) {
                                     </div>
                                 );
                             })}
-                            {/* <Tab name={data[0].name} price={data[0].price} itemNo={data[0].itemNo}
-                                desc={data[0].desc} />
-                            <Tab name={data[1].name} price={data[1].price} itemNo={data[1].itemNo}
-                                desc={data[1].desc} />
-                            <Tab name={data[2].name} price={data[2].price} itemNo={data[2].itemNo}
-                                desc={data[2].desc} />
-                            <Tab name={data[1].name} price={data[1].price} itemNo={data[1].itemNo}
-                                desc={data[1].desc} />
-                            <Tab name={data[2].name} price={data[2].price} itemNo={data[2].itemNo}
-                                desc={data[2].desc} /> */}
+                             
+
                         </div>
                         {/* summary tab goes at the bottom of the list*/}
                         <Summary />

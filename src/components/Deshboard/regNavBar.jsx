@@ -10,8 +10,7 @@ const Example = (props) => {
 
   const history = useHistory();
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = () => {
     localStorage.removeItem("userDetails");
     history.push('/LoginForm')
   }
@@ -46,7 +45,9 @@ const Example = (props) => {
                       <span className="regNavBar">
                       {localStorage.getItem("userDetails") !== null ? (
                     <div className="regNavBar">
-                        {console.log()}
+
+                        
+
                         {"Hi, " + JSON.parse(localStorage.getItem("userDetails")).data[0].firstname + " " + JSON.parse(localStorage.getItem("userDetails")).data[0].lastname}
                     </div>
 
