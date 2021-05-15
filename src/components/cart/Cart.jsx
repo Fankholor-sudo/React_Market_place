@@ -23,9 +23,9 @@ function Cart() {
                 <div >
                     <Row>
                         <div style={{overflowY:'scroll', overflowX:'hidden', height:'38rem'}}>
-                        {CartItems.map((data) => (
-                                <div>
-                                <Tab name={data.NAME} img={data.PICTURE} price={data.PRICE} itemNo={data.PRODUCT_ID}
+                        {CartItems.map((data, key) => (
+                                <div key={key}>
+                                <Tab name={data.NAME} img={data.PICTURE} price={data.PRICE} itemNo={0}
                                     desc={data.DESCRIPTION} />
                                    
                                 </div>

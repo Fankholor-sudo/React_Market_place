@@ -10,10 +10,11 @@ const Example = (props) => {
 
   const history = useHistory();
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
     localStorage.removeItem("userDetails");
-    history.push('/LoginForm')
-  }
+    history.push('/LoginForm');
+  } 
 
   return (
     <div>
