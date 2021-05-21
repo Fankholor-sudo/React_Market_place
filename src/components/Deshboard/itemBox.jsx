@@ -1,38 +1,42 @@
 import React,{useState} from 'react';
 import Modal from 'react-modal';
 
-const addCartItems = ({image, itemName, orgPrice, desc, index}) => {
-     var item;
-    if(JSON.parse(localStorage.getItem("CartItems"))=== null){
-        item = [{
-            "PICTURE": image,
-            "NAME": itemName,
-            "PRICE": orgPrice,
-            "DESCRIPTION": desc,
-            "KEY": index
-        }]
-        localStorage.setItem("CartItems", JSON.stringify(item))
-    }
-    else{
-        item = {
-            "PICTURE": image,
-            "NAME": itemName,
-            "PRICE": orgPrice,
-            "DESCRIPTION": desc,
-            "KEY": index
-        }
-        var storedItems = JSON.parse(localStorage.getItem("CartItems"));
-        storedItems.push(item);;
-        localStorage.setItem("CartItems", JSON.stringify(storedItems));
-    }
-}
 
     function ItemBox({image, itemName, orgPrice, index, desc}){
    
         const [modalIsOpen, setModalIsOpen] = useState(false);
+
+        const addCartItems = () => {
+            var item;
+            setModalIsOpen(false);
+
+           if(JSON.parse(localStorage.getItem("CartItems"))=== null){
+               item = [{
+                   "PICTURE": image,
+                   "NAME": itemName,
+                   "PRICE": orgPrice,
+                   "DESCRIPTION": desc,
+                   "KEY": index
+               }]
+               localStorage.setItem("CartItems", JSON.stringify(item))
+           }
+           else{
+               item = {
+                   "PICTURE": image,
+                   "NAME": itemName,
+                   "PRICE": orgPrice,
+                   "DESCRIPTION": desc,
+                   "KEY": index
+               }
+               var storedItems = JSON.parse(localStorage.getItem("CartItems"));
+               storedItems.push(item);;
+               localStorage.setItem("CartItems", JSON.stringify(storedItems));
+           }
+       }
+       
         
-        return  <div className="item-box" onClick={() => setModalIsOpen(true)}>
-                    <div className="itemImage" key={index}><img src={image} alt="Not Available"/></div>
+        return  <div className="item-box" >
+                    <a href="#"><div className="itemImage" onClick={() => setModalIsOpen(true)} key={index}><img src={image} alt="Not Available"/></div></a>
                     <div className="item-name"><p>{itemName}</p></div>
                     <div className="price"><p>R {orgPrice}
                         {/* <span className="original-price">  was R {this.orgPrice} </span> */}
@@ -51,7 +55,7 @@ const addCartItems = ({image, itemName, orgPrice, desc, index}) => {
                         <div className="modal-content">
                             <div className="new">
     
-                                {/* <div className="closeModal" onClick={() => setModalIsOpen(false)}><span id="close">&times;</span></div> */}
+                                <div className="closeModal" onClick={() => setModalIsOpen(false)}><a href="#"><img src="./icons/close.png" id="close"/></a></div>
                                 {/* <div className="modal-discount-tag">35% off</div> */}
     
                                 <div className="item-info">
@@ -65,7 +69,7 @@ const addCartItems = ({image, itemName, orgPrice, desc, index}) => {
                                         <span>{this.rating}</span>
                                     </div> */}
                                     <div>
-                                    <button onClick={() => setModalIsOpen(false)}>&#43; Add to Cart</button>
+                                    <button onClick={() => addCartItems({image, itemName, orgPrice, desc, index})}>&#43; Add to Cart</button>
     
                                     </div>
                                     
