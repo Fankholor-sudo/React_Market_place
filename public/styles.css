@@ -241,6 +241,36 @@ body {
   margin: 0%;
 }
 
+.arrow {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform ease-in .1s;
+}
+
+.arrow:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.nextArrow {
+  position: absolute;
+  top: 80%;
+  right: 0%;
+  z-index: 999;
+  color: rgb(0, 0, 0);
+}
+
+.backArrow {
+  position: absolute;
+  top: 80%;
+  left: 5% ;
+  z-index: 999;
+  color: rgb(0, 0, 0);
+}
+
 .addcart {
   border-radius: 100%;
   background-color: #ffff;
@@ -320,17 +350,33 @@ body {
   height: 600px;
 }
 .modalImage {
-  width: 25em;
-  height: 25em;
-  margin: 10px 0 10px 20px;
-  display: flex;
+  width: 300px;
+  height: 300px;
+  margin: 5px 0 0 0;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
   justify-content: center;
   align-items: center;
 }
 
 .modalImage img {
+  display: inline-block;
   width: 100%;
   height: 100%;
+}
+
+.modalImage-wrap{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .item-info {
