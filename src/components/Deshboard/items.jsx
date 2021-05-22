@@ -15,6 +15,9 @@ function Items2(){
     return GetItems(1);   
  }
 
+ function Items5(){    
+    return GetItems(8);   
+ }
 
 /*function Items4(){    
         return(
@@ -63,4 +66,4 @@ function GetItems(dept_code){
         <div className="items">{items.slice(0,4).map((item, index)=><ItemBox category="Daily deals" key={index} itemName={item.NAME.slice(0,30)} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION}></ItemBox>)}</div>
          )
 }
-export {Items, Items2, Items3};
+export {Items, Items2, Items3, Items5};
