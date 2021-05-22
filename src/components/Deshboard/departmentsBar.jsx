@@ -12,8 +12,6 @@ const DepartmentsBar = () => {
         <div className="departments">
             <h3 className="departmentHeading">Departments</h3>
 
-            {/* <ul className="departmentItems" > */}
-
             <div>
                 <Navbar light expand="md" >
                     <NavbarToggler onClick={toggle}  />
