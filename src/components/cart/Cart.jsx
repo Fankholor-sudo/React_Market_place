@@ -26,7 +26,7 @@ function Cart() {
                         <div style={{overflowY:'scroll', overflowX:'hidden', height:'38rem'}}>
                         {CartItems.map((data, key) => (
                                 <div key={key}>
-                                {removed?(<Tab name={data.NAME} img={data.PICTURE} price={data.PRICE} itemNo={0}
+                                {!removed?(<Tab name={data.NAME} img={data.PICTURE} price={data.PRICE} itemNo={0}
                                     desc={data.DESCRIPTION} setDisplay={setDisplay} />)
                                    :null}
                                 </div>
