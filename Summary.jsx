@@ -1,30 +1,99 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col, Card} from 'react-bootstrap';
 import Modal from 'react-modal';
+import axios from 'axios';
 
 function Summary() {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [state, setState] = useState({
+        street: "",
+        surburb: "",
+        city: "",
+        country: "",
+    })
+    
+    let [numberOfItems, setNumberOfItems] = useState(0);
+    let [totalPrice,setTotalPrice] =useState(0);
 
-    const handleConfirmPurchase=()=>{
-        alert("Your has been successfully received. More info will be communicated via email");
-        localStorage.removeItem('CartItems');
+    let [email,setEmail] = useState('');
+    let [order,setOrder] = useState('');
+
+    //checking if user is logged in 
+    const user = JSON.parse(localStorage.getItem('userDetails'));
+    const isLoggedIn =() =>{
+        try{return [user['data'][0]['login_status'], user['data'][0]['email']];}
+        catch(e){
+            return 'Please Login to complete the purchase'
+        }
     }
 
-    // const handleNumberOfItems=(number)=>{
-    //     var numberHtml = document.getElementById('numberOfItems');
-    //     numberHtml.innerHTML = number;
-    // }
+    const handleStreet = async e => {
+        setState(prevState => ({
+            ...prevState,
+            street: e.target.value,
+        }))
+    }
+    const handleSurburb = async e => {
+        setState(prevState => ({
+            ...prevState,
+            surburb: e.target.value
+        }))
+    }
 
-    
+    const handleCity = async e => {
+        setState(prevState => ({
+            ...prevState,
+            city: e.target.value,
+        }))
+    }
+    const handleCountry = async e => {
+        setState(prevState => ({
+            ...prevState,
+            country: e.target.value,
+        }))
+    }
+
+    const handleNumberOfItems=()=>{
+        let cartItems = JSON.parse(localStorage.getItem('CartItems'));
+        setNumberOfItems(cartItems.length);
+    }
+    setInterval(handleNumberOfItems,1000)//to continually count the number of items cart
+
 
     const handleOrder=()=>{
         setModalIsOpen(true); 
         let cartItems = JSON.parse(localStorage.getItem('CartItems'));
-        console.log('cart items number is '+ cartItems.length);
-        
-        // setInterval(handleNumberOfItems(cartItems.length),100);
+        cartItems.forEach((item)=>{
+            setTotalPrice( totalPrice += Number(item.PRICE));
+        })
+
+        let userInfo = isLoggedIn();
+        if(userInfo[0] !== 1){
+            window.open("http://localhost:3000/LoginForm","_self"); //need to login to complete the purchase
+        }
+
+        else{
+            setEmail(userInfo[1]); 
+            setOrder(JSON.stringify(cartItems));
+        }
     };
+
+/***************THE HANDLE CONFIRM PURCHASE FUNCTION HAS NOT BEEN TESTED BECAUSE AT THE TIME OF COMMITTING THIS FILE, THE DATABASE WAS KINDA CRASHED************/
+    const handleConfirmPurchase=()=>{
+        //send email and order items
+
+        const SaveOrder=(mail, ordr, deliveryAddress) =>{
+            axios.post(`https://lamp.ms.wits.ac.za/home/s2172765/insertOrders.php?userEmail=${mail}&order=${ordr}&deliveryAddress=${deliveryAddress}`);
+        };
+
+        let deliveryaddress = `${state.street}, ${state.surburb}, ${state.city}, ${state.country}`;
+        SaveOrder(email,order,deliveryaddress);
+
+        alert("Your order has been successfully received. More info will be communicated via email");
+        localStorage.removeItem('CartItems');
+        window.open("http://localhost:3000/","_self");
+    }  
     
     return (
         <div>
@@ -37,7 +106,7 @@ function Summary() {
                     <br/>
                     <Col>
                         <div style={{ marginLeft: '-1rem',marginBottom:'10px' }}>
-                            <h6 className="card-subtitle" >Number of Items: </h6><span id="numberOfItems">26</span>
+                            <h6 className="card-subtitle" >Number of Items: </h6><span id="numberOfItems">{numberOfItems}</span>
                         </div>
                         {/* <div style={{marginLeft: '-1rem'}}>
                             <h6 className="card-subtitle" >Address :</h6>
@@ -66,7 +135,7 @@ function Summary() {
             </Card>
 
             <Modal id="shipping-modal" isOpen={modalIsOpen}>
-                <p id="close" onClick={()=>setModalIsOpen(false)} style={{cursor: 'pointer'}}>X</p>
+                <p id="close" onClick={()=>{setModalIsOpen(false); setTotalPrice(0)}} style={{cursor: 'pointer'}}>X</p>
                 
                 <div className="shipping-details">
                     <h2>Shipping Details</h2>
@@ -80,7 +149,7 @@ function Summary() {
                                 style={{ background: '#ECF6F9' }}
                                 placeholder='Enter your street'
                                 required
-                                // onChange={handleFirstName}
+                                onChange={handleStreet}
                             />
                         </Form.Group>
                         <Form.Group>
@@ -91,7 +160,7 @@ function Summary() {
                                 style={{ background: '#ECF6F9' }}
                                 placeholder='Enter your surburb'
                                 required
-                                // onChange={handleLastName}
+                                onChange={handleSurburb}
                             />
                         </Form.Group>
 
@@ -103,7 +172,7 @@ function Summary() {
                                 style={{ background: '#ECF6F9' }}
                                 placeholder='Enter your city'
                                 required
-                                // onChange={handleEmail}
+                                onChange={handleCity}
                             />
                         </Form.Group>
 
@@ -113,9 +182,9 @@ function Summary() {
                                 name="country"
                                 type='firstname'
                                 style={{ background: '#ECF6F9' }}
-                                placeholder='Enter your city'
+                                placeholder='Enter your country'
                                 required
-                                // onChange={handlePassword}
+                                onChange={handleCountry}
                             />
                         </Form.Group>
                        
@@ -125,15 +194,15 @@ function Summary() {
                         <h5>Order Summary</h5>
                         <div className="summary">
                             <div class="desc">
-                                <p>(number of items in cart)</p>
+                                <p>{numberOfItems} unique items</p>
                                 <p>Delivery</p>
                             </div>
                             <div className="amount">
-                                <p>(R price)</p>
-                                <p>(Delivery fee)</p>
+                                <p>R {totalPrice}</p>
+                                <p>Free</p>
                             </div>
                         </div>
-                        <p id="change" onClick={()=> setModalIsOpen(false)}>change</p>
+                        <p id="change" onClick={()=> {setModalIsOpen(false); setTotalPrice(0)}}>change</p>
                     </div>
 
                     <div className="confirm">
