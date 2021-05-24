@@ -30,7 +30,7 @@ class OrderBox extends Component{
                     <p>Signed by: {this.props.customerName}</p>
                     <span className="orderImages">
                         <img src={this.props.image} alt="{order pictures}" width="100px"/>
-                        <img src={laptop} alt="{order pictures}" width="100px"/>
+                        {/* <img src={laptop} alt="{order pictures}" width="100px"/> */}
                     </span>
                 </div>;
     }
