@@ -91,7 +91,7 @@ import 'font-awesome/css/font-awesome.min.css';
                     <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
                         <div className="modal-content">
                             <div className="new">
-    
+                                
                                 <div className="closeModal" onClick={() => setModalIsOpen(false)}><a href="#"><img src="./icons/close.png" id="close"/></a></div>
 
                                 <div className="item-info">

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import DepartmentsBar from "./departmentsBar"
-import {Items, Items2, Items3, Items5} from "./items";
+import {Items, Items2, Items3, Items4, Items5} from "./items";
 
 function departmentCode(num){
     return num;
@@ -50,17 +50,17 @@ function Body(){
                     <a href='/viewMore'><button onClick={()=>setDeptCode(8)}>View More</button></a>
                 </div>
 
-                <Items5 />
+                <Items4 />
             </div> 
 
             <div className="feedCategories">
                 <div className="titlebtn">
-                    <h2 id="computer">Gaming</h2>
-                    <a href='/viewMore'><button onClick={()=>setDeptCode(6)}>View More</button></a>
+                    <h2 id="computer">Sport & Training</h2>
+                    <a href='/viewMore'><button onClick={()=>setDeptCode(10)}>View More</button></a>
                 </div>
 
-                <Items3 />
-            </div> 
+                <Items5 />
+            </div>
 
         </div>
 
