@@ -5,8 +5,11 @@ import { Collapse, Navbar, NavbarToggler, Nav, UncontrolledDropdown, DropdownTog
 const DepartmentsBar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
-
     const toggle = () => setIsOpen(!isOpen);
+
+    const [deptCode, setDeptCode]= useState();
+    sessionStorage.setItem('SubdeptCode', deptCode);
+    // sessionStorage.setItem('deptCode', deptCode);
 
     return (
         <div className="departments">
@@ -30,14 +33,17 @@ const DepartmentsBar = () => {
                                     <div className="depDroplist"  >
                                         
                                         <DropdownMenu left color="primary" >
-                                            <DropdownItem  >
-                                            <a href="#">Fiction</a>
-                                            {/* Fiction */}
+                                            
+                                            {/* <DropdownItem  onClick={()=>setDeptCode(3)}>
+                                            <a href="/viewMore">All Books</a>
+                                            </DropdownItem> */}
+
+                                            <DropdownItem  onClick={()=>setDeptCode(104)}>
+                                            <a href="/subDepartments">Fiction</a>
                                             </DropdownItem>
 
-                                            <DropdownItem>
-                                            <a href="#">Non Fiction</a>
-                                            
+                                            <DropdownItem  onClick={()=>setDeptCode(103)}>
+                                            <a href="/subDepartments">Non Fiction</a>
                                             </DropdownItem>
 
                                             <DropdownItem>
@@ -84,45 +90,38 @@ const DepartmentsBar = () => {
                                 <UncontrolledDropdown nav inNavbar >
 
                                     <DropdownToggle nav caret caret-color="warning" >
-                                        <span class="department">Clothing & Bags</span>
+                                        <span class="department">Clothing</span>
                                     </DropdownToggle>
 
 
                                     <div className="depDroplist"  >
                                         <DropdownMenu left color="primary">
-                                            <DropdownItem>
-                                            <a href="#">All Fashion</a>
-                                            
+                                            <DropdownItem onClick={()=>setDeptCode(6)}>
+                                                <a href="/viewMore">All Fashion</a>
                                             </DropdownItem>
 
-                                            <DropdownItem>
-                                            <a href="#">Men</a>
-                                            
+                                            <DropdownItem  onClick={()=>setDeptCode(109)}>
+                                                <a href="/subDepartments">Men</a>
                                             </DropdownItem>
 
-                                            <DropdownItem>
-                                            <a href="#">Women</a>
-                                            
+                                            <DropdownItem  onClick={()=>setDeptCode(111)}>
+                                                <a href="/subDepartments">Women</a>
                                             </DropdownItem>
 
-                                            <DropdownItem>
-                                            <a href="#">Kids</a>
-                                            
+                                            <DropdownItem  onClick={()=>setDeptCode(110)}>
+                                                <a href="/subDepartments">Kids</a>
                                             </DropdownItem>
 
-                                            <DropdownItem >
-                                            <a href="#">Watches</a>
-                                            
+                                            <DropdownItem  onClick={()=>setDeptCode(129)}>
+                                                <a href="/subDepartments">Eyewear</a>
                                             </DropdownItem>
 
-                                            <DropdownItem >
-                                            <a href="#">Eyewear</a>
-                                               
+                                            <DropdownItem  onClick={()=>setDeptCode(131)}>
+                                                <a href="/subDepartments">Footwear</a>
                                             </DropdownItem>
 
-                                            <DropdownItem >
-                                            <a href="#">Footwear</a>
-                                            
+                                            <DropdownItem  onClick={()=>setDeptCode(128)}>
+                                                <a href="/subDepartments">Watches</a>
                                             </DropdownItem>
 
                                             <DropdownItem >
@@ -160,13 +159,21 @@ const DepartmentsBar = () => {
 
                                         <div className="depDroplist"  >
                                             <DropdownMenu left color="primary">
-                                                <DropdownItem>
-                                                <a href="#">Desktop</a>
-                                                
+
+                                                <DropdownItem  onClick={()=>setDeptCode(100)}>
+                                                    <a href="/subDepartments">Laptops</a>
+                                                </DropdownItem>
+
+                                                <DropdownItem  onClick={()=>setDeptCode(112)}>
+                                                    <a href="/subDepartments">Phones</a>
+                                                </DropdownItem>
+
+                                                <DropdownItem  onClick={()=>setDeptCode(121)}>
+                                                    <a href="/subDepartments">Monitors</a>
                                                 </DropdownItem>
 
                                                 <DropdownItem>
-                                                <a href="#">Monitors</a>
+                                                <a href="#">Desktop</a>
                                                 
                                                 </DropdownItem>
 
@@ -177,12 +184,6 @@ const DepartmentsBar = () => {
 
                                                 <DropdownItem>
                                                 <a href="#">Computer Accessories</a>
-                                                
-                                                
-                                                </DropdownItem>
-
-                                                <DropdownItem >
-                                                <a href="#">Laptops</a>
                                                 
                                                 
                                                 </DropdownItem>
@@ -243,24 +244,39 @@ const DepartmentsBar = () => {
                                     <UncontrolledDropdown nav inNavbar >
 
                                         <DropdownToggle nav caret caret-color="warning" >
-                                            <span class="department">Healthy & Hygiene</span>
+                                            <span class="department">Health & Hygiene</span>
                                         </DropdownToggle>
 
 
                                         <div className="depDroplist"  >
                                             <DropdownMenu left color="primary">
+
+                                                <DropdownItem  onClick={()=>setDeptCode(118)}>
+                                                    <a href="/subDepartments">Toiletries</a>
+                                                </DropdownItem>
+
+                                                <DropdownItem  onClick={()=>setDeptCode(114)}>
+                                                    <a href="/subDepartments">Sanitize & First Aid</a>
+                                                </DropdownItem>
+
+                                                <DropdownItem  onClick={()=>setDeptCode(119)}>
+                                                    <a href="/subDepartments">Bathroom</a>
+                                                </DropdownItem>
+
+                                                <DropdownItem  onClick={()=>setDeptCode(120)}>
+                                                    <a href="/subDepartments">Dental Hygiene</a>
+                                                </DropdownItem>
+
+                                                <DropdownItem  onClick={()=>setDeptCode(116)}>
+                                                    <a href="/subDepartments">Body Hygiene</a>
+                                                </DropdownItem>
+
+                                                <DropdownItem  onClick={()=>setDeptCode(115)}>
+                                                    <a href="/subDepartments">Shaving/Grooming</a>
+                                                </DropdownItem>
+
                                                 <DropdownItem>
                                                 <a href="#">Health Care</a>
-                                                
-                                                </DropdownItem>
-
-                                                <DropdownItem>
-                                                <a href="#">Toiletries</a>
-                                                
-                                                </DropdownItem>
-
-                                                <DropdownItem>
-                                                <a href="#">Sanitize & First Aid</a>
                                                 
                                                 </DropdownItem>
 
@@ -293,7 +309,7 @@ const DepartmentsBar = () => {
                             </Nav>
                         </Collapse>
                     </Navbar>
-                </div>
+                </div> 
 
 
                 <div>
@@ -316,14 +332,33 @@ const DepartmentsBar = () => {
                                                 <a href="#">All Sport</a>
                                                 
                                                 </DropdownItem>
-
-                                                <DropdownItem>
-                                                <a href="#">Individual Sports</a>
                                                 
+                                                <DropdownItem  onClick={()=>setDeptCode(124)}>
+                                                    <a href="/subDepartments">Cycling</a>
+                                                </DropdownItem>
+
+                                                <DropdownItem  onClick={()=>setDeptCode(122)}>
+                                                    <a href="/subDepartments">Gym Equipment</a>
+                                                </DropdownItem>
+
+                                                <DropdownItem  onClick={()=>setDeptCode(127)}>
+                                                    <a href="/subDepartments">Sport Equipment</a>
+                                                </DropdownItem>
+                                                
+                                                <DropdownItem  onClick={()=>setDeptCode(125)}>
+                                                    <a href="/subDepartments">Sports Nutrition</a>
+                                                </DropdownItem>
+
+                                                <DropdownItem  onClick={()=>setDeptCode(126)}>
+                                                    <a href="/subDepartments">Sports Clothing</a>
+                                                </DropdownItem>
+
+                                                <DropdownItem  onClick={()=>setDeptCode(123)}>
+                                                    <a href="/subDepartments">Yoga</a>
                                                 </DropdownItem>
 
                                                 <DropdownItem>
-                                                <a href="#">Cycling</a>
+                                                <a href="#">Individual Sports</a>
                                                 
                                                 </DropdownItem>
 
@@ -345,22 +380,12 @@ const DepartmentsBar = () => {
                                                 </DropdownItem>
 
                                                 <DropdownItem >
-                                                <a href="#">Gym Equipment</a>
-                                                
-                                                </DropdownItem>
-
-                                                <DropdownItem >
                                                 <a href="#">Treadmills & Bikes</a>
                                                 
                                                 </DropdownItem>
 
                                                 <DropdownItem >
                                                 <a href="#">Dumbbells</a>
-                                                
-                                                </DropdownItem>
-
-                                                <DropdownItem >
-                                                <a href="#">Yoga</a>
                                                 
                                                 </DropdownItem>
 
@@ -375,19 +400,10 @@ const DepartmentsBar = () => {
                                                 </DropdownItem>
 
                                                 <DropdownItem >
-                                                <a href="#">Sports Nutrition</a>
-                                                
-                                                </DropdownItem>
-
-                                                <DropdownItem >
                                                 <a href="#">Sport Wearable Tech</a>
                                                 
                                                 </DropdownItem>
 
-                                                <DropdownItem >
-                                                <a href="#">Sports Clothing</a>
-                                                
-                                                </DropdownItem>
 
                                             </DropdownMenu>
                                         </div>

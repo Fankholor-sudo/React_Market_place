@@ -2,33 +2,31 @@ import React,{useState} from 'react'
 import { Button, Row, Col, Card } from 'react-bootstrap';
 import { Image } from 'react-bootstrap';
 
-function Tab({ name, price, desc, itemNo, img , setDisplay}) {
+function Tab({ name, price, desc, itemNo, img , setDisplay, index}) {
     const prices = Number(price)
-    // const [removed, setRemoved] = useState(false)
     const [numItem,setNumItem] = useState({
-        value: 1,
+        value: 1
+    })
+    const [priceItem, setPriceItem] = useState({
         price: prices
     })
 
-    // const remove = (e) =>{
-    //     e.preventDefault()
-    //     setRemoved(true)
-    // }
-
     const increment = (e) =>{
-        console.log(numItem.price)
         setNumItem({
-            value: numItem.value + 1,
-            price: numItem.price + prices
+            value: numItem.value + 1
+        })
+        setPriceItem({
+            price: priceItem.price + prices
         })
     }
 
     const decrement = (e) =>{
-        console.log(numItem.price)
         if(numItem.value > 1){
             setNumItem({
-                value: numItem.value - 1,
-                price: numItem.price - prices
+                value: numItem.value - 1
+            })
+            setPriceItem({
+                price: priceItem.price - prices
             })
         }
     }
@@ -42,7 +40,6 @@ function Tab({ name, price, desc, itemNo, img , setDisplay}) {
             }}>
                 <div className="card-body" style={{margin: '-10px'}}>
                     <Row>
-                        {/* './img/emptCartIcon.png' */}
                         <Image src={img} style={{ border: 'none', height: '100px', width: '100px', marginTop: '15px', marginLeft: '15px' }} />
                         <Col style={{marginLeft: '0px' }}>
                             <h4 className="card-title">{name}</h4>
@@ -74,9 +71,9 @@ function Tab({ name, price, desc, itemNo, img , setDisplay}) {
                             </div>
                         </Col>
                         <Col>
-                            <h4 style={{marginLeft: '20px'}}>R{numItem.price}</h4>
+                            <h4 style={{marginLeft: '20px'}}>R{priceItem.price}</h4>
                             <Button 
-                                onClick={()=>setDisplay(true)}
+                                onClick={()=>setDisplay({idx:index})}
                                 style={{ background: '#06042E', width: '7rem', marginTop: '25px', marginLeft: '20px' }}>
                                 Remove
                             </Button>
