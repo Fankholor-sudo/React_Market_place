@@ -79,10 +79,9 @@ function Summary() {
         }
     };
 
-/***************THE HANDLE CONFIRM PURCHASE FUNCTION HAS NOT BEEN TESTED BECAUSE AT THE TIME OF COMMITTING THIS FILE, THE DATABASE WAS KINDA CRASHED************/
+/*************THE HANDLE CONFIRM PURCHASE FUNCTION HAS NOT BEEN TESTED BECAUSE AT THE TIME OF COMMITTING THIS FILE, THE DATABASE WAS KINDA CRASHED************/
     const handleConfirmPurchase=()=>{
         //send email and order items
-
         const SaveOrder=(mail, ordr, deliveryAddress) =>{
             axios.post(`https://lamp.ms.wits.ac.za/home/s2172765/insertOrders.php?userEmail=${mail}&order=${ordr}&deliveryAddress=${deliveryAddress}`);
         };
@@ -108,15 +107,6 @@ function Summary() {
                         <div style={{ marginLeft: '-1rem',marginBottom:'10px' }}>
                             <h6 className="card-subtitle" >Number of Items: </h6><span id="numberOfItems">{numberOfItems}</span>
                         </div>
-                        {/* <div style={{marginLeft: '-1rem'}}>
-                            <h6 className="card-subtitle" >Address :</h6>
-                            <span><p>Adress to ship the product to the user
-                            have to provide one everytime the make an order,
-                            and should always make sure that their address is correct.
-                            Adress to ship the product to the user
-                            have to provide one everytime the make an order,
-                                and should always make sure that their address is correct.</p></span>
-                        </div> */}
                         <br/><br/><br/>
                         <div>
                             {/* <h5 style={{ marginTop: '-3rem', marginBottom: '1rem'}}>Total: <span>R100000.00</span></h5> */}
