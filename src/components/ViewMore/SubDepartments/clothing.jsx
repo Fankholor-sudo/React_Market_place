@@ -1,6 +1,4 @@
-import React, { Component, useState } from 'react';
-import { Collapse, Navbar, NavbarToggler, Nav, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-
+import React from 'react';
 
 function Clothing() {
 

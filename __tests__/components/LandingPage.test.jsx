@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from '@testing-library/react';
-import {Items2,Items3, Items, Items5} from 'Items';
+import {Items2,Items3, Items, Items4, Items5} from 'Items';
 import Header from 'Header';
 
 describe('Books', () => {
@@ -25,7 +25,15 @@ describe('Clothing', () => {
     });
 });
 
-describe('Gaming', () => {
+describe('Health and Hygiene', () => {
+    it('renders without crashing', () => {
+        const { container } = render(<Items3 />); 
+            container.querySelector('.items');
+    });
+});
+
+
+describe('Sporting and Training', () => {
     it('renders without crashing', () => {
         const { container } = render(<Items5 />);    
         container.querySelector('.items')
