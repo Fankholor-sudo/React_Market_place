@@ -60,7 +60,6 @@ function Summary() {
     }
     setInterval(handleNumberOfItems,1000)//to continually count the number of items cart
 
-
     const handleOrder=()=>{
         setModalIsOpen(true); 
         let cartItems = JSON.parse(localStorage.getItem('CartItems'));
@@ -100,6 +99,7 @@ function Summary() {
                 marginBottom: '15px', marginTop: '5px',
                 marginLeft: '3%', marginRight: '3%', width: '310px'
             }}>
+                
                 <div className="card-body">
                     <h3>Summary</h3>
                     <br/>

@@ -7,43 +7,48 @@ function Tab({ name, price, desc, itemNo, img, setDisplay, index }) {
     var m = JSON.parse(localStorage.getItem("CartItems"))
 
     const [numItem, setNumItem] = useState({
-        value: 1
+        value: m[index].COUNT
     })
     const [priceItem, setPriceItem] = useState({
         price: prices
     })
+
+
 
     const increment = (e) => {
         setNumItem({
             value: numItem.value + 1
         })
         setPriceItem({
-            price: priceItem.price + prices
+            price: priceItem.price + m[index].ORIGINAL_PRICE
         })
         // updating the count and the price 
-        m[index].PRICE = priceItem.price
-        m[index].COUNT = numItem.value
+        m[index].PRICE = priceItem.price + m[index].ORIGINAL_PRICE
+        m[index].COUNT = numItem.value + 1
         var mString = JSON.stringify(m)
         localStorage.setItem("CartItems", mString)
-        console.log(JSON.parse(localStorage.getItem("CartItems"))[index])
-
+        console.log("on the tab:")
+        console.log(JSON.parse(localStorage.getItem("CartItems")))
     }
 
     const decrement = (e) => {
+
         if (numItem.value > 1) {
             setNumItem({
                 value: numItem.value - 1
             })
             setPriceItem({
-                price: priceItem.price - prices
+                price: priceItem.price - m[index].ORIGINAL_PRICE
             })
+            // updating the count and the price 
+            m[index].PRICE = priceItem.price - m[index].ORIGINAL_PRICE
+            m[index].COUNT = numItem.value - 1
+            var mString = JSON.stringify(m)
+            localStorage.setItem("CartItems", mString)
+            console.log("on the tab:")
+            console.log(JSON.parse(localStorage.getItem("CartItems")))
         }
-        // updating the count and the price 
-        m[index].PRICE = priceItem.price
-        m[index].COUNT = numItem.value
-        var mString = JSON.stringify(m)
-        localStorage.setItem("CartItems", mString)
-        console.log(JSON.parse(localStorage.getItem("CartItems"))[index])
+
     }
     return (
         <div>
@@ -67,7 +72,7 @@ function Tab({ name, price, desc, itemNo, img, setDisplay, index }) {
                             <div >
                                 <Row>
                                     <Col >
-                                        <h6 style={{ marginTop: '3rem', marginLeft: '15px' }}>{numItem.value}</h6>
+                                        <h6 style={{ marginTop: '3rem', marginLeft: '15px' }}>{m[index].COUNT}</h6>
                                         <h6>Items</h6>
                                     </Col>
 
@@ -86,7 +91,7 @@ function Tab({ name, price, desc, itemNo, img, setDisplay, index }) {
                             </div>
                         </Col>
                         <Col>
-                            <h4 style={{ marginLeft: '20px' }}><span>R{priceItem.price}</span></h4>
+                            <h4 style={{ marginLeft: '20px' }}><span>R{m[index].PRICE}</span></h4>
                             <Button
                                 onClick={() => setDisplay({ idx: index })}
                                 style={{ background: '#06042E', width: '7rem', marginTop: '25px', marginLeft: '20px' }}>
