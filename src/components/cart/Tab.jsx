@@ -27,8 +27,6 @@ function Tab({ name, price, desc, itemNo, img, setDisplay, index }) {
         m[index].COUNT = numItem.value + 1
         var mString = JSON.stringify(m)
         localStorage.setItem("CartItems", mString)
-        console.log("on the tab:")
-        console.log(JSON.parse(localStorage.getItem("CartItems")))
     }
 
     const decrement = (e) => {
@@ -45,8 +43,6 @@ function Tab({ name, price, desc, itemNo, img, setDisplay, index }) {
             m[index].COUNT = numItem.value - 1
             var mString = JSON.stringify(m)
             localStorage.setItem("CartItems", mString)
-            console.log("on the tab:")
-            console.log(JSON.parse(localStorage.getItem("CartItems")))
         }
 
     }

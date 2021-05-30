@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col, Card} from 'react-bootstrap';
 import Modal from 'react-modal';
+import {useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 function Summary() {
+
+    const history = useHistory();
+    const handleDiscard = () => {
+        localStorage.setItem("CartItems", null);
+        history.push('/LandingPage');
+      } 
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [state, setState] = useState({
@@ -53,12 +60,37 @@ function Summary() {
             country: e.target.value,
         }))
     }
-
+    
     const handleNumberOfItems=()=>{
         let cartItems = JSON.parse(localStorage.getItem('CartItems'));
-        setNumberOfItems(cartItems.length);
+        var count = 0;
+        if (cartItems != null){
+            for(var i = 0; i < cartItems.length; i++){
+                count = count + cartItems[i].COUNT;
+                console.log(count)
+                setNumberOfItems(count);
+            }
+        }
+        else{
+            setNumberOfItems(count);
+        }
+    }
+    const handleTotalPrice = () =>{
+        let cartItems = JSON.parse(localStorage.getItem('CartItems'));
+        var price = 0;
+        if (cartItems != null){
+            for(var i = 0; i < cartItems.length; i++){
+                price = price + cartItems[i].PRICE;
+                console.log(price)
+                setTotalPrice(price)
+            }
+        }
+        else{
+            setTotalPrice(price)
+        }
     }
     setInterval(handleNumberOfItems,1000)//to continually count the number of items cart
+    setInterval(handleTotalPrice,1000)
 
     const handleOrder=()=>{
         setModalIsOpen(true); 
@@ -105,17 +137,17 @@ function Summary() {
                     <br/>
                     <Col>
                         <div style={{ marginLeft: '-1rem',marginBottom:'10px' }}>
-                            <h6 className="card-subtitle" >Number of Items: </h6><span id="numberOfItems">{numberOfItems}</span>
+                            <h6  className="card-subtitle" >Number of Items:<br/> <span id="numberOfItems">{numberOfItems}</span></h6>
                         </div>
                         <br/><br/><br/>
                         <div>
-                            {/* <h5 style={{ marginTop: '-3rem', marginBottom: '1rem'}}>Total: <span>R100000.00</span></h5> */}
+                            <h5 style={{ marginLeft: '-1rem',marginTop: '-4rem', marginBottom: '1rem'}}>Total: <br/><span>{totalPrice}</span></h5>
                             <Row>
                                 <Button style={{ background: 'green', width: '110px', height:'50px'}} onClick={handleOrder} >
                                     Order
                                 </Button>
 
-                                <Button style={{ background: 'red', width: '110px', height:'50px', marginLeft: '1rem' }}>
+                                <Button style={{ background: 'red', width: '110px', height:'50px', marginLeft: '1rem' }} onClick={handleDiscard}>
                                     Discard
                                 </Button>
                             </Row>
