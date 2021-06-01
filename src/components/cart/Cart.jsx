@@ -46,7 +46,7 @@ function Cart() {
                             <div style={{ overflowY: 'scroll', overflowX: 'hidden', height: '38rem' }}>
                                 {rmv.updatedCartItem.map((data, key) => (
                                     <div key={key}>
-                                        <Tab name={data.NAME} img={data.PICTURE} price={data.PRICE} itemNo={0}
+                                        <Tab name={data.NAME} img={data.PICTURE} price={data.PRICE} itemNo={data.COUNT}
                                             desc={data.DESCRIPTION} setDisplay={setDisplay} index={key} />
                                     </div>
                                 ))}

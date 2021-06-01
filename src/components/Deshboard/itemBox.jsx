@@ -1,10 +1,10 @@
 import React,{useState} from 'react';
 import Modal from 'react-modal';
-import 'font-awesome/css/font-awesome.min.css';
+//import 'font-awesome/css/font-awesome.min.css';
 
-
-    function ItemBox({image, itemName, orgPrice, index, desc}){
+    function ItemBox({image, itemName, orgPrice, index, desc }){
    
+        const price = Number(orgPrice)
         const [modalIsOpen, setModalIsOpen] = useState(false);
 
         const addCartItems = () => {
@@ -15,8 +15,10 @@ import 'font-awesome/css/font-awesome.min.css';
                item = [{
                    "PICTURE": image,
                    "NAME": itemName,
-                   "PRICE": orgPrice,
+                   "PRICE": price,
+                   "ORIGINAL_PRICE": price,
                    "DESCRIPTION": desc,
+                   "COUNT": 1,
                    "KEY": index
                }]
                localStorage.setItem("CartItems", JSON.stringify(item))
@@ -25,12 +27,14 @@ import 'font-awesome/css/font-awesome.min.css';
                item = {
                    "PICTURE": image,
                    "NAME": itemName,
-                   "PRICE": orgPrice,
+                   "PRICE": price,
+                   "ORIGINAL_PRICE": price,
                    "DESCRIPTION": desc,
+                   "COUNT": 1,
                    "KEY": index
                }
                var storedItems = JSON.parse(localStorage.getItem("CartItems"));
-               storedItems.push(item);;
+               storedItems.push(item);
                localStorage.setItem("CartItems", JSON.stringify(storedItems));
            }
        }
