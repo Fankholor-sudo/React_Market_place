@@ -27,7 +27,7 @@ describe('Clothing', () => {
 
 describe('Health and Hygiene', () => {
     it('renders without crashing', () => {
-        const { container } = render(<Items3 />); 
+        const { container } = render(<Items4 />); 
             container.querySelector('.items');
     });
 });

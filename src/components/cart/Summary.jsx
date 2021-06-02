@@ -56,7 +56,11 @@ function Summary() {
 
     const handleNumberOfItems=()=>{
         let cartItems = JSON.parse(localStorage.getItem('CartItems'));
-        setNumberOfItems(cartItems.length);
+        let totalNum = 0;
+        for (var i = 0; i < cartItems.length; ++i){
+            totalNum += cartItems[i].COUNT;
+        }
+        setNumberOfItems(totalNum);
     }
     setInterval(handleNumberOfItems,1000)//to continually count the number of items cart
 

@@ -33,11 +33,6 @@ function LoginForm(props)
     const handleSubmit = e => {
         e.preventDefault();
 
-        // const formData = {
-        //     email: state.email,
-        //     password: state.password
-        // }
-
         if (state.email !== undefined && state.password !== undefined)
         {
             if (state.email.trim() && state.password.trim()) 
@@ -73,7 +68,7 @@ function LoginForm(props)
         }
     }
     return (
-        <div>
+        <div className="test">
             <Header pageUrl={'/Register'} title={' Do not have an account? Register '} />
             <Row>
                 <Col>
