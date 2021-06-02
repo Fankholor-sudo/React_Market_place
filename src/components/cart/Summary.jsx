@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col, Card} from 'react-bootstrap';
 import Modal from 'react-modal';
+import {useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 function Summary() {
+
+    const history = useHistory();
+    const handleDiscard = () => {
+        localStorage.setItem("CartItems", null);
+        history.push('/LandingPage');
+      } 
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [state, setState] = useState({
@@ -53,7 +60,7 @@ function Summary() {
             country: e.target.value,
         }))
     }
-
+    
     const handleNumberOfItems=()=>{
         let cartItems = JSON.parse(localStorage.getItem('CartItems'));
         let totalNum = 0;
@@ -63,7 +70,7 @@ function Summary() {
         setNumberOfItems(totalNum);
     }
     setInterval(handleNumberOfItems,1000)//to continually count the number of items cart
-
+    // setInterval(handleTotalPrice,1000)
 
     const handleOrder=()=>{
         setModalIsOpen(true); 
@@ -104,22 +111,23 @@ function Summary() {
                 marginBottom: '15px', marginTop: '5px',
                 marginLeft: '3%', marginRight: '3%', width: '310px'
             }}>
+                
                 <div className="card-body">
                     <h3>Summary</h3>
                     <br/>
                     <Col>
                         <div style={{ marginLeft: '-1rem',marginBottom:'10px' }}>
-                            <h6 className="card-subtitle" >Number of Items: </h6><span id="numberOfItems">{numberOfItems}</span>
+                            <h6  className="card-subtitle" >Number of Items:<br/> <span id="numberOfItems">{numberOfItems}</span></h6>
                         </div>
                         <br/><br/><br/>
                         <div>
-                            {/* <h5 style={{ marginTop: '-3rem', marginBottom: '1rem'}}>Total: <span>R100000.00</span></h5> */}
+                            <h5 style={{ marginLeft: '-1rem',marginTop: '-4rem', marginBottom: '1rem'}}>Total: <br/><span>{totalPrice}</span></h5>
                             <Row>
                                 <Button style={{ background: 'green', width: '110px', height:'50px'}} onClick={handleOrder} >
                                     Order
                                 </Button>
 
-                                <Button style={{ background: 'red', width: '110px', height:'50px', marginLeft: '1rem' }}>
+                                <Button style={{ background: 'red', width: '110px', height:'50px', marginLeft: '1rem' }} onClick={handleDiscard}>
                                     Discard
                                 </Button>
                             </Row>
@@ -129,81 +137,89 @@ function Summary() {
             </Card>
 
             <Modal id="shipping-modal" isOpen={modalIsOpen}>
-                <p id="close" onClick={()=>{setModalIsOpen(false); setTotalPrice(0)}} style={{cursor: 'pointer'}}>X</p>
+                <p id="close" onClick={() => { setModalIsOpen(false); setTotalPrice(0) }} style={{ cursor: 'pointer', width:'5%' }}>
+                    <h1 style={{marginBottom: '-1rem', marginLeft:'1rem', color: 'red'}}>x</h1>
+                </p>
                 
                 <div className="shipping-details">
-                    <h2>Shipping Details</h2>
-                    <h5>Delivery Address</h5>
-                    <Form style={{ width: '80%', marginLeft: '5%', marginTop: '10px',marginBottom: '10px' }} noValidate>
-                        <Form.Group>
-                            <Form.Label>Street</Form.Label>
-                            <Form.Control
-                                name="street"
-                                type='street'
-                                style={{ background: '#ECF6F9' }}
-                                placeholder='Enter your street'
-                                required
-                                onChange={handleStreet}
-                            />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Surburb</Form.Label>
-                            <Form.Control
-                                name="surburb"
-                                type='firstname'
-                                style={{ background: '#ECF6F9' }}
-                                placeholder='Enter your surburb'
-                                required
-                                onChange={handleSurburb}
-                            />
-                        </Form.Group>
+                    <h1  style={{textAlign: 'center'}}><strong><u>Shipping Details</u></strong></h1>
+                    <Row>
+                        <Col>
+                            <Form style={{ width: '100%', marginLeft: '2rem', marginTop: '2rem',marginBottom: '10px' }} noValidate>
+                            <h5>Delivery Address</h5>
+                                <Form.Group>
+                                    <Form.Label>Street</Form.Label>
+                                    <Form.Control
+                                        name="street"
+                                        type='street'
+                                        style={{ background: '#ECF6F9' }}
+                                        placeholder='Enter your street'
+                                        required
+                                        onChange={handleStreet}
+                                    />
+                                </Form.Group>
+                                <Form.Group>
+                                    <Form.Label>Surburb</Form.Label>
+                                    <Form.Control
+                                        name="surburb"
+                                        type='firstname'
+                                        style={{ background: '#ECF6F9' }}
+                                        placeholder='Enter your surburb'
+                                        required
+                                        onChange={handleSurburb}
+                                    />
+                                </Form.Group>
 
-                        <Form.Group>
-                            <Form.Label>City</Form.Label>
-                            <Form.Control
-                                name="city"
-                                type='firstname'
-                                style={{ background: '#ECF6F9' }}
-                                placeholder='Enter your city'
-                                required
-                                onChange={handleCity}
-                            />
-                        </Form.Group>
+                                <Form.Group>
+                                    <Form.Label>City</Form.Label>
+                                    <Form.Control
+                                        name="city"
+                                        type='firstname'
+                                        style={{ background: '#ECF6F9' }}
+                                        placeholder='Enter your city'
+                                        required
+                                        onChange={handleCity}
+                                    />
+                                </Form.Group>
 
-                        <Form.Group>
-                            <Form.Label>Country</Form.Label>
-                            <Form.Control
-                                name="country"
-                                type='firstname'
-                                style={{ background: '#ECF6F9' }}
-                                placeholder='Enter your country'
-                                required
-                                onChange={handleCountry}
-                            />
-                        </Form.Group>
-                       
-                    </Form>
+                                <Form.Group>
+                                    <Form.Label>Country</Form.Label>
+                                    <Form.Control
+                                        name="country"
+                                        type='firstname'
+                                        style={{ background: '#ECF6F9' }}
+                                        placeholder='Enter your country'
+                                        required
+                                        onChange={handleCountry}
+                                    />
+                                </Form.Group>
+                            </Form>
+                        </Col>
+                        <Col>
+                            <div style={{marginLeft: '7rem', marginTop: '6rem'}}>
+                                <div class="shipping-order">
+                                    <h5>Order Summary</h5>
+                                    <div className="summary">
+                                        <div class="desc">
+                                            <p>{numberOfItems} unique items</p>
+                                            <p>Delivery</p>
+                                        </div>
+                                        <div className="amount">
+                                            <p>R {totalPrice}</p>
+                                            <p>Free</p>
+                                        </div>
+                                    </div>
+                                    <p id="change" onClick={()=> {setModalIsOpen(false); setTotalPrice(0)}}>change</p>
+                                </div>
 
-                    <div class="shipping-order">
-                        <h5>Order Summary</h5>
-                        <div className="summary">
-                            <div class="desc">
-                                <p>{numberOfItems} unique items</p>
-                                <p>Delivery</p>
+                                <div className="confirm">
+                                    <Button style={{ background: 'green', width: '50%', height:'40px', marginTop: '1.5rem'}} onClick={handleConfirmPurchase}>
+                                        Confirm Purchase
+                                    </Button>
+                                </div>
                             </div>
-                            <div className="amount">
-                                <p>R {totalPrice}</p>
-                                <p>Free</p>
-                            </div>
-                        </div>
-                        <p id="change" onClick={()=> {setModalIsOpen(false); setTotalPrice(0)}}>change</p>
-                    </div>
-
-                    <div className="confirm">
-                        <Button style={{ background: 'green', width: '50%', height:'50px'}} onClick={handleConfirmPurchase}>
-                            Confirm Purchase
-                        </Button>
-                    </div>
+                        </Col>
+                    </Row>
                 </div>
         
             </Modal>

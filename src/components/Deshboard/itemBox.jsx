@@ -16,6 +16,7 @@ import Modal from 'react-modal';
                    "PICTURE": image,
                    "NAME": itemName,
                    "PRICE": price,
+                   "ORIGINAL_PRICE": price,
                    "DESCRIPTION": desc,
                    "COUNT": 1,
                    "KEY": index
@@ -27,6 +28,7 @@ import Modal from 'react-modal';
                    "PICTURE": image,
                    "NAME": itemName,
                    "PRICE": price,
+                   "ORIGINAL_PRICE": price,
                    "DESCRIPTION": desc,
                    "COUNT": 1,
                    "KEY": index
