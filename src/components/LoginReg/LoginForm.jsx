@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import axios from 'axios';
 import {useHistory } from 'react-router-dom';
 import { Form, Button, Row, Col,Alert } from 'react-bootstrap';
 import LgnImgHolder from './LgnImgHolder';
 import Header from './Header';
+import { func } from 'joi';
 
 
 function LoginForm(props)
@@ -17,6 +18,9 @@ function LoginForm(props)
     const [stateErr, setStateErr] = useState({
         error: ""
     })
+    function testState() {
+        return 5;
+    }
 
     const handleEmail = async e => {
         setState(prevState => ({
@@ -73,15 +77,16 @@ function LoginForm(props)
             <Row>
                 <Col>
                     <div>
-                        {console.log(JSON.parse(localStorage.getItem("userDetails")))}
+                        {/* {console.log(JSON.parse(localStorage.getItem("userDetails")))} */}
                         {localStorage.removeItem("loginDetails")}
                         <Form style={{ width: '90%', marginLeft: '5%', marginTop: '20%' }}>
                             {(stateErr.error !== "" && stateErr.error !== undefined) ? (<div><Alert variant='danger'>{stateErr.error}</Alert></div>):""}
                             <Form.Group>
-                                <Form.Label>Email</Form.Label>
+                                <Form.Label htmlFor='email'>Email</Form.Label>
                                 <Form.Control
                                     onChange={handleEmail}
                                     type='email'
+                                    id='email'
                                     style={{ background: '#ECF6F9' }}
                                     placeholder='Enter your email'
                                     required
@@ -91,10 +96,11 @@ function LoginForm(props)
                             </Form.Group>
 
                             <Form.Group>
-                                <Form.Label>Password</Form.Label>
+                                <Form.Label htmlFor='password'>Password</Form.Label>
                                 <Form.Control
                                     onChange={handlePassword}
                                     type='password'
+                                    id='password'
                                     style={{ background: '#ECF6F9' }}
                                     placeholder='Enter your password'
                                     required
@@ -102,6 +108,7 @@ function LoginForm(props)
                                 <Form.Control.Feedback type="invalid">Password is required</Form.Control.Feedback>
                             </Form.Group>
                             <Button
+                                className='login-btn'
                                 onClick={handleSubmit}
                                 type='submit'
                                 style={{ background: '#FFCE2E', width: '100px' }}

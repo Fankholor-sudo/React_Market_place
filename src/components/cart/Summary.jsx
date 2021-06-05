@@ -94,15 +94,34 @@ function Summary() {
     const handleConfirmPurchase=()=>{
         //send email and order items
         const SaveOrder=(mail, ordr, deliveryAddress) =>{
-            axios.post(`https://lamp.ms.wits.ac.za/home/s2172765/insertOrders.php?userEmail=${mail}&order=${ordr}&deliveryAddress=${deliveryAddress}`);
+            axios.post(`https://lamp.ms.wits.ac.za/home/s2172765/insertOrders.php?userEmail=${mail}&order=${ordr}&deliveryAddress=${deliveryAddress}`)
+            .then((response) => {
+                if(response.status === 200){
+                    if(response.data === "Successful"){
+                        alert("Your order has been successfully received. Thank you for shopping with us");
+                        localStorage.removeItem('CartItems');
+                        window.open("http://localhost:3000/","_self");
+                    }
+                    else{
+                        alert(response.data + " Please try again later");
+                        window.open("http://localhost:3000/","_self");
+                    }
+                }
+                else{
+                    alert(response.statusText)
+                    window.open("http://localhost:3000/","_self");
+                }
+            }, (error) => {
+                alert(error)
+                console.log(error)
+            });
+        
         };
 
         let deliveryaddress = `${state.street}, ${state.surburb}, ${state.city}, ${state.country}`;
-        SaveOrder(email,order,deliveryaddress);
+        SaveOrder(email,JSON.stringify(order),deliveryaddress);
 
-        alert("Your order has been successfully received. More info will be communicated via email");
-        localStorage.removeItem('CartItems');
-        window.open("http://localhost:3000/","_self");
+        // alert("Your order has been successfully received. Thank you for shopping with us");
     }  
     
     return (

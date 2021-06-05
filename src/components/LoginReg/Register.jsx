@@ -105,16 +105,17 @@ function Register(props) {
     }
 
     return (
-        <div>
+        <div className="test">
             <Header pageUrl={'/LoginForm'} title={' Aready have an account? Login '} />
             <Row>
                 <Col>
                     <Form style={{ width: '80%', marginLeft: '5%', marginTop: '10%' }} noValidate>
                         <Form.Group>
-                            <Form.Label>First Name</Form.Label>
+                            <Form.Label htmlFor='firstname'>First Name</Form.Label>
                             <Form.Control
                                 name="firstname"
                                 type='firstname'
+                                id='firstname'
                                 style={{ background: '#ECF6F9' }}
                                 placeholder='Enter your first name'
                                 required
@@ -122,10 +123,11 @@ function Register(props) {
                             />
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Last Name</Form.Label>
+                            <Form.Label htmlFor='lastname'>Last Name</Form.Label>
                             <Form.Control
                                 name="lastname"
                                 type='lastname'
+                                id='lastname'
                                 style={{ background: '#ECF6F9' }}
                                 placeholder='Enter your last name'
                                 required
@@ -134,10 +136,11 @@ function Register(props) {
                         </Form.Group>
 
                         <Form.Group>
-                            <Form.Label>Email</Form.Label>
+                            <Form.Label htmlFor='email'>Email</Form.Label>
                             <Form.Control
                                 name="email"
                                 type='email'
+                                id='email'
                                 style={{ background: '#ECF6F9' }}
                                 placeholder='Enter your email'
                                 required
@@ -146,10 +149,11 @@ function Register(props) {
                         </Form.Group>
 
                         <Form.Group>
-                            <Form.Label>Password</Form.Label>
+                            <Form.Label htmlFor='password'>Password</Form.Label>
                             <Form.Control
                                 name="password"
                                 type='password'
+                                id='password'
                                 style={{ background: '#ECF6F9' }}
                                 placeholder='Enter your password'
                                 required
@@ -158,10 +162,11 @@ function Register(props) {
                         </Form.Group>
 
                         <Form.Group>
-                            <Form.Label>Confirm Password</Form.Label>
+                            <Form.Label htmlFor='confirmPassword'>Confirm Password</Form.Label>
                             <Form.Control
                                 name="me"
                                 type='password'
+                                id='confirmPassword'
                                 style={{ background: '#ECF6F9' }}
                                 placeholder='confirm password'
                                 required
@@ -170,10 +175,11 @@ function Register(props) {
                         </Form.Group>
 
                         <Form.Group>
-                            <Form.Label>Date of birth</Form.Label>
+                            <Form.Label htmlFor='birthdate'>Date of birth</Form.Label>
                             <Form.Control
                                 name='Date of birth'
                                 type='date'
+                                id='birthdate'
                                 style={{ background: '#ECF6F9' }}
                                 onChange={handleDateOfBirth}
                             >
@@ -181,6 +187,7 @@ function Register(props) {
                         </Form.Group>
 
                         <Button
+                            className='reg-btn'
                             onClick={handleSubmit}
                             type='submit'
                             style={{ background: '#FFCE2E', width: '100px' }}

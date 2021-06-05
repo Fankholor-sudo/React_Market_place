@@ -10,7 +10,8 @@ module.exports = {
       "LandingPage": "<rootDir>/src/components/Deshboard/LandingPage.jsx",
       "Items": "<rootDir>/src/components/Deshboard/items.jsx",
       "Header": "<rootDir>/src/components/Deshboard/Header.jsx",
-      "LoginForm": "<rootDir>/src/components/LoginReg/LoginForm"
+      "LoginForm": "<rootDir>/src/components/LoginReg/LoginForm",
+      "RegisterForm": "<rootDir>/src/components/LoginReg/Register"
   },
   setupFilesAfterEnv: [
     "@testing-library/jest-dom/extend-expect"

@@ -44,10 +44,7 @@ class OrderBox extends Component{
                     <div className="details values">
                         <div >
                             <h6 className="address">Shipping address</h6>
-                            <p> User
-                                01 StreetName str,
-                                Surburb,City
-                                Zipcode 
+                            <p> {this.props.deliveryAddress}
                             </p>
                         </div>
                         <div>
@@ -56,7 +53,7 @@ class OrderBox extends Component{
                         </div>
                         <div>
                             <h6 className="summary">Order summary</h6>
-                            <p> 2 items  R 23 798</p>
+                            <p> {this.props.count} items  R {this.props.price}</p>
                             <p> Delivery fee  R 0</p>
                         </div>
                     </div>
