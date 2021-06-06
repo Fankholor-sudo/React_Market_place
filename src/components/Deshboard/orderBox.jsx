@@ -56,11 +56,7 @@ class OrderBox extends Component{
                         </div>
                         <div>
                             <h6 className="summary">Order summary</h6>
-<<<<<<< Updated upstream
-                            <p> 2 items  R 23 798</p>
-=======
                             <p> 1 item  R {this.props.orgPrice}</p>
->>>>>>> Stashed changes
                             <p> Delivery fee  R 0</p>
                         </div>
                     </div>
