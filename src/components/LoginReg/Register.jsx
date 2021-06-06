@@ -99,9 +99,6 @@ function Register(props) {
                 setStateErr({ error: "Please make sure all fields are filled." });
             }
         }
-        else {
-            setStateErr({ error: "Please make sure all fields are filled." });
-        }
     }
 
     return (

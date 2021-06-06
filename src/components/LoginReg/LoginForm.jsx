@@ -15,12 +15,9 @@ function LoginForm(props)
         password: "",
         email: ""
     })
-    const [stateErr, setStateErr] = useState({
+    const [stateErr, setStateLogInErr] = useState({
         error: ""
     })
-    function testState() {
-        return 5;
-    }
 
     const handleEmail = async e => {
         setState(prevState => ({
@@ -55,29 +52,25 @@ function LoginForm(props)
 
                         /////////-----Redirect to main page when login success-----/////////
                         status === 1 ? history.push('/LandingPage')
-                            : setStateErr({
+                            : setStateLogInErr({
                                 error: res.data[0].login_message //"Incorrect email or password, please make sure your password and email are correct!"
                             });
                     })
-                    .catch((err) => { setStateErr({ error: err }); });
+                    .catch((err) => { setStateLogInErr({ error: err }); });
             }
             else
             {
-                setStateErr({ error: "Please make sure all fields are filled." });
+                setStateLogInErr({ error: "Please make sure all fields are filled." });
             }
         }
-        else
-        {
-            setStateErr({ error: "Please make sure all fields are filled." });
-        }
     }
+
     return (
         <div className="test">
             <Header pageUrl={'/Register'} title={' Do not have an account? Register '} />
             <Row>
                 <Col>
                     <div>
-                        {/* {console.log(JSON.parse(localStorage.getItem("userDetails")))} */}
                         {localStorage.removeItem("loginDetails")}
                         <Form style={{ width: '90%', marginLeft: '5%', marginTop: '20%' }}>
                             {(stateErr.error !== "" && stateErr.error !== undefined) ? (<div><Alert variant='danger'>{stateErr.error}</Alert></div>):""}
@@ -89,8 +82,7 @@ function LoginForm(props)
                                     id='email'
                                     style={{ background: '#ECF6F9' }}
                                     placeholder='Enter your email'
-                                    required
-                                    // isInvalid 
+                                    required 
                                 />
                                 <Form.Control.Feedback type='invalid'>Email is required</Form.Control.Feedback>
                             </Form.Group>
