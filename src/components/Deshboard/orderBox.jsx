@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import laptop from "../../pics/laptop.jpg";
+// import laptop from "../../pics/laptop.jpg";
 
 class OrderBox extends Component{
 
@@ -9,7 +9,7 @@ class OrderBox extends Component{
             viewDetails : false
         }
     }
-    
+
     viewDetailsHandler=()=>{//for the order details button
         this.setState({
             viewDetails: true
@@ -21,7 +21,7 @@ class OrderBox extends Component{
             viewDetails: false
         })
     }
-    
+
     render(){
         if(this.state.viewDetails === false){
         return  <div className="order">
@@ -29,8 +29,8 @@ class OrderBox extends Component{
                     <button className="orderDetails" onClick={this.viewDetailsHandler}>Order Details</button>
                     <p>Signed by: {this.props.customerName}</p>
                     <span className="orderImages">
-                        <img src={laptop} alt="{order pictures}" width="100px"/>
-                        <img src={laptop} alt="{order pictures}" width="100px"/>
+                        <img src={this.props.image} alt="{order pictures}" width="100px"/>
+                        {/* <img src={laptop} alt="{order pictures}" width="100px"/> */}
                     </span>
                 </div>;
     }
@@ -52,11 +52,15 @@ class OrderBox extends Component{
                         </div>
                         <div>
                             <h6 className="method">Delivery method</h6>
-                            <p>Deliver/Pickup</p>
+                            <p>Deliver</p>
                         </div>
                         <div>
                             <h6 className="summary">Order summary</h6>
+<<<<<<< Updated upstream
                             <p> 2 items  R 23 798</p>
+=======
+                            <p> 1 item  R {this.props.orgPrice}</p>
+>>>>>>> Stashed changes
                             <p> Delivery fee  R 0</p>
                         </div>
                     </div>

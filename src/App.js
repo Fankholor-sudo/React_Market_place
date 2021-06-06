@@ -8,6 +8,7 @@ import Cart from './components/cart/Cart';
 import OrderHistory from './components/Deshboard/OrderHistory';
 
 import { BrowserRouter as Router, Switch, Route, withRouter} from "react-router-dom";
+import Invoices from './components/Deshboard/invoices';
 
 
 
@@ -40,6 +41,21 @@ function App() {
               <OrderHistory />
         </Route>
 
+<<<<<<< Updated upstream
+=======
+        <Route path="/Invoices" exact={true}>
+              <Invoices />
+        </Route>
+
+        <Route path="/viewMore" exact={true}>
+              <ViewMore />
+        </Route>
+
+        <Route path="/subDepartments" exact={true}>
+              <SubDepartments />
+        </Route>
+
+>>>>>>> Stashed changes
         </Switch>
       </Router>
     </div>

@@ -17,12 +17,16 @@ body {
   font-size: 14px;
 }
 
+.depDroplist a:hover,
+.depDroplist a {
+  color: black;
+}
+
 .category a:hover,
 .departmentItems a:hover,
 .subDepartment a:hover {
   text-decoration: underline;
   color: #06042e;
-
 }
 
 /***************************************************************BODY****************************************************************/
@@ -37,45 +41,30 @@ body {
 .feed {
   display: flex;
   flex-direction: column;
-  /* margin-left: 70px; */
+  /* margin-left: -50px; */
   width: 80%;
+  /* background-color: rebeccapurple; */
 }
 
 .feedCategories {
   display: flex;
   flex-direction: column;
-  margin-top: 3em;
+  margin-top: 1.5em;
   /* background-color: rebeccapurple; */
-
 }
 
 .deals {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
 }
-
-/* .computer {
-  display: flex;
-  background-color: rebeccapurple;
-
-}
-
-.gaming {
-  display: flex;
-}
-
-.clothing {
-  display: flex;
-} */
 
 .titlebtn {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
-  margin-left: 20px;
-  width: 97%;
+  margin-left: 10px;
+  width: 95%;
 }
 
 .titlebtn h2 {
@@ -93,7 +82,6 @@ body {
   box-shadow: 2px 2px 4px #aaa;
   height: 3em;
   width: 7em;
-  /* margin-right: 25px; */
 }
 
 .titlebtn button:hover {
@@ -108,14 +96,41 @@ body {
 /****************************************************DEPARTMENTS SECTION*************************************************************/
 .departments {
   border-right: 1px solid #cdcdcd;
+}
 
+.viewMore_departments {
+  border-right: 1px solid #cdcdcd;
+  width: 400px;
+}
+
+.viewMore_departments2 {
+  border-right: 1px solid #cdcdcd;
+  width: 400px;
+}
+
+.viewMore_department {
+  font-weight: bold;
+  margin: 15px;
+  font-size: larger;
+  line-height: 1;
+  color: #06042e;
+}
+
+.viewMore_subDept {
+  margin-left: -20px;
+}
+
+.viewMore_subDept a {
+  font-size: medium;
 }
 
 .department {
   font-weight: bold;
-  margin-left: 20px;
-  font-size: large;
-  line-height: 1.2;
+  /* margin-top: 100px; */
+  font-size: medium;
+  line-height: 1;
+  color: #06042e;
+  /* background-color: red; */
 }
 
 .departmentItems {
@@ -134,8 +149,6 @@ body {
 
 .departments-bar {
   float: left;
-  /* border: 1px solid var(--blue);
-    border-radius: 4px; */
 }
 .departmentHeading {
   padding-left: 10px;
@@ -147,19 +160,14 @@ body {
   font-size: 14px;
 }
 
-/* .departmentItems li :hover{
-    border: 1px solid var(--yellow);
-    border-radius: 5px;
-    padding: 2px;
-  } */
-
 /****************************************************************ITEMS*************************************************************/
 .items {
   display: flex;
-  /* flex-wrap: nowrap; */
-  justify-content: space-around;
+  /* justify-content: space-around; */
   width: 100%;
-  /* margin: 10px; */
+  margin-left: 10px;
+  flex-wrap: wrap;
+  /* background-color: red; */
 }
 
 .item-box {
@@ -169,9 +177,9 @@ body {
   box-shadow: 4px 4px 5px #aaa;
   padding-left: 15px;
   border-radius: 4px;
-  /* margin-left: 10px;
-  margin-right: 15px; */
+  margin: 0 30px 30px 0;
 }
+
 .item-box img {
   width: 90%;
   height: 50%;
@@ -233,6 +241,52 @@ body {
   margin: 0%;
 }
 
+.arrow {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform ease-in .1s;
+}
+
+.arrow:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.nextArrow {
+  position: absolute;
+  top: 80%;
+  right: 0%;
+  z-index: 999;
+  color: rgb(0, 0, 0);
+}
+
+.backArrow {
+  position: absolute;
+  top: 80%;
+  left: 5% ;
+  z-index: 999;
+  color: rgb(0, 0, 0);
+}
+
+.addcart {
+  border-radius: 100%;
+  background-color: #ffff;
+  width: 3.5em;
+  height: 3em;
+  text-align: center;
+  line-height: 50%;
+  position: relative;
+  margin: -60px 0 50px 70%;
+}
+
+.addcart img:hover {
+  width: 35px;
+  height: 35px;
+}
+
 .item-box:hover {
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
@@ -289,51 +343,48 @@ body {
 }
 
 /****************************************************************MODAL*******************************************************/
-/* .modal {
-  background-color: red;
-  box-shadow: 4px 4px 5px #aaa;
-  overflow: visible;
-  margin: 50px -50px -50px 50px;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: right;
-  width: 1000px;
-  height: 1000px;
-} */
 
 .new {
   display: flex;
   flex-direction: row;
+  height: 600px;
 }
 .modalImage {
-  width: 25em;
-  height: 25em;
-  margin: 10px 0 10px 20px;
-  /* background-color: red; */
-  display: flex;
+  width: 300px;
+  height: 300px;
+  margin: 5px 0 0 0;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
   justify-content: center;
   align-items: center;
 }
 
 .modalImage img {
+  display: inline-block;
   width: 100%;
   height: 100%;
 }
-/* .item-info .modal-itemName{
-  width: 15em;
-  font-size: 1.5em;
-} */
+
+.modalImage-wrap{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 .item-info {
-  /* margin-left: 100px;
-  padding-left: 20px; */
   display: flex;
   flex-direction: column;
   width: auto;
   height: auto;
   align-items: center;
-  /* align-items: left; */
-  /* background-color: black; */
 }
 
 .item-info button {
@@ -364,25 +415,9 @@ body {
   margin: 20px 0 0 0;
 }
 
-/* .modal-content {
-  background-color: black;
-  margin: 0;
-  width: 100%;
-  border-radius: 10px;
-} */
-
 .modal-content {
   display: flex;
 }
-
-/* .item-info {
-  padding: 10px;
-  margin: 10px;
-  width: 25%;
-  float: left;
-  top: 400px;
-  left: 100px;
-} */
 
 .modal-itemName {
   font-size: 25px;
@@ -391,57 +426,25 @@ body {
   /* margin-bottom: 10px; */
 }
 
-/* .item-info button {
-  margin-top: 10px;
-  padding: 10px;
-  font-size: 18px;
-  width: 250px;
-  background-color: var(--yellow);
-  text-decoration: var(--blu);
-  border-radius: 3px;
-  box-shadow: 2px 2px 4px #aaa;
-} */
-
-/* .modal-content .modal-discount-tag {
-  width: 50px;
-  height: 50px;
-  color: white;
-  background-color: var(--yellow);
-} */
-
-/* .closeModal {
-  color: var(--blu);
-  font-size: 28px;
-  font-weight: bold;
-  /* padding: 10px; 
-  width: 40px;
-  height: 40px;
-  /* background-color: black; 
-  margin-top: -10px;
-} */
-
-/* .closeModal span:hover,
-.closeModal span:focus {
-  color: #ffce2e;
-  text-decoration: none;
-  cursor: pointer;
-} */
-
 .item-extra-info {
   display: flex;
-  /* flex-direction: row; */
-  /* background-color: red; */
   width: auto;
   height: auto;
   justify-content: right;
 }
 
-.closeModal p{
+.closeModal p {
   font-weight: bold;
   margin: 2em 0 0 1.5em;
   display: inline-flex;
 }
-.esc{
+
+.closeModal img {
+  width: 30px;
+  height: 30px;
+}
+
+.esc {
   margin: 0 5px 2px 5px;
   border: 0.5px solid #aaa;
   text-align: center;
@@ -452,7 +455,7 @@ body {
   align-content: center;
   height: 25px;
 }
-.esc p{
+.esc p {
   font-family: "Lucida Console", "Courier New", monospace;
   font: monospace;
   font-weight: lighter;
@@ -460,20 +463,6 @@ body {
   margin: 0;
   background-color: rgb(241, 241, 241);
 }
-
-/* .item-extra-info button {
-  margin-top: 5px;
-  margin-left: 0px;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  width: 30%;
-  background-color: rgba(255, 255, 255, 0.8);
-  text-decoration: var(--blu);
-  border: none;
-  box-shadow: 0px 2px 0px var(--yellow);
-
-} */
 
 .selected {
   box-shadow: 0px 2px 0px var(--yellow);
@@ -483,9 +472,7 @@ body {
   width: 100%;
   height: 640px;
   margin: 5px;
-  /* overflow: scroll; */
   background-color: #efefef;
-  /* border: 0.5px solid var(--blu); */
   border-radius: 5px;
   line-height: 30px;
   word-wrap: normal;
@@ -501,7 +488,7 @@ body {
 .parent {
   background-color: #06042e;
   display: flex;
-  flex-flow:nowrap;
+  flex-flow: nowrap;
   justify-content: space-around;
 }
 
@@ -513,7 +500,7 @@ body {
   align-items: center;
 }
 
-.logo img{
+.logo img {
   width: 100%;
   height: auto;
 }
@@ -547,6 +534,27 @@ body {
   border-radius: 0;
 }
 
+/* Items inside the departments dropdown */
+.depDroplist button {
+  background-color: #efefef;
+  font-weight: normal;
+  width: 14em;
+  border-radius: 0;
+  border: none;
+  margin-top: -8px;
+  margin-bottom: -8px;
+}
+
+.depDroplist button:hover {
+  text-decoration: underline;
+  background-color: #efefef;
+}
+
+.depDroplist button:active {
+  background-color: #efefef;
+  color: black;
+}
+
 /************************************************SEARCH-BAR Div*******************************************************/
 .search {
   background-color: #ffce2e;
@@ -555,14 +563,13 @@ body {
   width: 100%;
   height: 3em;
   display: flex;
-  /* justify-content: space-around; */
   align-items: center;
 }
 
 .search button {
   background-color: #ffce2e;
   border: transparent;
-  margin: 5px 0px 0 15px;
+  margin: 5px 5px 0 10px;
 }
 
 /* Searchbar */
@@ -573,7 +580,7 @@ body {
   background-color: red;
 }
 
-.input input{
+.input input {
   width: 100%;
   height: 100%;
   border: transparent;
@@ -593,8 +600,6 @@ body {
   flex-direction: column;
   justify-content: right;
   align-items: center;
-  /* margin-left: 5em; */
-
 }
 
 /* Registration and Login navigation bar */
@@ -603,6 +608,7 @@ body {
   color: white;
   font-size: large;
   margin: 0.5em;
+  margin-top: -27px;
 }
 
 .regNavBar:hover {
@@ -674,8 +680,8 @@ body {
   height: 2em;
 }
 
-/**********************************************Order History******************************************************************************/
-.orderBody{
+/********************************************************Order History************************************************************/
+.orderBody {
   display: flex;
   margin: 0.5em;
   background-color: rgb(235, 231, 231);
@@ -685,8 +691,8 @@ body {
   
 } */
 
-.orderBody .orders .order{
-  background-color:white;
+.orderBody .orders .order {
+  background-color: white;
   width: 65vw;
   min-width: 500px;
   max-width: 900px;
@@ -697,7 +703,7 @@ body {
   position: relative;
 }
 
-.order button{
+.order button {
   background-color: white;
   border-radius: 4px;
   border-color: var(--blu);
@@ -710,11 +716,11 @@ body {
   right: 5px;
 }
 
-.order button:active{
+.order button:active {
   background-color: #ffce2e;
 }
 
-.order .backtoSummary{
+.order .backtoSummary {
   cursor: pointer;
   font-size: 10;
   text-decoration: underline;
@@ -723,12 +729,11 @@ body {
   padding-left: 5px;
 }
 
-.order .backtoSummary:active{
+.order .backtoSummary:active {
   background-color: #ffce2e;
 }
 
-
-.order img{
+.order img {
   border-color: var(--blu);
   border-style: solid;
   border-width: 0.1px;
@@ -736,13 +741,13 @@ body {
   margin: 1px;
 }
 
-.orderBody .orders .order .details{
+.orderBody .orders .order .details {
   display: flex;
   justify-content: space-between;
   margin: 4px;
   padding: 5px;
 }
-.orderBody .orders .order h6{
+.orderBody .orders .order h6 {
   font-weight: bold;
 }
 
@@ -750,9 +755,86 @@ body {
   margin: 2vh 5vh 5vh 5%;
   padding: 0px;
 }
-.orderBody .orders .order .values{
+.orderBody .orders .order .values {
   margin: 0px;
-  padding:4px 5vw;
+  padding: 4px 5vw;
   display: grid;
   grid-template-columns: repeat(3, 33%);
+}
+
+
+/**************************SHIPPING MODAL**************************************/
+#shipping-modal{
+  display: grid;
+  grid-template-columns: 30px auto;
+}
+
+.shipping-order .summary{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.shipping-order .summary .amount{
+  font-weight: bold;
+}
+
+.shipping-order #change{
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+/***************************Invoice Header*****************************/
+.invoice{
+  padding: 20px;
+  width: 21cm;
+  max-width: 21cm;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header{
+  display: grid;
+  grid-template-columns: 360px 200px;
+  padding-bottom: 50px;
+}
+
+.header .address{
+  text-align: right;
+  font-weight: 600;
+}
+
+.invoice-for{
+  padding-top: 5px;
+  display: grid;
+  grid-template-columns:360px 200px;
+}
+
+.invoice-for .invoice-info{
+  text-align: right;
+}
+
+.invoice table{
+  margin: 10px 20px 10px 20px;
+}
+
+th{
+  text-transform: uppercase;
+}
+
+th,td{
+  padding: 10px 10px 5px 10px;
+  overflow: hidden;
+}
+tr{
+  margin: 10px;
+}
+
+.thanks{
+  position: absolute;
+  left: 150px;
+  margin: 10px;
+  margin-top: -5px;
+  font-weight: 500;
 }
