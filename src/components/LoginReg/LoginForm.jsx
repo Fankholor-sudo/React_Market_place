@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import axios from 'axios';
 import {useHistory } from 'react-router-dom';
 import { Form, Button, Row, Col,Alert } from 'react-bootstrap';
 import LgnImgHolder from './LgnImgHolder';
 import Header from './Header';
+import { func } from 'joi';
 
 
 function LoginForm(props)
@@ -14,7 +15,7 @@ function LoginForm(props)
         password: "",
         email: ""
     })
-    const [stateErr, setStateErr] = useState({
+    const [stateErr, setStateLogInErr] = useState({
         error: ""
     })
 
@@ -32,11 +33,6 @@ function LoginForm(props)
     }
     const handleSubmit = e => {
         e.preventDefault();
-
-        // const formData = {
-        //     email: state.email,
-        //     password: state.password
-        // }
 
         if (state.email !== undefined && state.password !== undefined)
         {
@@ -56,50 +52,47 @@ function LoginForm(props)
 
                         /////////-----Redirect to main page when login success-----/////////
                         status === 1 ? history.push('/LandingPage')
-                            : setStateErr({
+                            : setStateLogInErr({
                                 error: res.data[0].login_message //"Incorrect email or password, please make sure your password and email are correct!"
                             });
                     })
-                    .catch((err) => { setStateErr({ error: err }); });
+                    .catch((err) => { setStateLogInErr({ error: err }); });
             }
             else
             {
-                setStateErr({ error: "Please make sure all fields are filled." });
+                setStateLogInErr({ error: "Please make sure all fields are filled." });
             }
         }
-        else
-        {
-            setStateErr({ error: "Please make sure all fields are filled." });
-        }
     }
+
     return (
-        <div>
+        <div className="test">
             <Header pageUrl={'/Register'} title={' Do not have an account? Register '} />
             <Row>
                 <Col>
                     <div>
-                        {console.log(JSON.parse(localStorage.getItem("userDetails")))}
                         {localStorage.removeItem("loginDetails")}
                         <Form style={{ width: '90%', marginLeft: '5%', marginTop: '20%' }}>
                             {(stateErr.error !== "" && stateErr.error !== undefined) ? (<div><Alert variant='danger'>{stateErr.error}</Alert></div>):""}
                             <Form.Group>
-                                <Form.Label>Email</Form.Label>
+                                <Form.Label htmlFor='email'>Email</Form.Label>
                                 <Form.Control
                                     onChange={handleEmail}
                                     type='email'
+                                    id='email'
                                     style={{ background: '#ECF6F9' }}
                                     placeholder='Enter your email'
-                                    required
-                                    // isInvalid 
+                                    required 
                                 />
                                 <Form.Control.Feedback type='invalid'>Email is required</Form.Control.Feedback>
                             </Form.Group>
 
                             <Form.Group>
-                                <Form.Label>Password</Form.Label>
+                                <Form.Label htmlFor='password'>Password</Form.Label>
                                 <Form.Control
                                     onChange={handlePassword}
                                     type='password'
+                                    id='password'
                                     style={{ background: '#ECF6F9' }}
                                     placeholder='Enter your password'
                                     required
@@ -107,6 +100,7 @@ function LoginForm(props)
                                 <Form.Control.Feedback type="invalid">Password is required</Form.Control.Feedback>
                             </Form.Group>
                             <Button
+                                className='login-btn'
                                 onClick={handleSubmit}
                                 type='submit'
                                 style={{ background: '#FFCE2E', width: '100px' }}

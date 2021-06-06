@@ -9,7 +9,12 @@ module.exports = {
       '<rootDir>/__mocks__/fileMock.js',
       "LandingPage": "<rootDir>/src/components/Deshboard/LandingPage.jsx",
       "Items": "<rootDir>/src/components/Deshboard/items.jsx",
-      "Header": "<rootDir>/src/components/Deshboard/Header.jsx"
+      "ItemBox": "<rootDir>/src/components/Deshboard/itemBox.jsx",
+      "RegNavBar": "<rootDir>/src/components/Deshboard/regNavBar.jsx",
+      "FavCart": "<rootDir>/src/components/Deshboard/favCart.jsx",
+      "Header": "<rootDir>/src/components/Deshboard/Header.jsx",
+      "LoginForm": "<rootDir>/src/components/LoginReg/LoginForm",
+      "RegisterForm": "<rootDir>/src/components/LoginReg/Register"
   },
   setupFilesAfterEnv: [
     "@testing-library/jest-dom/extend-expect"

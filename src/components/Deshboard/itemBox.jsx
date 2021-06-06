@@ -115,7 +115,7 @@ import Modal from 'react-modal';
                                     <p className="modalPrice">R {orgPrice}</p>
 
                                     <div>
-                                    <button onClick={() => addCartItems({image, itemName, orgPrice, desc, index})}>&#43; Add to Cart</button>
+                                    <button className='addtoCart' onClick={() => addCartItems({image, itemName, orgPrice, desc, index})}>&#43; Add to Cart</button>
     
                                     </div>
                                     
