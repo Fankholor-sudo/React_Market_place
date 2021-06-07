@@ -36,7 +36,8 @@ describe('Landing_Page renders withoout crashing', () => {
 
     it('Header', () => {
         const { container } = render(<Header />);    
-        container.querySelector('.parent')
+        const query = container.querySelector('.parent');
+        expect(query).not.toBeNull();
     });
 
     it('itemBox', () => {

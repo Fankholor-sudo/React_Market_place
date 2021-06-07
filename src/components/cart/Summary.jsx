@@ -117,11 +117,28 @@ function Summary() {
             });
         
         };
-
+        const saveAddress=(address) => {
+            if(localStorage.getItem("Address") === null){
+                localStorage.setItem("Address", JSON.stringify(address))
+            }
+            else{
+                var storedItems = JSON.parse(localStorage.getItem("Address"));
+                if(storedItems.indexOf(address) === 0 && storedItems.length === 2){
+                    storedItems.shift();
+                    storedItems.push(address);
+                    localStorage.setItem("Address", JSON.stringify(storedItems));
+                }
+                else if(storedItems.indexOf(address) === -1){
+                    storedItems.push(address); 
+                    localStorage.setItem("Address", JSON.stringify(storedItems));
+                }
+                
+            }
+        }
         let deliveryaddress = `${state.street}, ${state.surburb}, ${state.city}, ${state.country}`;
+        saveAddress(deliveryaddress);
         SaveOrder(email,JSON.stringify(order),deliveryaddress);
 
-        // alert("Your order has been successfully received. Thank you for shopping with us");
     }  
     
     return (
