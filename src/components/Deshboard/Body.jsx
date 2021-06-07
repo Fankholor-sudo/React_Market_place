@@ -46,7 +46,7 @@ function Body(){
 
             <div className="feedCategories">
                 <div className="titlebtn">
-                    <h2 id="computer">Health & Hygiene</h2>
+                    <h2 id="daily">Hygiene</h2>
                     <a href='/viewMore'><button onClick={()=>setDeptCode(8)}>View More</button></a>
                 </div>
 

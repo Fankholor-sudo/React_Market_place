@@ -1,8 +1,16 @@
-import React, { Component, useState } from 'react';
-import { Collapse, Navbar, NavbarToggler, Nav, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-
+import React from 'react';
 
 function Computers() {
+
+    const Laptops = () =>{
+        sessionStorage.setItem('SubdeptCode', 100)
+    }
+    const Phones = () =>{
+        sessionStorage.setItem('SubdeptCode', 112)
+    }
+    const Monitors = () =>{
+        sessionStorage.setItem('SubdeptCode', 121)
+    }
 
     return (
         <div className="viewMore_departments2">
@@ -12,12 +20,12 @@ function Computers() {
                         
                         <li><h3 className="viewMore_department">Computer & Electronics</h3>
                             <ul className="viewMore_subDept">
+                                <li><a href="/subDepartments" onClick={Laptops}>Laptops</a></li>
+                                <li><a href="/subDepartments" onClick={Phones}>Phones</a></li>
+                                <li><a href="/subDepartments" onClick={Monitors}>Monitors</a></li>
                                 <li><a href="#">Desktop</a></li>
-                                <li><a href="#">Monitors</a></li>
                                 <li><a href="#">Computer Components</a></li>
                                 <li><a href="#">Computer Accessories</a></li>
-                                <li><a href="#">Laptops</a></li>
-                                <li><a href="#">Laptop Accessories</a></li>
                                 <li><a href="#">Networking</a></li>
                                 <li><a href="#">Software</a></li>
                                 <li><a href="#">Storage Devices</a></li>

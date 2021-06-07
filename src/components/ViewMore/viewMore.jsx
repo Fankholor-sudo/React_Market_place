@@ -3,11 +3,12 @@ import axios from 'axios';
 import Header from '../Deshboard/Header';
 import Footer from "../Deshboard/Footer";
 import ItemBox from "../Deshboard/itemBox";
-import Books from "./SubDepartments/books"
-import Clothing from "./SubDepartments/clothing"
-import Computers from "./SubDepartments/computers"
+import Books from "./SubDepartments/books";
+import Clothing from "./SubDepartments/clothing";
+import Computers from "./SubDepartments/computers";
 import Sports from "./SubDepartments/sports"
 import Health from "./SubDepartments/health"
+
 
 function ViewMore(){
     const [items, setItems]= useState([])
@@ -36,12 +37,6 @@ function ViewMore(){
         dept = <Books/>;
 
     }
-    else if (dept_code == 6){
-        category = "Clothing";
-        dept = category;
-        dept = <Clothing/>;
-
-    }
     else if (dept_code == 8){
         category = "Health & Hygiene";
         dept = category;
@@ -52,12 +47,19 @@ function ViewMore(){
         dept = category;
         dept = <Sports/>;
     }
+    else if (dept_code == 6){
+        category = "Clothing";
+        dept = category;
+        dept = <Clothing/>;
+
+    }
 
     return(
         <div>
             <Header/>
             
             <div className="body">
+                {/* <DepartmentsBar/> */}
                 {dept}
 
                 <div className="feedCategories">

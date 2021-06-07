@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col, Card} from 'react-bootstrap';
 import Modal from 'react-modal';
-import {useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 function Summary() {
-
-    const history = useHistory();
-    const handleDiscard = () => {
-        localStorage.setItem("CartItems", null);
-        history.push('/LandingPage');
-      } 
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [state, setState] = useState({
@@ -60,35 +53,13 @@ function Summary() {
             country: e.target.value,
         }))
     }
-    
+
     const handleNumberOfItems=()=>{
         let cartItems = JSON.parse(localStorage.getItem('CartItems'));
-        var count = 0;
-        if (cartItems != null){
-            for(var i = 0; i < cartItems.length; i++){
-                count = count + cartItems[i].COUNT;
-                setNumberOfItems(count);
-            }
-        }
-        else{
-            setNumberOfItems(count);
-        }
-    }
-    const handleTotalPrice = () =>{
-        let cartItems = JSON.parse(localStorage.getItem('CartItems'));
-        var price = 0;
-        if (cartItems != null){
-            for(var i = 0; i < cartItems.length; i++){
-                price = price + cartItems[i].PRICE;
-                setTotalPrice(price)
-            }
-        }
-        else{
-            setTotalPrice(price)
-        }
+        setNumberOfItems(cartItems.length);
     }
     setInterval(handleNumberOfItems,1000)//to continually count the number of items cart
-    setInterval(handleTotalPrice,1000)
+
 
     const handleOrder=()=>{
         setModalIsOpen(true); 
@@ -108,38 +79,20 @@ function Summary() {
         }
     };
 
-/*************THE HANDLE CONFIRM PURCHASE FUNCTION HAS NOT BEEN TESTED BECAUSE AT THE TIME OF COMMITTING THIS FILE, THE DATABASE WAS KINDA CRASHED************/
+/***************THE HANDLE CONFIRM PURCHASE FUNCTION HAS NOT BEEN TESTED BECAUSE AT THE TIME OF COMMITTING THIS FILE, THE DATABASE WAS KINDA CRASHED************/
     const handleConfirmPurchase=()=>{
         //send email and order items
+
         const SaveOrder=(mail, ordr, deliveryAddress) =>{
-            axios.post(`https://lamp.ms.wits.ac.za/home/s2172765/insertOrders.php?userEmail=${mail}&order=${ordr}&deliveryAddress=${deliveryAddress}`)
-            .then((response) => {
-                if(response.status === 200){
-                    if(response.data === "Successful"){
-                        alert("Your order has been successfully received. Thank you for shopping with us");
-                        localStorage.removeItem('CartItems');
-                        window.open("http://localhost:3000/","_self");
-                    }
-                    else{
-                        alert(response.data + " Please try again later");
-                        window.open("http://localhost:3000/","_self");
-                    }
-                }
-                else{
-                    alert(response.statusText)
-                    window.open("http://localhost:3000/","_self");
-                }
-            }, (error) => {
-                alert(error)
-                console.log(error)
-            });
-        
+            axios.post(`https://lamp.ms.wits.ac.za/home/s2172765/insertOrders.php?userEmail=${mail}&order=${ordr}&deliveryAddress=${deliveryAddress}`);
         };
 
         let deliveryaddress = `${state.street}, ${state.surburb}, ${state.city}, ${state.country}`;
-        SaveOrder(email,JSON.stringify(order),deliveryaddress);
+        SaveOrder(email,order,deliveryaddress);
 
-        // alert("Your order has been successfully received. Thank you for shopping with us");
+        //alert("Your order has been successfully received. More info will be communicated via email");
+        localStorage.removeItem('CartItems');
+        window.open("http://localhost:3000/","_self");
     }  
     
     return (
@@ -148,23 +101,31 @@ function Summary() {
                 marginBottom: '15px', marginTop: '5px',
                 marginLeft: '3%', marginRight: '3%', width: '310px'
             }}>
-                
                 <div className="card-body">
                     <h3>Summary</h3>
                     <br/>
                     <Col>
                         <div style={{ marginLeft: '-1rem',marginBottom:'10px' }}>
-                            <h6  className="card-subtitle" >Number of Items:<br/> <span id="numberOfItems">{numberOfItems}</span></h6>
+                            <h6 className="card-subtitle" >Number of Items: </h6><span id="numberOfItems">{numberOfItems}</span>
                         </div>
+                        {/* <div style={{marginLeft: '-1rem'}}>
+                            <h6 className="card-subtitle" >Address :</h6>
+                            <span><p>Adress to ship the product to the user
+                            have to provide one everytime the make an order,
+                            and should always make sure that their address is correct.
+                            Adress to ship the product to the user
+                            have to provide one everytime the make an order,
+                                and should always make sure that their address is correct.</p></span>
+                        </div> */}
                         <br/><br/><br/>
                         <div>
-                            <h5 style={{ marginLeft: '-1rem',marginTop: '-4rem', marginBottom: '1rem'}}>Total: <br/><span>{totalPrice}</span></h5>
+                            {/* <h5 style={{ marginTop: '-3rem', marginBottom: '1rem'}}>Total: <span>R100000.00</span></h5> */}
                             <Row>
                                 <Button style={{ background: 'green', width: '110px', height:'50px'}} onClick={handleOrder} >
                                     Order
                                 </Button>
 
-                                <Button style={{ background: 'red', width: '110px', height:'50px', marginLeft: '1rem' }} onClick={handleDiscard}>
+                                <Button style={{ background: 'red', width: '110px', height:'50px', marginLeft: '1rem' }}>
                                     Discard
                                 </Button>
                             </Row>
