@@ -6,13 +6,11 @@ import { Favorites, Cart } from "./favCart";
 
 function Header() {
     return (
-
         <div className="parent">
             <a href="LandingPage"><div className="logo"><img src="./images/LOGO.png" alt="App Logo" /></div></a>
 
             <div className="dropSearch">
                 <DropdownBtn />
-                <Search />
             </div>
 
             <div className="regFavCart">

@@ -2,9 +2,6 @@ import React from 'react';
 import {fireEvent, render} from '@testing-library/react';
 import Login from 'LoginForm';
 import { act } from 'react-dom/test-utils';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-// Enzyme.configure({ adapter: new Adapter() });
 
 describe('Login States are working', () => {
     it('first state testing', () => {

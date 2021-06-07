@@ -4,7 +4,6 @@ import {useHistory } from 'react-router-dom';
 import { Form, Button, Row, Col,Alert } from 'react-bootstrap';
 import LgnImgHolder from './LgnImgHolder';
 import Header from './Header';
-import { func } from 'joi';
 
 
 function LoginForm(props)
@@ -113,7 +112,7 @@ function LoginForm(props)
                 <Col><LgnImgHolder /></Col>
             </Row>
         </div>
-    )
+    );
 }
 
 export default LoginForm;
