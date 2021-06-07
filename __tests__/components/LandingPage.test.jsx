@@ -5,6 +5,9 @@ import ItemBox from 'ItemBox';
 import Example from 'RegNavBar';
 import {Favorites, Cart} from 'FavCart';
 import Header from 'Header';
+import Enzyme, {mount} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Landing_Page renders withoout crashing', () => {
     it('Books', () => {
@@ -29,7 +32,7 @@ describe('Landing_Page renders withoout crashing', () => {
     });
 
     it('Sporting and Training', () => {
-        const { container } = render(<Items5 />);    
+        const { container } = render(<Items5 />);   
         const query = container.querySelector('.items');
         expect(query).not.toBeNull();
     });
@@ -45,25 +48,8 @@ describe('Landing_Page renders withoout crashing', () => {
         
         const query = container.querySelector('.item-box');
         const query2 = container.querySelector('.itemImage');
-        const query3 = container.querySelector('.item-name');
-        const query4 = container.querySelector('.price');
-        const query5 = container.querySelector('.addcart');
-        const query6 = container.querySelector('.favIcon');
-        const query7 = container.querySelector('.modal-content');
-        const query8 = container.querySelector('.new');
-        const query9 = container.querySelector('.closeModal');
-        const query10 = container.querySelector('.item-info');
-        const query11 = container.querySelector('.modalImage');
-        const query12 = container.querySelector('.modalImage-wrap');
-        // const query13 = container.querySelector('.backArrow');
-        const query14 = container.querySelector('.nextArrow');
-        const query15 = container.querySelector('.modal-itemName');
-        const query16 = container.querySelector('.modalPrice');
-        const query17 = container.querySelector('.addtoCart');
-        const query18 = container.querySelector('.item-extra-info');
-        const query19 = container.querySelector('.extra-info-container');
-        const query20 = container.querySelector('.closeModal');
-        const query21 = container.querySelector('.esc');
+        // const query3 = container.querySelector('.item-name');
+        // const query4 = container.querySelector('.price');
 
 
         expect(query).not.toBeNull();
