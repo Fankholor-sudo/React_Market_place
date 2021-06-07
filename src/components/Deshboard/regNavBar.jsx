@@ -3,7 +3,7 @@ import { Button, Row } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-function Example(props) {
+const Example = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -17,7 +17,8 @@ function Example(props) {
   } 
 
   return (
-    <div className='regNav'>
+    <div>
+
       <Navbar color="regNavBar" light expand="md" >
         <NavbarToggler onClick={toggle}  />
         <Collapse isOpen={isOpen} navbar >
@@ -45,8 +46,13 @@ function Example(props) {
                       <span className="regNavBar">
                       {localStorage.getItem("userDetails") !== null ? (
                     <div className="regNavBar">
+
+                        
+
                         {"Hi, " + JSON.parse(localStorage.getItem("userDetails")).data[0].firstname + " " + JSON.parse(localStorage.getItem("userDetails")).data[0].lastname}
-                    </div>) : ""}
+                    </div>
+
+                ) : ""}
                       </span>
                     </NavLink>
                   </NavItem>
@@ -85,9 +91,7 @@ function Example(props) {
 
                         <DropdownItem>
                           <NavItem>
-                            <NavLink href="/LoginForm">
-                              <span className='span_test' style={{ marginLeft: '-5px' }} onClick={handleSubmit}>Log out</span>
-                            </NavLink>
+                            <NavLink href="/LoginForm"><span style={{ marginLeft: '-5px' }} onClick={handleSubmit}>Log out</span></NavLink>
                           </NavItem>
                         </DropdownItem>
 
