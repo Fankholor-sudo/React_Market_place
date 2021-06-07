@@ -36,7 +36,6 @@ body {
   background-color: #efefef;
   justify-content: space-around;
 }
-
 /*************************************************************FEED******************************************************************/
 .feed {
   display: flex;
@@ -50,6 +49,14 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 1.5em;
+  /* background-color: rebeccapurple; */
+}
+
+.feedCategories2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5em;
+  width: 2000px;
   /* background-color: rebeccapurple; */
 }
 
@@ -782,4 +789,63 @@ body {
   color: blue;
   text-decoration: underline;
   cursor: pointer;
+}
+
+
+/***************************Invoice Header*****************************/
+.invoice{
+  padding: 20px;
+  width: 21cm;
+  max-width: 21cm;
+  align-items: center;
+  position: absolute;
+  z-index: -1000;
+  left: -1000px;
+  top:-1080px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header{
+  display: grid;
+  grid-template-columns: 360px 200px;
+  padding-bottom: 50px;
+}
+
+.header .address{
+  text-align: right;
+  font-weight: 600;
+}
+
+.invoice-for{
+  padding-top: 5px;
+  display: grid;
+  grid-template-columns:360px 200px;
+}
+
+.invoice-for .invoice-info{
+  text-align: right;
+}
+
+.invoice table{
+  margin: 10px 20px 10px 20px;
+}
+
+th{
+  text-transform: uppercase;
+}
+
+th,td{
+  padding: 10px 10px 5px 10px;
+  overflow: hidden;
+}
+tr{
+  margin: 10px;
+}
+
+.thanks{
+  position: absolute;
+  left: 150px;
+  margin: 10px;
+  margin-top: -5px;
+  font-weight: 500;
 }
