@@ -1,32 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../Deshboard/Header';
-import DepartmentsBar from '../Deshboard/departmentsBar';   
+import { Row } from 'react-bootstrap';
 import Summary from './Summary';
-import Empty from './Empty';
 import Tab from './Tab';
+import Empty from './Empty';
 
-function Cart(props) {
+function Cart() {
+    const CartItems = JSON.parse(localStorage.getItem("CartItems"));
+    
+    const [removed, setDisplay] = useState({
+        idx: -1
+    })
+    const [rmv,setStr] = useState({
+        updatedCartItem: CartItems
+    })
+    
+    const Remove = () => {
+        var array = [rmv.updatedCartItem]
+        if (removed.idx !== -1) {
+            array = rmv.updatedCartItem.filter((_, i) => i !== removed.idx)
+            setStr({updatedCartItem: array});
+            setDisplay({idx: -1});
+            localStorage.removeItem("CartItems")
+            localStorage.setItem("CartItems", JSON.stringify(rmv.updatedCartItem))
+        }
+        localStorage.removeItem("CartItems")
+        localStorage.setItem("CartItems", JSON.stringify(rmv.updatedCartItem))
+    }
+    if (CartItems === null) {
+        return (
+            <div>
+                <Header />
+                <Empty />
+            </div>
+        )
+    }
+    else {
+        return (
+            <div>
+                {Remove()}
+                <Header />
+                <div className="body" style={{ height: '40rem' }}>
+                    <div >
+                        <Row>
+                            <div style={{ overflowY: 'scroll', overflowX: 'hidden', height: '38rem' }}>
+                                {rmv.updatedCartItem.map((data, key) => (
+                                    <div key={key}>
+                                        <Tab name={data.NAME} img={data.PICTURE} price={data.PRICE} itemNo={data.COUNT}
+                                            desc={data.DESCRIPTION} setDisplay={setDisplay} index={key} />
+                                    </div>
+                                ))}
 
-    return (
-        <div>
-            <Header />
-            <div className="body">
-                <DepartmentsBar />
-                <div className="feed" >{/*style={{height: '700px', overflowY:'scroll'}}*/}
-                    <div>
-                        {/* display only when the cart is empty */}
-                        <Empty/> 
-                        {/* creating a card as our building block */}
-                        <Tab/>
-                        {/* summary tab goes at the bottom of the list */}
-                        <Summary/>
-
-                        
-                   </div>
+                            </div>
+                            <Summary />
+                        </Row>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
+
 
 export default Cart;

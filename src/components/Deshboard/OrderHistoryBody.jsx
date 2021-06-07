@@ -1,10 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import MyAccountBar from './MyAccountBar';
 import OrderBox from './orderBox';
-<<<<<<< Updated upstream
-=======
 import axios from 'axios';
->>>>>>> Stashed changes
 
 
 
@@ -16,16 +13,10 @@ function OrderBody(){
 
             <div className="orders">
                 <h3 className="">Orders</h3>
-<<<<<<< Updated upstream
-                <OrderBox customerName="User1" date="Mon, 19 Apr 2021" orderNumber="000001"/>
-                <OrderBox customerName="User1" date="Tue, 20 Apr 2021" orderNumber="000002"/>
-                <OrderBox customerName="User1" date="Wed, 21 Apr 2021" orderNumber="000003"/>
-=======
                 {/* <OrderBox customerName="User1" date="Mon, 19 Apr 2021" orderNumber="000001"/>
                 <OrderBox customerName="User1" date="Tue, 20 Apr 2021" orderNumber="000002"/>
                 <OrderBox customerName="User1" date="Wed, 21 Apr 2021" orderNumber="000003"/> */}
                 {GetItems(3)}
->>>>>>> Stashed changes
             </div>
         </div>
 

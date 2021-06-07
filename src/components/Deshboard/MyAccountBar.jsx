@@ -12,8 +12,8 @@ class MyAccountBar extends Component{
                         
                         <li><a href="#" className="department">Orders</a>
                             <ul id="booksStationery" className="subDepartment">
-                                <li><a href="#">Orders</a></li>
-                                <li><a href="#" onClick={()=>{
+                                <li><a href="#orders">Orders</a></li>
+                                <li><a href="#orders" onClick={()=>{
                                     const input = document.getElementById("invoice");
                                     html2canvas(input)
                                         .then((canvas) => {

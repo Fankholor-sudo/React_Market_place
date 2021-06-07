@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
-<<<<<<< Updated upstream
-// import openModal from './itemBox';
-
-import laptop from "../../pics/laptop.jpg";
-// import rating_icon from "../pics/rating_icon.png";
-=======
->>>>>>> Stashed changes
 
 class Modals extends Component {
     itemName =this.props.itemName;
@@ -22,12 +15,8 @@ class Modals extends Component {
         // var openModal = false;
         
         return (  
-<<<<<<< Updated upstream
-            <Modal isOpen={true}>
-=======
             <Modal isOpen={true} ariaHideApp={false}>
                 
->>>>>>> Stashed changes
                 <div className="modal-content">
                 <div className="new">
 
@@ -36,11 +25,7 @@ class Modals extends Component {
 
                     <div className="item-info">
                         <div className="modalImage"><img className="itemImage" src={this.image} alt="macbook air retina"/></div>
-<<<<<<< Updated upstream
-                        <div className className="modal-itemName"><p>{this.itemName}</p></div>
-=======
                         <div className="modal-itemName"><p>{this.itemName}</p></div>
->>>>>>> Stashed changes
                         <p className="modalPrice">R {this.orgPrice}</p>
                             {/* <span className="original-price">  was R {this.orgPrice} </span>
 
@@ -67,57 +52,6 @@ class Modals extends Component {
             </Modal>
         );
     }
-<<<<<<< Updated upstream
-    
-
-// closeModal(){
-//     var modal =document.getElementById('modal');
-//     modal.style.display="none";
-// }
-
-// //TODO: to get this info from the backend api
-// changeSelected(e){
-//     var id =e.target.id;
-//     // var description = this.desc;
-//     // console.log(description);
-
-//     document.getElementById(id).className="selected";
-    
-    
-//     if(id ==="item-desc"){
-//         document.getElementById("item-stock-info").className="";
-//         document.getElementById("item-reviews").className="";
-//         document.getElementById("item-extra-info-content").innerHTML=`Apples thinnest and lightest notebook, the MacBook Air gets supercharged with the Apple M1 chip. Tackle your projects with the blazing-fast 8-core CPU. Take graphics-intensive apps and games to the next level with a 7-core GPU. And accelerate machine learning tasks with the 16-core Neural Engine. All with a silent, fan-less design and the longest battery life everup to 18 hours 1. Still perfectly portable. MacBook Air is now a lot more powerful.
-
-//         This MacBook Air 13inch, 2018 Retina Edition features a 1,6GHz Intel Core 8GB, SSD 256GB
-        
-//         MPN: MRE82LL/A
-        
-//         Model Number: A1932
-        
-//         Type: Pre-Owned
-        
-//         Cosmetic Condition: CPO - Grade B- Device is in excellent condition. Keys A and E are faded on the keyboard.
-        
-//             6-month warranty
-//             7-Day Return Policy
-//             Accessories not included
-//             20+ inspection done on all devices and is fully functional`;
-//     }
-//     if(id ==="item-stock-info"){
-//         document.getElementById("item-desc").className="";
-//         document.getElementById("item-reviews").className="";
-
-//         document.getElementById("item-extra-info-content").innerHTML=`Apples thinnest and lightest notebook, the MacBook Air gets supercharged with the Apple M1 chip. Tackle your projects with the blazing-fast 8-core CPU. Take graphics-intensive apps and games to the next level with a 7-core GPU. And accelerate machine learning tasks with the 16-core Neural Engine. All with a silent, fan-less design and the longest battery life everup to 18 hours 1. Still perfectly portable. MacBook Air is now a lot more powerful.This MacBook Air 13inch, 2018 Retina Edition features a 1,6GHz Intel Core 8GB, SSD 256GB MPN: MRE82LL/A`;
-//     }
-//     if(id ==="item-reviews"){
-//         document.getElementById("item-stock-info").className="";
-//         document.getElementById("item-desc").className="";
-//         document.getElementById("item-extra-info-content").innerHTML=`Apples thinnest and lightest notebook, the MacBook Air gets supercharged with the Apple M1 chip. Tackle your projects with the blazing-fast 8-core CPU. Take graphics-intensive apps and games to the next level with a 7-core GPU. And accelerate machine learning tasks with the 16-core Neural Engine. All with a silent, fan-less design and the longest battery life everup to 18 hours 1. Still perfectly portable. MacBook Air is now a lot more powerful.This MacBook Air 13inch, 2018 Retina Edition features a 1,6GHz Intel Core 8GB, SSD 256GB MPN: MRE82LL/A`;
-//     }
-// }
-=======
->>>>>>> Stashed changes
 }
  
 export default Modals;

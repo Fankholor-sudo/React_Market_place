@@ -1,107 +1,138 @@
-import React,{Component, useState} from 'react';
-import {Items, Items2, Items3, Items4} from './items'
-import Modals from "./modal" 
+import React,{useState} from 'react';
 import Modal from 'react-modal';
+//import 'font-awesome/css/font-awesome.min.css';
 
-import laptop from "../../pics/laptop.jpg";
-import rating_icon from "../../pics/rating_icon.png";
-// import Modal from "./modal";
-
-function ItemBox({image, itemName, orgPrice, rating, desc}){
+    function ItemBox({image, itemName, orgPrice, index, desc }){
    
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+        const price = Number(orgPrice)
+        const [modalIsOpen, setModalIsOpen] = useState(false);
+
+        const addCartItems = () => {
+            var item;
+            setModalIsOpen(false);
+
+           if(JSON.parse(localStorage.getItem("CartItems"))=== null){
+               item = [{
+                   "PICTURE": image,
+                   "NAME": itemName,
+                   "PRICE": price,
+                   "ORIGINAL_PRICE": price,
+                   "DESCRIPTION": desc,
+                   "COUNT": 1,
+                   "KEY": index
+               }]
+               localStorage.setItem("CartItems", JSON.stringify(item))
+           }
+           else{
+               item = {
+                   "PICTURE": image,
+                   "NAME": itemName,
+                   "PRICE": price,
+                   "ORIGINAL_PRICE": price,
+                   "DESCRIPTION": desc,
+                   "COUNT": 1,
+                   "KEY": index
+               }
+               var storedItems = JSON.parse(localStorage.getItem("CartItems"));
+               storedItems.push(item);
+               localStorage.setItem("CartItems", JSON.stringify(storedItems));
+           }
+       }
+       
+        var photo = image.split(",");
+    const [stateIndex, setIndex] = useState({
+        currentIndex: 0,
+        translateValue: 0
+    });
+
+    const goToPrevSlide = () => {
+        if(stateIndex.currentIndex === 0)
+          return;
+
+        setIndex(prevIndex => ({
+          currentIndex: prevIndex.currentIndex - 1,
+          translateValue: prevIndex.translateValue + slideWidth()
+        }))
+      }
+    const goToNextSlide = () => {
+
+        if(stateIndex.currentIndex === photo.length - 1) {
+          return setIndex({
+            currentIndex: 0,
+            translateValue: 0
+          })
+        }
+        setIndex(prevIndex => ({
+            currentIndex: prevIndex.currentIndex + 1,
+            translateValue: prevIndex.translateValue + -(slideWidth())
+          }));
+      }
+    const slideWidth = () => {
+        return document.querySelector('.modalImage img').clientWidth
+     }
+
+     const Slide = ({ images }) => {
+        const styles = {
+          backgroundImage: `url(${images})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: '50% 60%'
+        }
+        return <img className="modalImage img" style={styles}></img>
+      }
+        
+        return  <div className="item-box" >
+                    <a href="#"><div className="itemImage" onClick={() => setModalIsOpen(true)} key={index}><img src={photo[0]} alt="Not Available"/></div></a>
+                    <div className="item-name"><p>{itemName}</p></div>
+                    <div className="price"><p>R {orgPrice}
+                    </p></div>
+
     
-    return  <div className="item-box" onClick={() => setModalIsOpen(true)}>
-                <div className="itemImage" val = {image}><img src={image} alt="macbook air retina"/></div>
-                <div className="item-name"><p>{itemName}</p></div>
-                <div className="price"><p>R {orgPrice}
-                    {/* <span className="original-price">  was R {this.orgPrice} </span> */}
-                </p></div>
-                <div className="rating">
-                    <img src={rating_icon} alt="rating"/>
-                    <span>{rating}</span>
-                </div>
-
-                <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
-                    <div className="modal-content">
-                        <div className="new">
-
-                            {/* <div className="closeModal" onClick={() => setModalIsOpen(false)}><span id="close">&times;</span></div> */}
-                            {/* <div className="modal-discount-tag">35% off</div> */}
-
-                            <div className="item-info">
-                                <div className="modalImage"><img className="itemImage" src={image} alt="macbook air retina"/></div>
-                                <div className className="modal-itemName"><p>{itemName}</p></div>
-                                <p className="modalPrice">R {orgPrice}</p>
-                                    {/* <span className="original-price">  was R {this.orgPrice} </span>
-
-                                {/* <div className="rating">
-                                    <img src={rating_icon} alt="rating"/>
-                                    <span>{this.rating}</span>
-                                </div> */}
-                                <div>
-                                <button onClick={() => setModalIsOpen(false)}>&#43; Add to Cart</button>
-
-                                </div>
+                    <div className="addcart">
+                        <img className="favIcon" src="./icons/addcart.svg" alt="cart" onClick={() => addCartItems({photo, itemName, orgPrice, desc, index})} />
+                    </div>
+    
+                    <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+                        <div className="modal-content">
+                            <div className="new">
                                 
-                            </div> 
+                                <div className="closeModal" onClick={() => setModalIsOpen(false)}><a href="#"><img src="./icons/close.png" id="close"/></a></div>
 
-                            <div className="item-extra-info">
-                                {/* <button>Product Description</button> */}
-                                {/* <button id ="item-desc" className="selected" onClick={this.changeSelected}>Product Description</button> */}
-                                {/* <button id="item-stock-info" onClick={this.changeSelected}>Product Infomation</button> */}
-                                {/* <button id="item-reviews" onClick={this.changeSelected}>Product Reviews</button> */}
-                                <div id="extra-info-container" className="extra-info-container">
-                                    <p id="item-extra-info-content">{desc}</p>
+                                <div className="item-info">
+                                    <div className="modalImage">
+                                    <div className="modalImage-wrap" 
+                                		style={{transform: `translateX(${stateIndex.translateValue}px)`,
+                                        	transition: 'transform ease-out 0.45s'
+                                    }}>
+                                        { photo.map((photo, i) => (
+                                            <Slide key = {i} images={photo}/>
+                                        ))}
+                                	</div> 
+                                <div className= "backArrow arrow" onClick={goToPrevSlide}><i className="fa fa-angle-left fa-3x"></i></div>
+                                <div className= "nextArrow arrow" onClick={goToNextSlide}><i className="fa fa-angle-right fa-3x"></i></div>
+                               </div>
+                                    <div className="modal-itemName"><p>{itemName}</p></div>
+                                    <p className="modalPrice">R {orgPrice}</p>
+
+                                    <div>
+                                    <button onClick={() => addCartItems({image, itemName, orgPrice, desc, index})}>&#43; Add to Cart</button>
+    
+                                    </div>
+                                    
+                                </div> 
+    
+                                <div className="item-extra-info">
+
+                                    <div id="extra-info-container" className="extra-info-container">
+                                        <p id="item-extra-info-content">{desc}</p>
+                                    </div>
                                 </div>
                             </div>
+                            <div className="closeModal">
+                                <p>Press <div className="esc"><p>Esc</p></div>to Exit</p>
+                            </div>
                         </div>
-                        <div className="closeModal">
-                            <p>Press <div className="esc"><p>Esc</p></div>to Exit</p>
-                        </div>
-                    </div>
-                 </Modal>
-            </div>;
-}
-export default ItemBox;
-
-
-
-
-
-
-
-
-// class ItemBox extends Component{
-    
-//     itemName =this.props.itemName;
-//     orgPrice =this.props.orgPrice;
-//     discount =this.props.discount;
-//     rating =this.props.rating;
-//     //itemPrice = orgPrice-((discount/100) * orgPrice);
-//     itemPrice = 11890000; //hardcoded for now
-//     // category = this.props.category;
-//     // category = true;
-//     image = this.props.image;
-//     mod = true;
-//     render(){
-//         // const [modalIsOpen, setModalIsOpen] = useState(false);
-        
-//         return  <div className="item-box">
-//                     <div className="itemImage" val = {this.modSauce}><img src={this.image} alt="macbook air retina"/></div>
-//                     <div className="item-name"><p>{this.itemName}</p></div>
-//                     <div className="price"><p>R {this.orgPrice}
-//                         {/* <span className="original-price">  was R {this.orgPrice} </span> */}
-//                     </p></div>
-//                     <div className="rating">
-//                         <img src={rating_icon} alt="rating"/>
-//                         <span>{this.rating}</span>
-//                     </div>
-//                 </div>;
-//                 // <Modal isOpen={modalIsOpen} />
-                
-//     }
-
-    
-    
-// }
+                     </Modal>
+                </div>;
+    }
+    export default ItemBox;

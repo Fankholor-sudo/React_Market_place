@@ -3,7 +3,7 @@ import React from 'react';
 function Favorites(){
     return(
         <a href="#" ><div className="fav">
-            <img className="favIcon" src="./icons/heart.svg" alt="heart" />
+            <img className="favIcon" src="./icons/heart.svg" alt="heart" onClick={() => localStorage.removeItem("CartItems")}/>
         </div></a>
     );
 }

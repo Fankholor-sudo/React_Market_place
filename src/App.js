@@ -6,6 +6,8 @@ import LoginForm from './components/LoginReg/LoginForm';
 import LandingPage from './components/Deshboard/LandingPage'
 import Cart from './components/cart/Cart';
 import OrderHistory from './components/Deshboard/OrderHistory';
+import ViewMore from './components/ViewMore/viewMore';
+import SubDepartments from './components/ViewMore/subDepartments';
 
 import { BrowserRouter as Router, Switch, Route, withRouter} from "react-router-dom";
 import Invoices from './components/Deshboard/invoices';
@@ -41,8 +43,6 @@ function App() {
               <OrderHistory />
         </Route>
 
-<<<<<<< Updated upstream
-=======
         <Route path="/Invoices" exact={true}>
               <Invoices />
         </Route>
@@ -55,7 +55,6 @@ function App() {
               <SubDepartments />
         </Route>
 
->>>>>>> Stashed changes
         </Switch>
       </Router>
     </div>

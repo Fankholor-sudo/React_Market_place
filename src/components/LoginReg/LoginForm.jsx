@@ -51,6 +51,9 @@ function LoginForm(props)
                     .then(function (res) {
                         var status = res.data[0].login_status;
 
+                        //////////------------set the details of the user-----------/////////
+                        localStorage.setItem("userDetails", JSON.stringify(res))
+
                         /////////-----Redirect to main page when login success-----/////////
                         status === 1 ? history.push('/LandingPage')
                             : setStateErr({
@@ -75,6 +78,8 @@ function LoginForm(props)
             <Row>
                 <Col>
                     <div>
+                        {console.log(JSON.parse(localStorage.getItem("userDetails")))}
+                        {localStorage.removeItem("loginDetails")}
                         <Form style={{ width: '90%', marginLeft: '5%', marginTop: '20%' }}>
                             {(stateErr.error !== "" && stateErr.error !== undefined) ? (<div><Alert variant='danger'>{stateErr.error}</Alert></div>):""}
                             <Form.Group>
