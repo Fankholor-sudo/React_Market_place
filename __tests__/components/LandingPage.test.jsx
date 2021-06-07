@@ -5,6 +5,8 @@ import ItemBox from 'ItemBox';
 import Example from 'RegNavBar';
 import {Favorites, Cart} from 'FavCart';
 import Header from 'Header';
+import Footer from 'Footer';
+import Search from 'Search';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
@@ -49,18 +51,10 @@ describe('Landing_Page renders withoout crashing', () => {
         
         const query = container.querySelector('.item-box');
         const query2 = container.querySelector('.itemImage');
-        // const query3 = container.querySelector('.item-name');
-        // const query4 = container.querySelector('.price');
 
 
         expect(query).not.toBeNull();
-        // expect(query13).not.toBeNull();
-        // expect(query14).not.toBeNull();
-        // expect(query17).not.toBeNull();
         fireEvent.click(query);
-        // fireEvent.click(query13);
-        // fireEvent.click(query14);
-        // fireEvent.click(query17);
         expect(query2).not.toBeNull();
     });
 
@@ -86,6 +80,19 @@ describe('Landing_Page renders withoout crashing', () => {
 
         expect(query2).not.toBeNull();
         fireEvent.click(query2);
+        expect(query).not.toBeNull();
+    });
+
+    it('footer render without fail',() => {
+        const { container } = render(<Footer />);
+        container.querySelector('.test');
+    });
+
+    it('search render without fail',() => {
+        const { container, getByText } = render(<Search />);
+        const query = container.querySelector('.find');
+        const q2 = getByText('SearchValue');
+        fireEvent.click(query);
         expect(query).not.toBeNull();
     });
 });

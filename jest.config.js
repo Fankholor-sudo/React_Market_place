@@ -14,7 +14,9 @@ module.exports = {
       "FavCart": "<rootDir>/src/components/Deshboard/favCart.jsx",
       "Header": "<rootDir>/src/components/Deshboard/Header.jsx",
       "LoginForm": "<rootDir>/src/components/LoginReg/LoginForm",
-      "RegisterForm": "<rootDir>/src/components/LoginReg/Register"
+      "RegisterForm": "<rootDir>/src/components/LoginReg/Register",
+      "Footer": "<rootDir>/src/components/Deshboard/Footer.jsx",
+      "Search": "<rootDir>/src/components/Deshboard/search.jsx",
   },
   setupFilesAfterEnv: [
     "@testing-library/jest-dom/extend-expect"

@@ -27,11 +27,8 @@ function Search(){
     <div>
          <Header/>
         <div className="search">
-            <div className="input">
-                <input type = "text" placeholder = "Search...." onChange = {handleOnChange}/></div>
-
-            <div><button onClick = {handleSearch}><img className="icons" src="./icons/search.png" alt="search" /></button ></div>
-
+            <div className="input"><input type = "text" placeholder = "Search...." onChange = {handleOnChange}/></div>
+            <div><button className='find' onClick = {handleSearch}><img className="icons" src="./icons/search.png" alt="search" /></button ></div>
         </div>
         <Footer/>
     </div>
