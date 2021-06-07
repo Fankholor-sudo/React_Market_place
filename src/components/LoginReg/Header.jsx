@@ -19,7 +19,7 @@ function Header({pageUrl, title }) {
                 </Row>
             </header>
         </div>
-    )
+    );
 }
 
 export default Header
