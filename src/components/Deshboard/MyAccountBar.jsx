@@ -1,7 +1,9 @@
 import React,{Component} from 'react';
-
+import jsPDF from 'jspdf';
+import html2canvas from "html2canvas";
 
 class MyAccountBar extends Component{
+    
     render(){
         return  <div className="departments">
                     <h3 className="departmentHeading">My Account</h3>
@@ -10,9 +12,22 @@ class MyAccountBar extends Component{
                         
                         <li><a href="#" className="department">Orders</a>
                             <ul id="booksStationery" className="subDepartment">
-                                <li><a href="#">Orders</a></li>
-                                <li><a href="#">Invoices</a></li>
-                                <li><a href="#">Exchanges & Returns</a></li>
+                                <li><a href="#orders">Orders</a></li>
+                                <li><a href="#orders" onClick={()=>{
+                                    const input = document.getElementById("invoice");
+                                    html2canvas(input)
+                                        .then((canvas) => {
+                                            const imgData = canvas.toDataURL('image/png');
+                                            const pdf = new jsPDF();
+                                            pdf.addImage(imgData, 'JPEG', 0, 0);
+                                            pdf.save(`wits_marketplace_invoice.pdf`);
+                                        }).finally(()=>{
+                                            window.open("http://localhost:3000/OrderHistory","_self");
+                                        }
+                                        )
+
+                                }}>Invoices</a></li>
+                                {/* <li><a href="#">Exchanges & Returns</a></li> */}
                             </ul>
                         </li>
                         

@@ -10,6 +10,7 @@ import ViewMore from './components/ViewMore/viewMore';
 import SubDepartments from './components/ViewMore/subDepartments';
 
 import { BrowserRouter as Router, Switch, Route, withRouter} from "react-router-dom";
+import Invoices from './components/Deshboard/invoices';
 
 
 
@@ -40,6 +41,10 @@ function App() {
 
         <Route path="/OrderHistory" exact={true}>
               <OrderHistory />
+        </Route>
+
+        <Route path="/Invoices" exact={true}>
+              <Invoices />
         </Route>
 
         <Route path="/viewMore" exact={true}>
