@@ -91,7 +91,7 @@ describe('Landing_Page renders withoout crashing', () => {
     it('search render without fail',() => {
         const { container, getByText } = render(<Search />);
         const query = container.querySelector('.find');
-        const q2 = getByText('SearchValue');
+        // const q2 = getByText('SearchValue');
         fireEvent.click(query);
         expect(query).not.toBeNull();
     });

@@ -1,7 +1,25 @@
 import React from 'react';
-import {fireEvent, render} from '@testing-library/react';
+import {act, fireEvent, render, waitFor} from '@testing-library/react';
 import Login from 'LoginForm';
-import { act } from 'react-dom/test-utils';
+import axiosMock from "axios";
+
+export default {
+    get: jest.fn(() => Promise.resolve({ data: {} }) )
+};
+  
+describe('testing internet requests', () => {
+    it('internet reqwst working', async () => {
+        axiosMock.get.mockResolvedValue({ data: { title: 'some title' } })
+        const {container, getByTestId, rerender } = render(<Login />);
+
+        fireEvent.click(container.querySelector('.login-btn'));
+        const resolvedEl = await waitFor(() => getByTestId("testid"));
+        expect((resolvedEl).textContent).toBe("")
+      
+        expect(axiosMock.get).toHaveBeenCalledTimes(1);
+        // expect(axiosMock.get).toHaveBeenCalledWith(url);
+    });
+});
 
 describe('Login States are working', () => {
     it('first state testing', () => {
@@ -35,7 +53,6 @@ describe('Login renders', () => {
         expect(passwordInputNode.value).toMatch('123456');
     });
 });
-
 describe('Login Form is working', () => {
     it('Form', () => {
         const {container} = render(<Login />);
@@ -65,5 +82,4 @@ describe('Login Form is working', () => {
         expect(emailInputNode.value).toMatch('testing'); 
         expect(passwordInputNode.value).toMatch('123456');
     });
-
 });

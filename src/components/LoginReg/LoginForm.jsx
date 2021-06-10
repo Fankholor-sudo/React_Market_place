@@ -72,7 +72,7 @@ function LoginForm(props)
                     <div>
                         {localStorage.removeItem("loginDetails")}
                         <Form style={{ width: '90%', marginLeft: '5%', marginTop: '20%' }}>
-                            {(stateErr.error !== "" && stateErr.error !== undefined) ? (<div><Alert variant='danger'>{stateErr.error}</Alert></div>):""}
+                            {(stateErr.error !== "" && stateErr.error !== undefined) ? (<div><Alert data-testid='testid' variant='danger'>{stateErr.error}</Alert></div>):""}
                             <Form.Group>
                                 <Form.Label htmlFor='email'>Email</Form.Label>
                                 <Form.Control
@@ -100,6 +100,7 @@ function LoginForm(props)
                             </Form.Group>
                             <Button
                                 className='login-btn'
+
                                 onClick={handleSubmit}
                                 type='submit'
                                 style={{ background: '#FFCE2E', width: '100px' }}
