@@ -7,7 +7,7 @@ function Tab({ name, price, desc, itemNo, img, setDisplay, index }) {
     var m = JSON.parse(localStorage.getItem("CartItems"))
 
     const [numItem, setNumItem] = useState({
-        value: m[index].COUNT
+        value: JSON.parse(localStorage.getItem("CartItems"))[index].COUNT
     })
     const [priceItem, setPriceItem] = useState({
         price: prices

@@ -38,7 +38,6 @@ function Cart() {
     else {
         return (
             <div>
-                {Remove()}
                 <Header />
                 <div className="body" style={{ height: '40rem' }}>
                     <div >
@@ -54,6 +53,7 @@ function Cart() {
                             </div>
                             <Summary />
                         </Row>
+                                {Remove()}
                     </div>
                 </div>
             </div>
