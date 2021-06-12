@@ -1,39 +1,46 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Header from '../Deshboard/Header';
-import Footer from "../Deshboard/Footer";
-//import { useWatch } from 'react-hook-form';
-import ItemBox from "./itemBox";
 
 
 function Search(){
-    const [items, setItems]= useState([])
-    const [State, setState]= useState('')
+    //const [items, setItems]= useState([])
+    sessionStorage.setItem('search','')
+    const [State, setState]= useState({item:""})
 
-  const  handleOnChange = event => { 
-        setState(event.target.value);
+  const  handleSearch = async e => { 
+        setState(prevState =>({
+            ...prevState,
+            item: e.target.value
+        }))
         
     };
-   const handleSearch=()=>{
-        const getItems= async () =>{
-            await axios.post("https://lamp.ms.wits.ac.za/home/s2172765/searchProducts.php", {ID : State.SearchValue})
-            .then(response => console.log(response.data))
-            .catch(error => console.log(error))
-        };
-        getItems()
-          };
+   const handleSubmit= e =>{
+       e.preventDefault();
+       if(State.item != ""){
+           const URL = "https://lamp.ms.wits.ac.za/home/s2172765/searchProducts.php" 
+            axios.post(URL, {ID : State.item})
+           .then(response => sessionStorage.setItem('search',JSON.stringify(response)))
+            .catch(error => sessionStorage.setItem('search',JSON.stringify(error)))
+       }
+
+    }
+        
 
     return (
     <div>
-         <Header/>
+         
         <div className="search">
             <div className="input">
-                <input type = "text" placeholder = "Search...." onChange = {event => handleOnChange(event)} value = {State.SearchValue} /></div>
+                <input 
+                type = "text"
+                placeholder = "Search...." 
+                onChange = {handleSearch} /></div>
 
-            <div><button onClick = {handleSearch}><img className="icons" src="./icons/search.png" alt="search" /></button ></div>
+            <div><button type = 'submit'    
+                        onClick = {handleSubmit}><img className="icons" src="./icons/search.png" alt="search" /></button ></div>
 
         </div>
-        <Footer/>
+        
     </div>
     );
 }    
