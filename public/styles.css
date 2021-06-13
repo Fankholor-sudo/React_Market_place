@@ -36,6 +36,7 @@ body {
   background-color: #efefef;
   justify-content: space-around;
 }
+
 /*************************************************************FEED******************************************************************/
 .feed {
   display: flex;
@@ -49,14 +50,6 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 1.5em;
-  /* background-color: rebeccapurple; */
-}
-
-.feedCategories2 {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1.5em;
-  width: 2000px;
   /* background-color: rebeccapurple; */
 }
 
@@ -798,6 +791,7 @@ body {
   width: 21cm;
   max-width: 21cm;
   align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: absolute;
   z-index: -1000;
   left: -1000px;
