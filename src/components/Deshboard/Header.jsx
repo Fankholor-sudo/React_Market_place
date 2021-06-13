@@ -11,6 +11,7 @@ function Header() {
 
             <div className="dropSearch">
                 <DropdownBtn />
+               
             </div>
 
             <div className="regFavCart">

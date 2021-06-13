@@ -87,7 +87,6 @@ import Modal from 'react-modal';
                     <div className="price"><p>R {orgPrice}
                     </p></div>
 
-    
                     <div className="addcart">
                         <img className="favIcon" src="./icons/addcart.svg" alt="cart" onClick={() => addCartItems({photo, itemName, orgPrice, desc, index})} />
                     </div>

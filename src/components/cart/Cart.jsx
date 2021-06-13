@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../Deshboard/Header';
 import { Row } from 'react-bootstrap';
-import Summary from './Summary';
+import Suggest from './Summary';
 import Tab from './Tab';
 import Empty from './Empty';
 
@@ -52,7 +52,7 @@ function Cart() {
                                 ))}
 
                             </div>
-                            <Summary />
+                            <Suggest />
                         </Row>
                     </div>
                 </div>
