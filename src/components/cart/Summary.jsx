@@ -14,6 +14,9 @@ import axios from 'axios';
     }
 
     function getCity(value) {
+        if(JSON.parse(localStorage.getItem("Address"))=== null){
+              localStorage.setItem("Address",JSON.stringify([]))
+        }
         const Address = JSON.parse(localStorage.getItem("Address")); 
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
@@ -24,6 +27,9 @@ import axios from 'axios';
       }
     
     function getStreet(value) {
+      if(JSON.parse(localStorage.getItem("Address"))=== null){
+        localStorage.setItem("Address",JSON.stringify([]))
+          }
         const Address = JSON.parse(localStorage.getItem("Address")); 
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
@@ -34,6 +40,9 @@ import axios from 'axios';
     }
     
     function getSurburb(value) {
+      if(JSON.parse(localStorage.getItem("Address"))=== null){
+        localStorage.setItem("Address",JSON.stringify([]))
+          }
         const Address = JSON.parse(localStorage.getItem("Address")); 
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
@@ -44,6 +53,9 @@ import axios from 'axios';
       }
     
       function getCountry(value) {
+        if(JSON.parse(localStorage.getItem("Address"))=== null){
+          localStorage.setItem("Address",JSON.stringify([]))
+         }
         const Address = JSON.parse(localStorage.getItem("Address")); 
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
@@ -180,9 +192,10 @@ class Suggest extends React.Component {
 
     SaveOrder=() =>{
         const { street,surburb,city,country, email, order} = this.state;
-        var deliveryaddress = street +" "+ surburb +" "+ city +" "+ country;
+        var deliveryaddress = {Street: street, Surburb: surburb, City: city, Country: country };
+        var deliver = street + ',' + surburb + ',' + city + ',' + country;
         this.SaveAddress(deliveryaddress);
-            axios.post(`https://lamp.ms.wits.ac.za/home/s2172765/insertOrders.php?userEmail=${email}&order=${order}&deliveryAddress=${deliveryaddress}`)
+            axios.post(`https://lamp.ms.wits.ac.za/home/s2172765/insertOrders.php?userEmail=${email}&order=${order}&deliveryAddress=${deliver}`)
             .then((response) => {
                 if(response.status === 200){
                     if(response.data === "Successful"){

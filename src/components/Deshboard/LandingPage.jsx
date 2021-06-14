@@ -11,7 +11,6 @@ function LandingPage() {
     <CatNavBar />
     <Body />
     <Footer />
-    {/* <Modals /> */}
   </div>);
 }
 export default LandingPage;
