@@ -120,7 +120,7 @@ function LoginForm(props)
                 <Col><LgnImgHolder /></Col>
             </Row>
         </div>
-    )
+    );
 }
 
 export default LoginForm;

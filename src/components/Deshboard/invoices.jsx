@@ -99,50 +99,6 @@ function Invoices (){
                         <td>1</td>
                         <td>600</td>
                         <td>600</td>
-                    </tr>
-                    {/* <tr>
-                        <td>Item 1</td>
-                        <td>Item Description</td>
-                        <td>1</td>
-                        <td>100</td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <td>Item 1</td>
-                        <td>Item Description</td>
-                        <td>1</td>
-                        <td>100</td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <td>Item 1</td>
-                        <td>Item Description</td>
-                        <td>1</td>
-                        <td>100</td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <td>Item 1</td>
-                        <td>Item Description</td>
-                        <td>1</td>
-                        <td>100</td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <td>Item 1</td>
-                        <td>Item Description</td>
-                        <td>1</td>
-                        <td>100</td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <td>Item 1</td>
-                        <td>Item Description</td>
-                        <td>1</td>
-                        <td>100</td>
-                        <td>100</td>
-                    </tr> */}
-                    <tr>
                         <td></td>
                         <td><strong>TOTAL</strong></td>
                         <td></td>
