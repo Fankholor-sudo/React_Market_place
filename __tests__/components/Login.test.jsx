@@ -10,7 +10,7 @@ export default {
 describe('testing internet requests', () => {
     it('internet reqwst working', async () => {
         axiosMock.get.mockResolvedValue({ data: { title: 'some title' } })
-        const {container, getByTestId, rerender } = render(<Login />);
+        const {container, getByTestId } = render(<Login />);
 
         fireEvent.click(container.querySelector('.login-btn'));
         const resolvedEl = await waitFor(() => getByTestId("testid"));
