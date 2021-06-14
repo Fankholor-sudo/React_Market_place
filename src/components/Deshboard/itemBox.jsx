@@ -39,7 +39,7 @@ import Modal from 'react-modal';
            }
        }
        
-        var photo = image.split(",");
+    var photo = image.split(",");
     const [stateIndex, setIndex] = useState({
         currentIndex: 0,
         translateValue: 0
@@ -82,7 +82,7 @@ import Modal from 'react-modal';
       }
         
         return  <div className="item-box" >
-                    <a href="#"><div className="itemImage" onClick={() => setModalIsOpen(true)} key={index}><img src={photo[0]} alt="Not Available"/></div></a>
+                    <div className="itemImage" onClick={() => setModalIsOpen(true)} key={index}><img src={photo[0]} alt="Not Available"/></div>
                     <div className="item-name"><p>{itemName}</p></div>
                     <div className="price"><p>R {orgPrice}
                     </p></div>
@@ -95,7 +95,7 @@ import Modal from 'react-modal';
                         <div className="modal-content">
                             <div className="new">
                                 
-                                <div className="closeModal" onClick={() => setModalIsOpen(false)}><a href="#"><img src="./icons/close.png" id="close"/></a></div>
+                                <div className="closeModal" onClick={() => setModalIsOpen(false)}><img src="./icons/close.png" id="close" alt="close"/></div>
 
                                 <div className="item-info">
                                     <div className="modalImage">

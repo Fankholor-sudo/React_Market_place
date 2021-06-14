@@ -104,9 +104,10 @@ class Suggest extends React.Component {
         modalIsOpen: false,
         numberOfItems: 0,
         email: '',
-        order: '',
+        order: [],
         totalPrice: 0 
-      };    
+      };  
+
     }
 
     HandleDiscard=()=>{
@@ -117,15 +118,27 @@ class Suggest extends React.Component {
     handleOrder=()=>{
         this.setState({modalIsOpen: true})
         var cartItems = JSON.parse(localStorage.getItem('CartItems'));
+        console.log(cartItems)
         let userInfo = isLoggedIn();
         if(userInfo[0] !== 1){
             window.open("http://localhost:3000/LoginForm","_self"); 
         }
         else{
+          var itemname = "";
+          var itemprice = "";
+          var itemimage = "";
+          for(var i = 0; i < cartItems.length; i++){
+            itemname = itemname + ',' + cartItems[i].NAME;
+            var pic = cartItems[i].PICTURE.split(",")
+            itemimage = itemimage + ',' + pic[0]
+            itemprice = itemprice + ',' + cartItems[i].PRICE.toString();
+          }
+          var Order = [{NAME: itemname, PICTURE: itemimage, PRICE: itemprice}];
             this.setState ({
                 email: userInfo[1], 
-                order: JSON.stringify(cartItems)
+                order: JSON.stringify(Order)
             });
+            
         }
     };
 
@@ -167,9 +180,9 @@ class Suggest extends React.Component {
 
     SaveOrder=() =>{
         const { street,surburb,city,country, email, order} = this.state;
-        var deliveryaddress = {street: street, surburb: surburb, city: city, country: country};
+        var deliveryaddress = street +" "+ surburb +" "+ city +" "+ country;
         this.SaveAddress(deliveryaddress);
-            axios.post(`https://lamp.ms.wits.ac.za/home/s2172765/insertOrders.php?userEmail=${email}&order=${order}&deliveryAddress=${JSON.stringify(deliveryaddress)}`)
+            axios.post(`https://lamp.ms.wits.ac.za/home/s2172765/insertOrders.php?userEmail=${email}&order=${order}&deliveryAddress=${deliveryaddress}`)
             .then((response) => {
                 if(response.status === 200){
                     if(response.data === "Successful"){

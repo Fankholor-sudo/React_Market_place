@@ -733,6 +733,12 @@ body {
   background-color: #ffce2e;
 }
 
+.orderImages {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px; 
+}
+
 .order img {
   border-color: var(--blu);
   border-style: solid;

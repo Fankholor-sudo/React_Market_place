@@ -8,29 +8,31 @@ import ItemBox from "./itemBox";
 
 function Search(){
     const [items, setItems]= useState([])
-    const [State, setState]= useState('')
+    const [searchValue, setSearchValue] = useState('');
 
-  const  handleOnChange = event => {
-        setState(event.target.value);
-        
-    };
-   const handleSearch=()=>{
-        const getItems= async () =>{
-            await axios.post("https://lamp.ms.wits.ac.za/home/s2172765/searchProducts.php", {ID : State.SearchValue})
-            .then(response => setItems(response.data))
-            .catch(error => console.log(error))
-        };
-        getItems()
-          };
+	const getSearchRequest = async (searchValue) => {
+		const url = `https://lamp.ms.wits.ac.za/home/s2172765/searchProducts.php?ID=${searchValue}`;
+
+		const response = await fetch(url);
+		const responseJson = await response.json();
+
+		if (responseJson.Search) {
+			setItems(responseJson.Search);
+		}
+	};
+
+	/*useEffect(() => {
+		getSearchRequest(searchValue);
+	}, [searchValue]);*/
 
     return (
     <div>
          <Header/>
         <div className="search">
             <div className="input">
-                <input type = "text" placeholder = "Search...." onChange = {event => handleOnChange(event)} value = {State.SearchValue} /></div>
+                <input type = "text" placeholder = "Search...." onChange={(event) => setSearchValue(event.target.value)} value = {searchValue} /></div>
 
-            <div><button onClick = {handleSearch}><img className="icons" src="./icons/search.png" alt="search" /></button ></div>
+            <div><button onClick={getSearchRequest(searchValue)}><img className="icons" src="./icons/search.png" alt="search" /></button ></div>
 
         </div>
         <div className="body">
