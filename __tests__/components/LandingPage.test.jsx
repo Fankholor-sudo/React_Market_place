@@ -9,7 +9,6 @@ import Footer from 'Footer';
 import {Search} from 'Search';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { RenderSearch } from '../../src/components/Deshboard/search';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Landing_Page renders withoout crashing', () => {
@@ -53,7 +52,6 @@ describe('Landing_Page renders withoout crashing', () => {
         const query = container.querySelector('.item-box');
         const query2 = container.querySelector('.itemImage');
 
-
         expect(query).not.toBeNull();
         fireEvent.click(query);
         expect(query2).not.toBeNull();
@@ -90,11 +88,16 @@ describe('Landing_Page renders withoout crashing', () => {
     });
 
     it('search render without fail',() => {
-        const { container, getByText } = render(<Search />);
+        const { container, getByTestId } = render(<Search />);
+        
         const query = container.querySelector('.search');
-        const q2 = container.querySelector('.find');
-        // fireEvent.click(q2);
-        expect(q2).not.toBeNull();
+        const q1 = container.querySelector('.find');
+        const q2 = getByTestId('btn');
+
+        fireEvent.change(q2, { target: { value: 'testing' } });
+        expect(q2.value).toMatch('testing');
+        
+        expect(q1).not.toBeNull();
         expect(query).not.toBeNull();
     });
 });

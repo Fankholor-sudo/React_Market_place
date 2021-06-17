@@ -178,7 +178,7 @@ function Register(props) {
                                 type='date'
                                 id='birthdate'
                                 style={{ background: '#ECF6F9' }}
-                                onChange={(e)=>handleDateOfBirth(e)}
+                                onChange={handleDateOfBirth}
                             >
                             </Form.Control>
                         </Form.Group>

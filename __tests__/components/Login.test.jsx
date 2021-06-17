@@ -31,7 +31,7 @@ describe('testing internet requests', () => {
         // const resolvedEl = await waitFor(() => getByTestId("testid"));
         // expect((resolvedEl).textContent).toBe("Please make sure all fields are filled.");
       
-        // expect(Axios.get).toHaveBeenCalledTimes(1);
+        expect(Axios.get).toHaveBeenCalledTimes(0);
         // expect(Axios.get).toHaveBeenCalledWith(url);
     });
 });

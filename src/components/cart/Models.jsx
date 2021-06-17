@@ -9,11 +9,6 @@ function Models() {
 
                 <div class="card-body">
                     <Row>
-
-
-
-
-
                         <Image src='./img/emptCartIcon.png' style={{ border: 'none', height: '100px', width: '100px', marginTop: '0px', marginLeft: '8px' }} />
                         <Col >
                             <h4 class="card-title">Product Name</h4>

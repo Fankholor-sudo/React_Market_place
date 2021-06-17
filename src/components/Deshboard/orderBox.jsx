@@ -1,4 +1,4 @@
-import React,{Component,useEffect} from 'react';
+import React,{Component} from 'react';
 
 class OrderBox extends Component{
 
@@ -13,7 +13,6 @@ class OrderBox extends Component{
         this.setState({
             viewDetails: true
         })
-        console.log(this.props.Product);
     }
 
     viewSummaryHandler=()=>{//for the back to summary clickable text
@@ -50,7 +49,7 @@ class OrderBox extends Component{
                       <h6 className="address">Shipping address</h6>
                       <p> {this.props.Name} </p>
                        <p>   
-                          {this.props.Address}
+                          {this.props.Address.Street +' '+ this.props.Address.Surburb +' '+ this.props.Address.City}
                       </p>
                   </div>
                   <div>
