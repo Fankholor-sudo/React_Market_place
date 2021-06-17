@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from '../Deshboard/Header';
+import Nav from '../Deshboard/catNavBar';
 import Footer from "../Deshboard/Footer";
 import ItemBox from "../Deshboard/itemBox";
 import Books from "./SubDepartments/books";
@@ -57,7 +58,8 @@ function ViewMore(){
     return(
         <div>
             <Header/>
-            
+            <Nav/>
+
             <div className="body">
                 {/* <DepartmentsBar/> */}
                 {dept}
@@ -71,8 +73,6 @@ function ViewMore(){
                     <div className="items">{items.map((item, index)=><ItemBox category="Daily deals" key={index} itemName={item.NAME.slice(0,30)} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION}></ItemBox>)}</div>
 
                 </div>
-
-
             </div>
             
             <Footer/>

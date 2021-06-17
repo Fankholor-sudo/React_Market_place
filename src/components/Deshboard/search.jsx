@@ -12,32 +12,22 @@ function Search(){
 
   const  handleOnChange = event => {
         setState(event.target.value);
-        
     };
-   const handleSearch=()=>{
-        const getItems= async () =>{
-            await axios.post("https://lamp.ms.wits.ac.za/home/s2172765/searchProducts.php", {ID : State.SearchValue})
-            .then(response => console.log(response.data))
-            .catch(error => console.log(error))
-        };
-        getItems()
-          };
 
+    const stateSetter = () =>{
+        sessionStorage.setItem('state', document.getElementById("myInput").value);
+    }
     return (
     <div>
-         {/* <Header/> */}
         <div className="search">
             <div className="input">
-                <input type = "text" placeholder = "Search...." onChange = {event => handleOnChange(event)} value = {State.SearchValue} /></div>
-
-            <div><button onClick = {handleSearch}><img className="icons" src="./icons/search.png" alt="search" /></button ></div>
+                <input type = "text" placeholder = "Search...." value = {State.SearchValue} id="myInput" /></div>
+                
+                <a href="/searchResults" onClick={stateSetter}><button><img className="icons" src="./icons/search.png" alt="search" /></button ></a>
 
         </div>
-        {/* <Footer/> */}
     </div>
     );
 }    
-           
 
 export default Search;
-

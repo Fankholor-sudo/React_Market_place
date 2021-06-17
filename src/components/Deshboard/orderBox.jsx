@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-// import laptop from "../../pics/laptop.jpg";
+import laptop from "../../pics/laptop.jpg";
 
 class OrderBox extends Component{
 
@@ -9,7 +9,7 @@ class OrderBox extends Component{
             viewDetails : false
         }
     }
-
+    
     viewDetailsHandler=()=>{//for the order details button
         this.setState({
             viewDetails: true
@@ -21,7 +21,7 @@ class OrderBox extends Component{
             viewDetails: false
         })
     }
-
+    
     render(){
         if(this.state.viewDetails === false){
         return  <div className="order">
@@ -29,8 +29,8 @@ class OrderBox extends Component{
                     <button className="orderDetails" onClick={this.viewDetailsHandler}>Order Details</button>
                     <p>Signed by: {this.props.customerName}</p>
                     <span className="orderImages">
-                        <img src={this.props.image} alt="{order pictures}" width="100px"/>
-                        {/* <img src={laptop} alt="{order pictures}" width="100px"/> */}
+                        <img src={laptop} alt="{order pictures}" width="100px"/>
+                        <img src={laptop} alt="{order pictures}" width="100px"/>
                     </span>
                 </div>;
     }
@@ -44,19 +44,16 @@ class OrderBox extends Component{
                     <div className="details values">
                         <div >
                             <h6 className="address">Shipping address</h6>
-                            <p> User
-                                01 StreetName str,
-                                Surburb,City
-                                Zipcode 
+                            <p> {this.props.deliveryAddress}
                             </p>
                         </div>
                         <div>
                             <h6 className="method">Delivery method</h6>
-                            <p>Deliver</p>
+                            <p>Deliver/Pickup</p>
                         </div>
                         <div>
                             <h6 className="summary">Order summary</h6>
-                            <p> 1 item  R {this.props.orgPrice}</p>
+                            <p> {this.props.count} items  R {this.props.price}</p>
                             <p> Delivery fee  R 0</p>
                         </div>
                     </div>

@@ -9,10 +9,7 @@ const DepartmentsBar = () => {
 
     const [deptCode, setDeptCode]= useState();
     sessionStorage.setItem('SubdeptCode', deptCode);
-
-    const allFashion = () =>{
-        sessionStorage.setItem('deptCode', 6)
-    }
+    // sessionStorage.setItem('deptCode', deptCode);
 
     return (
         <div className="departments">
@@ -99,7 +96,7 @@ const DepartmentsBar = () => {
 
                                     <div className="depDroplist"  >
                                         <DropdownMenu left color="primary">
-                                            <DropdownItem onClick={allFashion}>
+                                            <DropdownItem onClick={()=>setDeptCode(6)}>
                                                 <a href="/viewMore">All Fashion</a>
                                             </DropdownItem>
 
