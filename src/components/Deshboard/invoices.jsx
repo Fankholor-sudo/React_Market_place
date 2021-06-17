@@ -87,25 +87,25 @@ function Invoices (){
                         <td>205</td>
                     </tr>
                     <tr>
-                        <td>Book</td>
-                        <td>Beyond Order</td>
+                        <td>Phone</td>
+                        <td>Samsun Galaxy A1</td>
                         <td>1</td>
-                        <td>279</td>
-                        <td>279</td>
+                        <td>4150</td>
+                        <td>4150</td>
                     </tr>
                     <tr>
-                        <td>Book</td>
-                        <td>Intro to Business</td>
+                        <td>Clothing</td>
+                        <td>Men Button Cut & Crew Shirt</td>
                         <td>1</td>
-                        <td>600</td>
-                        <td>600</td>
+                        <td>198</td>
+                        <td>198</td>
                     </tr>
                     <tr>
                         <td></td>
                         <td><strong>TOTAL</strong></td>
                         <td></td>
                         <td></td>
-                        <td><strong>R 1243</strong></td>
+                        <td><strong>R 4712</strong></td>
                     </tr>
                 </table>
             </div>
