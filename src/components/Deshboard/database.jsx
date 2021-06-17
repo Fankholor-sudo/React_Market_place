@@ -2,7 +2,7 @@ const axios = require('axios')
 
 const getItems = () => {
   try {
-    return axios.get('https://lamp.ms.wits.ac.za/home/s2172765/home.php').catch(error=> console.log(error));
+    return axios.get('https://lamp.ms.wits.ac.za/home/s2172765/home.php');
   } catch (error) {
     console.error(error)
   }

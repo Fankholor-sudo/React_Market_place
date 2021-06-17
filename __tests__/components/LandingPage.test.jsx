@@ -7,56 +7,72 @@ import {Favorites, Cart} from 'FavCart';
 import Header from 'Header';
 import Footer from 'Footer';
 import {Search} from 'Search';
-import Enzyme, {mount} from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
+import Modal from 'react-modal';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Landing_Page renders withoout crashing', () => {
     it('Books', () => {
-        const { container } = render(<Items />);    
+        const { container } = render(<Items />);
         container.querySelector('.items')
     });
 
     it('Electronics', () => {
         
-        const { container } = render(<Items2 />);    
+        const { container } = render(<Items2 />);
         container.querySelector('.items')
     });
 
     it('Clothing', () => {
-        const { container } = render(<Items3 />); 
-            container.querySelector('.items');
+        const { container } = render(<Items3 />);
+        container.querySelector('.items');
     });
 
     it('Health and Hygiene', () => {
-        const { container } = render(<Items4 />); 
+        const { container } = render(<Items4 />);
         container.querySelector('.items');
     });
 
     it('Sporting and Training', () => {
-        const { container } = render(<Items5 />);   
+        const { container } = render(<Items5 />);
         const query = container.querySelector('.items');
         expect(query).not.toBeNull();
     });
 
     it('Header', () => {
-        const { container } = render(<Header />);    
+        const { container } = render(<Header />);
         const query = container.querySelector('.parent');
         expect(query).not.toBeNull();
     });
 
     it('itemBox', () => {
         const { container } = render(<ItemBox image={'https://lamp.ms.wits.ac.za/home/s2172765/Books/book10.jpg'}
-            itemName={'testing'} orgPrice={100} index={0} desc={'testing thats all'}/>);
+            itemName={'testing'} orgPrice={100} index={0} desc={'testing thats all'} />);
         
         const query = container.querySelector('.item-box');
         const query2 = container.querySelector('.itemImage');
+        const query3 = container.querySelector('.favIcon');
 
-        expect(query).not.toBeNull();
-        fireEvent.click(query);
         expect(query2).not.toBeNull();
-    });
+        expect(query3).not.toBeNull();
 
+        fireEvent.click(query2);
+        fireEvent.click(query3);
+        expect(query).not.toBeNull();
+    });
+    it('itemBox Modal', () => {
+        const wrapper = shallow(<ItemBox image={'https://lamp.ms.wits.ac.za/home/s2172765/Books/book10.jpg'}
+            itemName={'testing'} orgPrice={100} index={0} desc={'testing thats all'} />);
+        
+        wrapper.find(Modal).find('modal-content');
+        wrapper.find(Modal).find('closeModal');
+        wrapper.find(Modal).find('modalTest');
+        expect(wrapper.find(Modal).prop('isOpen')).toBe(false);
+      
+        wrapper.find('button').simulate('click');
+        // expect(wrapper.find(Modal).prop('isOpen')).toBe(true);
+    });
     it('favorites', () => {
         const { container } = render(<Favorites />);
         const query = container.querySelector('.favIcon');
