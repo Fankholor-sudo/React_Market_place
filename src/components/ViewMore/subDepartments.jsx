@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from '../Deshboard/Header';
+import Nav from '../Deshboard/catNavBar';
 import Footer from "../Deshboard/Footer";
 import ItemBox from "../Deshboard/itemBox";
 import DepartmentsBar from "../Deshboard/departmentsBar"
@@ -63,6 +64,7 @@ function SubDepartments(){
     return(
         <div>
             <Header/>
+            <Nav/>
             
             <div className="body">
                 {dept}

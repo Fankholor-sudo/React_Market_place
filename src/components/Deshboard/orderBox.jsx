@@ -34,6 +34,22 @@ class OrderBox extends Component{
                     <span className="orderImages">
                         {photo.map((item)=><img src={item} alt="{order pictures}" width="100px"/>)}
                     </span>
+                    <div className="details values">
+                        <div >
+                            <h6 className="address">Shipping address</h6>
+                            <p> {this.props.deliveryAddress}
+                            </p>
+                        </div>
+                        <div>
+                            <h6 className="method">Delivery method</h6>
+                            <p>Deliver/Pickup</p>
+                        </div>
+                        <div>
+                            <h6 className="summary">Order summary</h6>
+                            <p> {this.props.count} items  R {this.props.price}</p>
+                            <p> Delivery fee  R 0</p>
+                        </div>
+                    </div>
                 </div>
        
     } 

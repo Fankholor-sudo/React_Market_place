@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import Modal from 'react-modal';
 import 'font-awesome/css/font-awesome.min.css';
+//import 'font-awesome/css/font-awesome.min.css';
 
     function ItemBox({image, itemName, orgPrice, index, desc }){
    
@@ -40,6 +41,7 @@ import 'font-awesome/css/font-awesome.min.css';
        }
        
     var photo = image.split(",");
+        var photo = image.split(",");
     const [stateIndex, setIndex] = useState({
         currentIndex: 0,
         translateValue: 0
@@ -86,6 +88,11 @@ import 'font-awesome/css/font-awesome.min.css';
                     <div className="item-name"><p>{itemName}</p></div>
                     <div className="price"><p>R {orgPrice}
                     </p></div>
+                    <a href="#"><div className="itemImage" onClick={() => setModalIsOpen(true)} key={index}><img src={photo[0]} alt="Not Available"/></div></a>
+                    <div className="item-name"><p>{itemName}</p></div>
+                    <div className="price"><p>R {orgPrice}
+                    </p></div>
+
     
                     <div className="addcart">
                         <img className="favIcon" src="./icons/addcart.svg" alt="cart" onClick={() => addCartItems({photo, itemName, orgPrice, desc, index})} />
@@ -96,6 +103,7 @@ import 'font-awesome/css/font-awesome.min.css';
                             <div className="new">
                                 
                                 <div className="closeModal" onClick={() => setModalIsOpen(false)}><img src="./icons/close.png" id="close" alt="close"/></div>
+                                <div className="closeModal" onClick={() => setModalIsOpen(false)}><a href="#"><img src="./icons/close.png" id="close"/></a></div>
 
                                 <div className="item-info">
                                     <div className="modalImage">
