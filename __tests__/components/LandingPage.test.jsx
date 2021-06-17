@@ -6,9 +6,10 @@ import Example from 'RegNavBar';
 import {Favorites, Cart} from 'FavCart';
 import Header from 'Header';
 import Footer from 'Footer';
-import Search from 'Search';
+import {Search} from 'Search';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { RenderSearch } from '../../src/components/Deshboard/search';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Landing_Page renders withoout crashing', () => {
@@ -90,9 +91,10 @@ describe('Landing_Page renders withoout crashing', () => {
 
     it('search render without fail',() => {
         const { container, getByText } = render(<Search />);
-        const query = container.querySelector('.find');
-        // const q2 = getByText('SearchValue');
-        fireEvent.click(query);
+        const query = container.querySelector('.search');
+        const q2 = container.querySelector('.find');
+        // fireEvent.click(q2);
+        expect(q2).not.toBeNull();
         expect(query).not.toBeNull();
     });
 });

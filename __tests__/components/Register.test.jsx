@@ -97,6 +97,7 @@ describe('Register renders', () => {
         expect(emailInputNode.value).toMatch('testing email'); 
         expect(passwordInputNode.value).toMatch('123456');
         expect(passwordInputNode2.value).toMatch('123456');
+        expect(passwordInputNode.value).toMatch(passwordInputNode2.value);
         expect(dateInputNode.value).not.toMatch('03/06/2021');
     });
 
@@ -130,6 +131,7 @@ describe('Register renders', () => {
         expect(emailInputNode.value).toMatch('testing email'); 
         expect(passwordInputNode.value).toMatch('123456');
         expect(passwordInputNode2.value).toMatch('12456');
+        expect(passwordInputNode.value).not.toMatch(passwordInputNode2.value);
         expect(dateInputNode.value).not.toMatch('03/06/2021');
     });
 

@@ -72,7 +72,7 @@ function LoginForm(props)
                     <div>
                         {localStorage.removeItem("loginDetails")}
                         <Form style={{ width: '90%', marginLeft: '5%', marginTop: '20%' }}>
-                            {(stateErr.error !== "" && stateErr.error !== undefined) ? (<div><Alert data-testid='testid' variant='danger'>{stateErr.error}</Alert></div>):""}
+                            {(stateErr.error !== "" && stateErr.error !== undefined) ? (<div className='test_id'><Alert data-testid='testid' variant='danger'>{stateErr.error}</Alert></div>):""}
                             <Form.Group>
                                 <Form.Label htmlFor='email'>Email</Form.Label>
                                 <Form.Control

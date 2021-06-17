@@ -161,7 +161,7 @@ function Register(props) {
                         <Form.Group>
                             <Form.Label htmlFor='confirmPassword'>Confirm Password</Form.Label>
                             <Form.Control
-                                name="me"
+                                name="passkey"
                                 type='password'
                                 id='confirmPassword'
                                 style={{ background: '#ECF6F9' }}
@@ -178,7 +178,7 @@ function Register(props) {
                                 type='date'
                                 id='birthdate'
                                 style={{ background: '#ECF6F9' }}
-                                onChange={handleDateOfBirth}
+                                onChange={(e)=>handleDateOfBirth(e)}
                             >
                             </Form.Control>
                         </Form.Group>
