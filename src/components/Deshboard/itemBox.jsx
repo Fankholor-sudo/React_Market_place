@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import Modal from 'react-modal';
-//import 'font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 
     function ItemBox({image, itemName, orgPrice, index, desc }){
    

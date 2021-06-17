@@ -8,18 +8,11 @@ function RenderSearch(items){
     return(
         <div>
             <Header/>
-            
             <div className="body">
 
                 <div className="feedCategories2">
-                
-                    <div className="titlebtn">
-                        <h2 id="daily"></h2>
-                    </div>
                     <div className="items">{items.map((item, index)=><ItemBox category="Daily deals" key={index} itemName={item.NAME.slice(0,30)} orgPrice={item.PRICE} image={item.PICTURE} discount="" rating="0(0)" desc={item.DESCRIPTION}></ItemBox>)}</div>
                 </div>
-
-
             </div>
             <Footer/>
         </div>
@@ -39,12 +32,12 @@ function Search(){
     };
     getSearchRequest(searchValue)
     },[searchValue]);
-    console.log(items)
+
     return (
         <div className="search">
             <div className="input">
                 <input type = "text" placeholder = "Search...." onChange={(event) => setSearchValue(event.target.value)} value={searchValue} /></div>
-                <div><button onClick={RenderSearch(items)}><img className="icons" src="./icons/search.png" alt="search" /></button ></div>
+                <a href="/RenderSearch"><button onClick={() => RenderSearch(items)}><img className="icons" src="./icons/search.png" alt="search" /></button></a>
         </div>
     );
 }    

@@ -7,99 +7,91 @@ import axios from 'axios';
 
     function isLoggedIn(){
         const user = JSON.parse(localStorage.getItem('userDetails'));
-        try{return [user['data'][0]['login_status'], user['data'][0]['email']];}
+        try{
+          return [user['data'][0]['login_status'], user['data'][0]['email']];}
         catch(e){
             return 'Please Login to complete the purchase'
         }
     }
 
     function getCity(value) {
-        if(JSON.parse(localStorage.getItem("Address"))=== null){
-              localStorage.setItem("Address",JSON.stringify([]))
-        }
-        const Address = JSON.parse(localStorage.getItem("Address")); 
+        const Address = JSON.parse(localStorage.getItem("Address"));
+        
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
       
         return inputLength === 0 ? [] : Address.filter(lang =>
-          lang.city.toLowerCase().slice(0, inputLength) === inputValue
+          lang.City.toLowerCase().slice(0, inputLength) === inputValue
         );
       }
     
     function getStreet(value) {
-      if(JSON.parse(localStorage.getItem("Address"))=== null){
-        localStorage.setItem("Address",JSON.stringify([]))
-          }
         const Address = JSON.parse(localStorage.getItem("Address")); 
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
       
         return inputLength === 0 ? [] : Address.filter(lang =>
-          lang.street.toLowerCase().slice(0, inputLength) === inputValue
+          lang.Street.toLowerCase().slice(0, inputLength) === inputValue
         );
     }
     
     function getSurburb(value) {
-      if(JSON.parse(localStorage.getItem("Address"))=== null){
-        localStorage.setItem("Address",JSON.stringify([]))
-          }
+
         const Address = JSON.parse(localStorage.getItem("Address")); 
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
       
         return inputLength === 0 ? [] : Address.filter(lang =>
-          lang.surburb.toLowerCase().slice(0, inputLength) === inputValue
+          lang.Surburb.toLowerCase().slice(0, inputLength) === inputValue
         );
       }
     
       function getCountry(value) {
-        if(JSON.parse(localStorage.getItem("Address"))=== null){
-          localStorage.setItem("Address",JSON.stringify([]))
-         }
+
         const Address = JSON.parse(localStorage.getItem("Address")); 
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
       
         return inputLength === 0 ? [] : Address.filter(lang =>
-          lang.country.toLowerCase().slice(0, inputLength) === inputValue
+          lang.Country.toLowerCase().slice(0, inputLength) === inputValue
         );
       }
       
       function getSuggestionCity(suggestion) {
-        return suggestion.city;
+        return suggestion.City;
       }
 
       function getSuggestionStreet(suggestion) {
-        return suggestion.street;
+        return suggestion.Street;
       }
       function getSuggestionSurburb(suggestion) {
-        return suggestion.surburb;
+        return suggestion.Surburb;
       }
       function getSuggestioCountry(suggestion) {
-        return suggestion.country;
+        return suggestion.Country;
       }
       
       function renderStreet(suggestion) {
         return (
-           <div>{suggestion.street}</div>
+           <div>{suggestion.Street}</div>
         );
       }
     
       function renderCity(suggestion) {
         return (
-           <div>{suggestion.city}</div>
+           <div>{suggestion.City}</div>
         );
       }
     
       function renderSurburb(suggestion) {
         return (
-           <div>{suggestion.surburb}</div>
+           <div>{suggestion.Surburb}</div>
         );
       }
     
       function renderCountry(suggestion) {
         return (
-           <div>{suggestion.country}</div>
+           <div>{suggestion.Country}</div>
         );
       }
 
@@ -130,7 +122,6 @@ class Suggest extends React.Component {
     handleOrder=()=>{
         this.setState({modalIsOpen: true})
         var cartItems = JSON.parse(localStorage.getItem('CartItems'));
-        console.log(cartItems)
         let userInfo = isLoggedIn();
         if(userInfo[0] !== 1){
             window.open("http://localhost:3000/LoginForm","_self"); 
@@ -170,32 +161,10 @@ class Suggest extends React.Component {
         });
     }
 
-    SaveAddress=(Address)=>{
-        
-        var temp = JSON.parse(localStorage.getItem("Address"));
-        if(temp !== null){
-            if(temp.length < 2){
-                temp.push(Address);
-            }
-            else{
-                temp.shift();
-                temp.push(Address);
-            }
-            localStorage.setItem("Address",JSON.stringify(temp));
-        }
-        else{
-            var address = [];
-            address.push(Address);
-            localStorage.setItem("Address",JSON.stringify(address));
-        }
-    }
-
     SaveOrder=() =>{
         const { street,surburb,city,country, email, order} = this.state;
         var deliveryaddress = {Street: street, Surburb: surburb, City: city, Country: country };
-        var deliver = street + ',' + surburb + ',' + city + ',' + country;
-        this.SaveAddress(deliveryaddress);
-            axios.post(`https://lamp.ms.wits.ac.za/home/s2172765/insertOrders.php?userEmail=${email}&order=${order}&deliveryAddress=${deliver}`)
+            axios.post(`https://lamp.ms.wits.ac.za/home/s2172765/insertOrders.php?userEmail=${email}&order=${order}&deliveryAddress=${JSON.stringify(deliveryaddress)}`)
             .then((response) => {
                 if(response.status === 200){
                     if(response.data === "Successful"){
@@ -272,7 +241,7 @@ class Suggest extends React.Component {
       };
 
     render(){
-
+        
         setInterval(this.handleNumberOfItems,200);
         const { street,surburb,city,country, suggestions } = this.state;
         const StreetProps = {
