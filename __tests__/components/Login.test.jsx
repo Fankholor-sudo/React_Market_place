@@ -25,14 +25,9 @@ describe('testing internet requests', () => {
         expect(emailInputNode.value).toMatch('testing'); 
         expect(passwordInputNode.value).toMatch('123456');
         
-        // const resolvedEl = container.querySelector('.test_id');
-        // expect((resolvedEl).textContent).toBe("");
         fireEvent.click(container.querySelector('.login-btn'));
-        // const resolvedEl = await waitFor(() => getByTestId("testid"));
-        // expect((resolvedEl).textContent).toBe("Please make sure all fields are filled.");
-      
+        
         expect(Axios.get).toHaveBeenCalledTimes(0);
-        // expect(Axios.get).toHaveBeenCalledWith(url);
     });
 });
 

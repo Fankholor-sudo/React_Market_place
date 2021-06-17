@@ -33,6 +33,7 @@ function Invoices (){
     return (
         <div id="invoice" className="invoice" >
            
+            {/* <button onClick={handleDownloadInvoice}>Download This invoice</button> */}
             <div className="header">
                 <img src={LOGO} alt="Wits Marketplace Logo" className="invoice-logo" width="150px"  height="150px"/>
                 <div className="address">
@@ -101,11 +102,68 @@ function Invoices (){
                         <td>198</td>
                     </tr>
                     <tr>
+                        <td>Book</td>
+                        <td>Beyond Order</td>
+                        <td>1</td>
+                        <td>279</td>
+                        <td>279</td>
+                    </tr>
+                    <tr>
+                        <td>Book</td>
+                        <td>Intro to Business</td>
+                        <td>1</td>
+                        <td>600</td>
+                        <td>600</td>
+                    </tr>
+                    {/* <tr>
+                        <td>Item 1</td>
+                        <td>Item Description</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>Item 1</td>
+                        <td>Item Description</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>Item 1</td>
+                        <td>Item Description</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>Item 1</td>
+                        <td>Item Description</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>Item 1</td>
+                        <td>Item Description</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>Item 1</td>
+                        <td>Item Description</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr> */}
+                    <tr>
                         <td></td>
                         <td><strong>TOTAL</strong></td>
                         <td></td>
                         <td></td>
                         <td><strong>R 4712</strong></td>
+                        <td><strong>R 1243</strong></td>
                     </tr>
                 </table>
             </div>

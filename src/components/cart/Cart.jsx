@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import React, { useEffect, useState} from 'react';
 import Header from '../Deshboard/Header';
 import { Row } from 'react-bootstrap';
 import Suggest from './Summary';
+=======
+import React, { useState } from 'react';
+import Header from '../Deshboard/Header';
+import { Row } from 'react-bootstrap';
+import Summary from './Summary';
+>>>>>>> 6a113119946d4a49aab04dbd5ed03a6395450489
 import Tab from './Tab';
 import Empty from './Empty';
 import axios from 'axios';
@@ -23,6 +30,7 @@ function Address(email){
 function Cart() {
     const CartItems = JSON.parse(localStorage.getItem("CartItems"));
     
+<<<<<<< HEAD
     let email;
     if(JSON.parse(localStorage.getItem('userDetails')) !== null){
         const user = JSON.parse(localStorage.getItem('userDetails'));
@@ -35,6 +43,8 @@ function Cart() {
     var temp = JSON.parse(localStorage.getItem("Address"));
     console.log(temp)
 
+=======
+>>>>>>> 6a113119946d4a49aab04dbd5ed03a6395450489
     const [removed, setDisplay] = useState({
         idx: -1
     })
@@ -79,7 +89,11 @@ function Cart() {
                                 ))}
 
                             </div>
+<<<<<<< HEAD
                             <Suggest />
+=======
+                            <Summary />
+>>>>>>> 6a113119946d4a49aab04dbd5ed03a6395450489
                         </Row>
                     </div>
                 </div>

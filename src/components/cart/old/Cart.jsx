@@ -6,6 +6,10 @@ import Tab from './Tab';
 import Empty from './Empty';
 
 function Cart() {
+<<<<<<< HEAD
+=======
+    // localStorage.clear()
+>>>>>>> 6a113119946d4a49aab04dbd5ed03a6395450489
     const CartItems = JSON.parse(localStorage.getItem("CartItems"));
     
     const [removed, setDisplay] = useState({
@@ -38,6 +42,12 @@ function Cart() {
     else {
         return (
             <div>
+<<<<<<< HEAD
+=======
+                {/* {console.log('listFst:',CartItems)}
+                {CartItems[0]['PRICE']=200}
+                {console.log('listScnd:',CartItems)} */}
+>>>>>>> 6a113119946d4a49aab04dbd5ed03a6395450489
                 {Remove()}
                 <Header />
                 <div className="body" style={{ height: '40rem' }}>

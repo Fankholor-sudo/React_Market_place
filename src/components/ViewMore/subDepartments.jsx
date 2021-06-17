@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from '../Deshboard/Header';
+import Nav from '../Deshboard/catNavBar';
 import Footer from "../Deshboard/Footer";
 import ItemBox from "../Deshboard/itemBox";
 import DepartmentsBar from "../Deshboard/departmentsBar"
@@ -15,7 +16,11 @@ import Health from "./SubDepartments/health"
 function SubDepartments(){
     const [items, setItems]= useState([])
     const dept_code = sessionStorage.getItem('SubdeptCode');
+<<<<<<< HEAD
     const book_dept_code = sessionStorage.getItem('BookdeptCode');
+=======
+    // const book_dept_code = sessionStorage.getItem('BookdeptCode');
+>>>>>>> 6a113119946d4a49aab04dbd5ed03a6395450489
     
     useEffect(()=>
     {
@@ -36,7 +41,11 @@ function SubDepartments(){
         dept = <Computers/>;
         
     }
+<<<<<<< HEAD
     else if (dept_code == 104 || dept_code == 103 || book_dept_code == 104 || book_dept_code == 103){
+=======
+    else if (dept_code == 104 || dept_code == 103 ){
+>>>>>>> 6a113119946d4a49aab04dbd5ed03a6395450489
         category = "Books";
         dept = <Books/>;
 
@@ -63,6 +72,7 @@ function SubDepartments(){
     return(
         <div>
             <Header/>
+            <Nav/>
             
             <div className="body">
                 {dept}
