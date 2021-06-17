@@ -9,7 +9,6 @@ function OrderBody(){
     const email = user['data'][0]['email'];
    
     return(
-
         <div className="orderBody">
             <MyAccountBar/>
 
@@ -18,8 +17,6 @@ function OrderBody(){
                  {GetItems(email)}
             </div>
         </div>
-
-
     );
 
     function GetItems(dept_code){
@@ -36,7 +33,7 @@ function OrderBody(){
         };
         getItems()
         localStorage.setItem("Items",JSON.stringify(items));
-        },[dept_code])
+        },[dept_code,items])
         return (
             <div className="items">{items.map((item)=><OrderBox Name={User} orderNumber={item.ORDER_NO} Product={JSON.parse(item.PRODUCT_NAME)} date={item.DATE} Address = {JSON.parse(item.ADDRESS)} ></OrderBox>)}</div>
              )

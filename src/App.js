@@ -9,9 +9,9 @@ import Cart from './components/cart/Cart';
 import OrderHistory from './components/Deshboard/OrderHistory';
 import ViewMore from './components/ViewMore/viewMore';
 import SubDepartments from './components/ViewMore/subDepartments';
+import SearchResults from './components/Deshboard/searchResults';
 
 import { BrowserRouter as Router, Switch, Route, withRouter} from "react-router-dom";
-import Invoices from './components/Deshboard/invoices';
 
 
 
@@ -44,16 +44,16 @@ function App() {
               <OrderHistory />
         </Route>
 
-        <Route path="/Invoices" exact={true}>
-              <Invoices />
-        </Route>
-
         <Route path="/viewMore" exact={true}>
               <ViewMore />
         </Route>
 
         <Route path="/subDepartments" exact={true}>
               <SubDepartments />
+        </Route>
+
+        <Route path="/searchResults" exact={true}>
+              <SearchResults />
         </Route>
 
         </Switch>

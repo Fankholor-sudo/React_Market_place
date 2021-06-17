@@ -1,7 +1,7 @@
 import React from 'react';
 import DropdownBtn from "./dropdownBtn";
 import Example from "./regNavBar";
-import {Search} from "./search";
+import Search from "./search";
 import { Favorites, Cart } from "./favCart";
 
 function Header() {

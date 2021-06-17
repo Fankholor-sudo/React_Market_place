@@ -25,6 +25,13 @@ class OrderBox extends Component{
 
         var photo = this.props.Product[0].PICTURE.split(",");
         var price = this.props.Product[0].PRICE.split(",");
+        var name = this.props.Product[0].NAME.split(",");
+        var both = [];
+        for (var i =1;i<price.length;i++){
+            var temp = {Name: name[i], Price: price[i]}
+            both.push(temp);
+        }
+
 
         if(this.state.viewDetails === false){
             return <div className="order">   
@@ -32,7 +39,7 @@ class OrderBox extends Component{
                     <button className="orderDetails" onClick={this.viewDetailsHandler}>Order Details</button>
                     <p>Signed by: {this.props.Name}</p>
                     <span className="orderImages">
-                        {photo.map((item)=><img src={item} alt="{order pictures}" width="100px"/>)}
+                        {photo.slice(1, ).map((item)=><img src={item} alt="{order pictures}" width="100px"/>)}
                     </span>
                 </div>
        
@@ -58,7 +65,7 @@ class OrderBox extends Component{
                   </div>
                   <div>
                       <h6 className="summary">Order summary</h6>
-                            {price.map((item)=><p> R {item}</p>)}
+                            {both.map((item)=><p> {item.Name} - R {item.Price}</p>)}
                       <p> Delivery fee  R 0</p>
                   </div>
               </div>
