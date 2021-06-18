@@ -2,24 +2,33 @@ import React from 'react';
 import LOGO from "../../logo.svg";
 
 function Table({ItemDetails,DATE,OrderNum}){
-    const table = document.getElementById('invoice-items');
-    var items = JSON.parse(localStorage.getItem("Items"))
-    items.forEach(element => {
-        var row = table.insertRow(0);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2)
-        cell1.innerHTML = element[0];
-        cell2.innerHTML = element[1];
-        cell3.innerHTML = element[2];
-    }); 
+
+    const handleItems = ()=>{
+        const table = document.getElementById('invoice-items');
+        var items = JSON.parse(localStorage.getItem("Items"))
+        items.forEach(element => {
+            var row = table.insertRow(0);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2)
+            cell1.innerHTML = element[0];
+            cell2.innerHTML = element[1];
+            cell3.innerHTML = element[2];
+        }); 
+    }
 
     let date = new Date();
     date = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
-
+    const user = JSON.parse(localStorage.getItem('userDetails'));
+    const User = user['data'][0]['firstname'] + ' ' + user['data'][0]['lastname'];
     var name = ItemDetails[0].NAME.split(",")
     var price = ItemDetails[0].PRICE.split(",")
     var ppp = 0
+    var both = [];
+    for (var i =1;i<price.length;i++){
+        var temp = {Name: name[i], Price: price[i]}
+        both.push(temp);
+    }
     for(var i = 0; i< price.length; i++){
         ppp+=Number(price[i])
     }
@@ -42,7 +51,7 @@ function Table({ItemDetails,DATE,OrderNum}){
             <div className="invoice-for">
                 <div className="billto">
                     <strong>BILL TO:<br/></strong>
-                    User1<br/>
+                    {User}<br/>
                     22 Jorissen street<br/>
                     Braamfontein,<br/>
                     Johannesburg,<br/>
@@ -63,13 +72,13 @@ function Table({ItemDetails,DATE,OrderNum}){
                         <th>quantity</th>
                         <th>price(r)</th>
                         <th>Date</th>
-                    </tr>
-                    <tr>
-                    {name.map((item, index)=><td>{name[index]}</td>)}
-                            <td>{1}</td>
-                    {price.map((item, index)=><td>{item}</td>)}
-                            <td>{DATE}</td>
-                     </tr>
+                    </tr>                    
+                    {both.map((item)=><tr>
+                        <td>{item.Name}</td>
+                        <td>{1}</td>
+                        <td>{item.Price}</td>
+                        <td>{DATE}</td>
+                        </tr>)}
                     <tr>
                         <td><strong>TOTAL</strong></td>
                         <td></td>

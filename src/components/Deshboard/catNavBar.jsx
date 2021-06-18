@@ -22,7 +22,6 @@ const allHygiene = () =>{
 }
   return (
    
-    // nihal comment
       <div className="catDiv">
         <a href='/viewMore' onClick={allBooks}><div className="">
              <span className="catNavBar"><img className="icons" src="./icons/book.svg" alt="book" />Books</span> 

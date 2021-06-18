@@ -30,7 +30,6 @@ function OrderBody(){
 
 >>>>>>> 6a113119946d4a49aab04dbd5ed03a6395450489
     return(
-
         <div className="orderBody">
             <MyAccountBar/>
 
@@ -43,8 +42,6 @@ function OrderBody(){
 >>>>>>> 6a113119946d4a49aab04dbd5ed03a6395450489
             </div>
         </div>
-
-
     );
 
     function GetItems(dept_code){
@@ -61,7 +58,7 @@ function OrderBody(){
         };
         getItems()
         localStorage.setItem("Items",JSON.stringify(items));
-        },[dept_code])
+        },[dept_code,items])
         return (
             <div className="items">{items.map((item)=><OrderBox Name={User} orderNumber={item.ORDER_NO} Product={JSON.parse(item.PRODUCT_NAME)} date={item.DATE} Address = {JSON.parse(item.ADDRESS)} ></OrderBox>)}</div>
              )
