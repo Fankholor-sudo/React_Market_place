@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from './Header';
 import Footer from "./Footer";
-import Nav from '../Deshboard/catNavBar';
+import Nav from './catNavBar';
 import ItemBox from "./itemBox";
 
 
