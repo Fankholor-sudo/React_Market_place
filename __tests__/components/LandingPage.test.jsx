@@ -6,7 +6,7 @@ import Example from 'RegNavBar';
 import {Favorites, Cart} from 'FavCart';
 import Header from 'Header';
 import Footer from 'Footer';
-import {Search} from 'Search';
+import Search from 'Search';
 import Enzyme, { shallow } from 'enzyme';
 import Modal from 'react-modal';
 import Adapter from 'enzyme-adapter-react-16';
@@ -94,7 +94,6 @@ describe('Landing_Page renders withoout crashing', () => {
         const query2 = container.querySelector('.regNavBar');
 
         expect(query2).not.toBeNull();
-        fireEvent.click(query2);
         expect(query).not.toBeNull();
     });
 
@@ -107,13 +106,15 @@ describe('Landing_Page renders withoout crashing', () => {
         const { container, getByTestId } = render(<Search />);
         
         const query = container.querySelector('.search');
-        const q1 = container.querySelector('.find');
+        const q1 = container.querySelector('input');
         const q2 = getByTestId('btn');
 
-        fireEvent.change(q2, { target: { value: 'testing' } });
-        expect(q2.value).toMatch('testing');
+        expect(q1).not.toBeNull();
+        fireEvent.change(q1, { target: { value: 'testing' } });
+        expect(q1.value).toMatch('testing');
         
         expect(q1).not.toBeNull();
+        fireEvent.click(q2);
         expect(query).not.toBeNull();
     });
 });

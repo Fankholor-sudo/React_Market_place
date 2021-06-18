@@ -16,7 +16,7 @@ function Search(){
             <div className="input">
                 <input type = "text" placeholder = "Search...." value = {State.SearchValue} id="myInput" /></div>
                 
-                <a href="/searchResults" onClick={stateSetter}><button><img className="icons" src="./icons/search.png" alt="search" /></button ></a>
+                <a data-testid="btn" href="/searchResults" onClick={stateSetter}><button><img className="icons" src="./icons/search.png" alt="search" /></button ></a>
 
         </div>
     </div>
