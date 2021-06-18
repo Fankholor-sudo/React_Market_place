@@ -1,6 +1,37 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 function Books() {
+
+    // sessionStorage.clear();
+    // const [deptCode, setDeptCode] = useState(null)
+    // sessionStorage.setItem('SubdeptCode', deptCode)
+
+    // these are the functions for individual links, the codes im passing are just random because i dont know them
+    const allBooks = () =>{
+        sessionStorage.setItem('deptCode', 3)
+    }
+    
+    const Fiction = () =>{
+        sessionStorage.setItem('SubdeptCode', 104)
+    }
+    const NonFiction = () =>{
+        sessionStorage.setItem('SubdeptCode', 103)
+    }
+    const InspiredReading = () =>{
+        sessionStorage.setItem('SubdeptCode', 123)
+    }
+    const ChildrenBooks = () =>{
+        sessionStorage.setItem('SubdeptCode', 114)
+    }
+    const ChristianLiving = () =>{
+        sessionStorage.setItem('SubdeptCode', 113)
+    }
+    const Cookbooks = () =>{
+        sessionStorage.setItem('SubdeptCode', 109)
+    }
+    const Bestsellers = () =>{
+        sessionStorage.setItem('SubdeptCode', 114)
+    }
 
     return (
         <div className="viewMore_departments">
@@ -10,14 +41,16 @@ function Books() {
                         
                         <li><h3 className="viewMore_department">Books</h3>
                             <ul className="viewMore_subDept">
-                                <li><a href="#">All Books</a></li>
-                                <li><a href="#">Fiction</a></li>
-                                <li><a href="#">Non Fiction</a></li>
-                                <li><a href="#">Inspired Reading</a></li>
-                                <li><a href="#">Children's Books</a></li>
-                                <li><a href="#">Christian Living</a></li>
-                                <li><a href="#">Cookbooks</a></li>
-                                <li><a href="#">Bestsellers</a></li>
+
+                                <li><a href="/viewMore" onClick={allBooks}>All Books</a></li>
+
+                                <li><a href="/subDepartments" onClick={Fiction}>Fiction</a></li>
+                                <li><a href="/subDepartments" onClick={NonFiction}>Non Fiction</a></li>
+                                <li><a href="#" >Inspired Reading</a></li>
+                                <li><a href="#" >Children's Books</a></li>
+                                <li><a href="#" >Christian Living</a></li>
+                                <li><a href="#" >Cookbooks</a></li>
+                                <li><a href="#" >Bestsellers</a></li>
                             </ul>
                         </li>
                     </ul>
