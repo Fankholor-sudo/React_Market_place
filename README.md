@@ -107,7 +107,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 
 ## License
-<p>This project is licensed under the <a href="#https://opensource.org/license/ecl-1-0/">MIT License.</a></p>
+<p>This project is licensed under the <a href="https://opensource.org/license/ecl-1-0/">MIT License.</a></p>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
