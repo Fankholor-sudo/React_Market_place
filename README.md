@@ -36,12 +36,12 @@ Welcome to the Marketplace website, a platform where users can explore and purch
 * So to use bootstrap tools you can just import them.
 
 ## Features
-User Authentication: Secure user authentication and authorization for both buyers and suppliers.
-Product Listings: Browse through a wide range of products listed by different suppliers.
-Shopping Cart: Add items to your shopping cart and proceed to checkout.
-Order Management: Track your orders and manage them effectively.
-Supplier Dashboard: Suppliers can manage their product listings, view orders, and track sales.
-Search and Filters: Easily find products using search functionality and apply filters.
+* <b>User Authentication:</b> Secure user authentication and authorization for both buyers and suppliers.
+* <b>Product Listings:</b> Browse through a wide range of products listed by different suppliers.
+* <b>Shopping Cart:</b> Add items to your shopping cart and proceed to checkout.
+* <b>Order Management:</b> Track your orders and manage them effectively.
+* <b>Supplier Dashboard:</b> Suppliers can manage their product listings, view orders, and track sales.
+* <b>Search and Filters:</b> Easily find products using search functionality and apply filters.
 
 ### Prerequisites
 
