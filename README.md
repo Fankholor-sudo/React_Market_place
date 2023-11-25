@@ -58,7 +58,7 @@ Search and Filters: Easily find products using search functionality and apply fi
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/React_Market_place/React_Market_place.git
+   git clone https://github.com/Fankholor-sudo/React_Market_place.git
    ```
 2. Install NPM packages
    ```sh
