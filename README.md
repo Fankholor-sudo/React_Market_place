@@ -30,10 +30,10 @@ Welcome to the Marketplace website, a platform where users can explore and purch
 
 
 ## Getting Started
-#### This is the a react project.
-#### The only way to edit it is by using react javascript.
-#### We have used react-bootstrap tools, and we have installed the plugin(dependencies for react-bootstrap).
-#### So to use bootstrap tools you can just import them.
+* This is the a react project.
+* The only way to edit it is by using react javascript.
+* We have used react-bootstrap tools, and we have installed the plugin(dependencies for react-bootstrap).
+* So to use bootstrap tools you can just import them.
 
 ## Features
 User Authentication: Secure user authentication and authorization for both buyers and suppliers.
