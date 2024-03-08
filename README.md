@@ -1,7 +1,7 @@
 # React_Market_Place
 
 #### Created: 2021
-#### Teck Stack: React and Javascript 
+#### Tech Stack: React and Javascript 
 
 <!-- TABLE OF CONTENTS -->
 <details>
