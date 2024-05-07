@@ -31,6 +31,8 @@
 
 Welcome to the Marketplace website, a platform where users can explore and purchase items from various suppliers. This web application is built using ReactJS for the frontend, PHP for the backend, and SQL for database management.
 
+![market_place_web](https://github.com/Fankholor-sudo/React_Market_place/assets/54154030/ab994497-eed0-4a8d-b418-c06503ed3bfd)
+
 
 ## Getting Started
 * This is the a react project.
